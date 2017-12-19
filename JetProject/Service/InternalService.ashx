@@ -123,7 +123,7 @@ public class InternalService : IHttpHandler
             : "{\"returnCode\":\"0096\",\"returnMessage\":\"用户名密码错误\"}";
     }
 
-    private void GetToken()
+    private void GetToken(bool needRefresh=false)
     {
 
         try
@@ -132,19 +132,23 @@ public class InternalService : IHttpHandler
             {
                 GetConfig();
             }
-            var url = "https://merchant-api.jet.com/api/token";
-            var data = "{ \"user\":\"" + User + "\",\"pass\":\"" + Pass + "\" }";
-            var response = PostData(url, data, "POST", false);
-            if (string.IsNullOrEmpty(response))
+            if (needRefresh||string.IsNullOrEmpty(Token))
             {
-                throw new Exception("jet 请求错误");
-                //return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
+                var url = "https://merchant-api.jet.com/api/token";
+                var data = "{ \"user\":\"" + User + "\",\"pass\":\"" + Pass + "\" }";
+                var response = PostData(url, data, "POST", false);
+                if (string.IsNullOrEmpty(response))
+                {
+                    throw new Exception("jet 请求错误");
+                    //return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
+                }
+                var jsonData = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
+                string token = "";
+                jsonData.TryGetValue("id_token", out token);
+                Token = token;
+                WriteConfig();
             }
-            var jsonData = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
-            string token = "";
-            jsonData.TryGetValue("id_token", out token);
-            Token = token;
-            WriteConfig();
+            
         }
         catch (Exception e)
         {
@@ -165,10 +169,9 @@ public class InternalService : IHttpHandler
             {
                 return true;
             };
-            logger.Info("asdsdsda");
-            logger.Info($"请求地址:{url},\\r\\n");
+            logger.Info($"请求地址:{url}");
             // 设置提交的相关参数 
-            
+
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
             request.Headers.Add("Authorization", "bearer " + Token);
             WebProxy proxy = new WebProxy("http://s1firewall:8080", true);
@@ -218,8 +221,7 @@ public class InternalService : IHttpHandler
             {
                 return true;
             };
-            logger.Info("asdsdsda");
-            logger.Info($"请求地址:{url},\\r\\n 发送报文:{data}");
+            logger.Info($"请求地址:{url},发送报文:{data}");
             byte[] postData = Encoding.UTF8.GetBytes(data);
             // 设置提交的相关参数 
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
@@ -283,7 +285,7 @@ public class InternalService : IHttpHandler
 
     private void WriteConfig()
     {
-        var path = HttpContext.Current.Server.MapPath("config.json");
+        var path = HttpContext.Current.Server.MapPath("../config.json");
         var dic = new Dictionary<string, string>()
         {
             {"user",User },
