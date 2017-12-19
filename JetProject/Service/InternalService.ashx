@@ -37,12 +37,64 @@ public class InternalService : IHttpHandler
             case "SearchSKU":
                 result = SearchSKU(request["skuId"]);
                 break;
+            case "SearchInventory":
+                result = SearchInvenotry(request["skuId"]);
+                break;
+            case "QueryOrder":
+                result = QueryOrder(request["status"],request["isCancel"],request["nodeId"]);
+                break;
             default:
                 break;
 
         }
         context.Response.ContentType = "application/json";
         context.Response.Write(result);
+    }
+
+    private string QueryOrder(string status, string isCancel, string nodeId)
+    {
+        try
+        {
+            var cancel = isCancel == "1";
+            var url =
+                $"https://merchant-api.jet.com/api/orders/{status}?isCancelled={cancel}&fulfillment_node={nodeId}";
+            var result = GetData(url);
+            var response = JsonConvert.DeserializeObject<Dictionary<string, object>>(result);
+            var orderUrls = response["order_urls"].ToString();
+            return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\",\"orderList\":" + orderUrls + "}";
+        }
+        catch (TransactionException ex)
+        {
+            return "{\"returnCode\":\""+ex.ErrorCode+"\",\"returnMessage\":\""+ex.ErrorMessage+"\"}";
+        }
+        catch (Exception e)
+        {
+            logger.Error(e);
+            return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
+        }
+    }
+
+    private string SearchInvenotry(string skuId)
+    {
+        try
+        {
+            var url = $"https://merchant-api.jet.com/api/merchant-skus/{skuId}/inventory";
+            var result=GetData(url);
+            var response = JsonConvert.DeserializeObject<Dictionary<string,object>>(result);
+            var nodes = response["fulfillment_nodes"].ToString();
+
+            //var fulfillmentNodes = JsonConvert.SerializeObject(nodes);
+            return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\",\"fulfillmentNodes\":"+nodes+"}";
+        }
+        catch (TransactionException ex)
+        {
+            return "{\"returnCode\":\""+ex.ErrorCode+"\",\"returnMessage\":\""+ex.ErrorMessage+"\"}";
+        }
+        catch (Exception e)
+        {
+            logger.Error(e);
+            return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
+        }
     }
 
     private string UploadSKU(string id, string data)
@@ -52,6 +104,10 @@ public class InternalService : IHttpHandler
             var url = $"https://merchant-api.jet.com/api/merchant-skus/{id}";
             PostData(url, data, "PUT");
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\"}";
+        }
+        catch (TransactionException ex)
+        {
+            return "{\"returnCode\":\""+ex.ErrorCode+"\",\"returnMessage\":\""+ex.ErrorMessage+"\"}";
         }
         catch (Exception e)
         {
@@ -68,6 +124,10 @@ public class InternalService : IHttpHandler
             string data = "{\"price\":" + price + "}";
             PostData(url, data, "PUT");
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\"}";
+        }
+        catch (TransactionException ex)
+        {
+            return "{\"returnCode\":\""+ex.ErrorCode+"\",\"returnMessage\":\""+ex.ErrorMessage+"\"}";
         }
         catch (Exception e)
         {
@@ -88,6 +148,10 @@ public class InternalService : IHttpHandler
             var result = JsonConvert.SerializeObject(response);
             return result;
         }
+        catch (TransactionException ex)
+        {
+            return "{\"returnCode\":\""+ex.ErrorCode+"\",\"returnMessage\":\""+ex.ErrorMessage+"\"}";
+        }
         catch (Exception e)
         {
             logger.Error(e);
@@ -103,6 +167,10 @@ public class InternalService : IHttpHandler
             string data = "{\"fulfillment_nodes\":[{\"fulfillment_node_id\":\"" + nodeId + "\",\"quantity\":" + qty + "}]}";
             PostData(url, data, "PUT");
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\"}";
+        }
+        catch (TransactionException ex)
+        {
+            return "{\"returnCode\":\""+ex.ErrorCode+"\",\"returnMessage\":\""+ex.ErrorMessage+"\"}";
         }
         catch (Exception e)
         {
@@ -123,7 +191,7 @@ public class InternalService : IHttpHandler
             : "{\"returnCode\":\"0096\",\"returnMessage\":\"用户名密码错误\"}";
     }
 
-    private void GetToken(bool needRefresh=false)
+    private void GetToken(bool needRefresh=false,bool last=false)
     {
 
         try
@@ -136,7 +204,7 @@ public class InternalService : IHttpHandler
             {
                 var url = "https://merchant-api.jet.com/api/token";
                 var data = "{ \"user\":\"" + User + "\",\"pass\":\"" + Pass + "\" }";
-                var response = PostData(url, data, "POST", false);
+                var response = PostData(url, data, "POST", false,last);
                 if (string.IsNullOrEmpty(response))
                 {
                     throw new Exception("jet 请求错误");
@@ -148,7 +216,7 @@ public class InternalService : IHttpHandler
                 Token = token;
                 WriteConfig();
             }
-            
+
         }
         catch (Exception e)
         {
@@ -157,7 +225,7 @@ public class InternalService : IHttpHandler
         }
     }
 
-    private string GetData(string url)
+    private string GetData(string url,bool islast=false)
     {
         try
         {
@@ -196,7 +264,24 @@ public class InternalService : IHttpHandler
             HttpWebResponse resp = (HttpWebResponse)e.Response;
             if (resp.StatusCode == HttpStatusCode.Unauthorized)
             {
-                GetToken();
+                if (!islast)
+                {
+                    GetToken(last:true);
+                }
+                else
+                {
+                    throw new TransactionException("0091", "token获取异常");
+                }
+            }
+            else
+            {
+                switch (resp.StatusCode)
+                {
+                    case HttpStatusCode.BadRequest:
+                        throw new TransactionException("0400","请求数据不正确,或者没有找到相关信息");
+                    case HttpStatusCode.NoContent:
+                        throw new TransactionException("0200","未查询到数据");
+                }
             }
             throw;
         }
@@ -209,7 +294,7 @@ public class InternalService : IHttpHandler
 
 
 
-    private string PostData(string url, string data, string method, bool needToken = true)
+    private string PostData(string url, string data, string method, bool needToken = true,bool islast=false)
     {
         try
         {
@@ -262,7 +347,25 @@ public class InternalService : IHttpHandler
             HttpWebResponse resp = (HttpWebResponse)e.Response;
             if (resp.StatusCode == HttpStatusCode.Unauthorized)
             {
-                GetToken();
+                if (!islast)
+                {
+                    GetToken();
+                }
+                else
+                {
+                    throw new TransactionException("0091", "token获取异常");
+                }
+
+            }
+            else
+            {
+                switch (resp.StatusCode)
+                {
+                    case HttpStatusCode.BadRequest:
+                        throw new TransactionException("0400","请求数据不正确,或者没有找到相关信息");
+                    case HttpStatusCode.NoContent:
+                        throw new TransactionException("0200","未查询到数据");
+                }
             }
             throw;
         }

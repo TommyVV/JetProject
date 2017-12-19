@@ -1,0 +1,377 @@
+
+c334807358a04752b57df0f800626b4f-----------------------------2017-12-19 18:00:58.7425---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=1233&_=1513677656460
+
+afd6ad33bc19478b829c8beb5f15c9ec-----------------------------2017-12-19 18:00:58.7425---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/inventory
+
+ece0efbbabbd4f0e8bdb6129d17652fe-----------------------------2017-12-19 18:00:59.7302---------------------------
+请求服务获得返回:{
+  "fulfillment_nodes": [
+    {
+      "fulfillment_node_id": "80a760157ee64efcabda2dd6c0a4f71a",
+      "quantity": 100
+    }
+  ],
+  "inventory_last_update": "2017-12-16T02:31:28+00:00"
+}
+
+8801f2aa25c94ab8adef4624bc8dba8a-----------------------------2017-12-19 18:01:35.6644---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=1233&_=1513677656461
+
+fed1d41a896e46f0825d8701b5d7238b-----------------------------2017-12-19 18:01:37.8855---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/inventory
+
+1ec82f0f42924cf0a7137e45dfed69ea-----------------------------2017-12-19 18:01:38.1578---------------------------
+请求服务获得返回:{
+  "fulfillment_nodes": [
+    {
+      "fulfillment_node_id": "80a760157ee64efcabda2dd6c0a4f71a",
+      "quantity": 100
+    }
+  ],
+  "inventory_last_update": "2017-12-16T02:31:28+00:00"
+}
+
+e3edfb602e3145d5a9c9be76ef9a3682-----------------------------2017-12-19 18:01:56.1130---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=1233&_=1513677656462
+
+72be9819761049d1a6b39205a098dd35-----------------------------2017-12-19 18:01:57.0494---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/inventory
+
+0aed83b8614b4d5e9f270614366f7d70-----------------------------2017-12-19 18:01:57.4316---------------------------
+请求服务获得返回:{
+  "fulfillment_nodes": [
+    {
+      "fulfillment_node_id": "80a760157ee64efcabda2dd6c0a4f71a",
+      "quantity": 100
+    }
+  ],
+  "inventory_last_update": "2017-12-16T02:31:28+00:00"
+}
+
+e89c6dd8cf7a4c5783c943917bf0188e-----------------------------2017-12-19 18:02:49.2468---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=1233&_=1513677656463
+
+37993287319b411289cdcfb77cc0df7d-----------------------------2017-12-19 18:02:50.5643---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/inventory
+
+c8483da3136449168cedcced47778d8d-----------------------------2017-12-19 18:02:50.8375---------------------------
+请求服务获得返回:{
+  "fulfillment_nodes": [
+    {
+      "fulfillment_node_id": "80a760157ee64efcabda2dd6c0a4f71a",
+      "quantity": 100
+    }
+  ],
+  "inventory_last_update": "2017-12-16T02:31:28+00:00"
+}
+
+a6f01fa4795b4bd79f82461d0b2f7f64-----------------------------2017-12-19 18:03:04.6146---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=1233&_=1513677656464
+
+6e47d86e965246ba8bddd3d56164a462-----------------------------2017-12-19 18:03:04.6146---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/inventory
+
+dcb754ced5a24a08916250ffefeb4e62-----------------------------2017-12-19 18:03:04.9299---------------------------
+请求服务获得返回:{
+  "fulfillment_nodes": [
+    {
+      "fulfillment_node_id": "80a760157ee64efcabda2dd6c0a4f71a",
+      "quantity": 100
+    }
+  ],
+  "inventory_last_update": "2017-12-16T02:31:28+00:00"
+}
+
+db55fbbfcc8942168ca80d627e93cb88-----------------------------2017-12-19 18:03:24.5835---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=1233&_=1513677656465
+
+b6b4db1d0a9d43778bd93884d144cc36-----------------------------2017-12-19 18:03:25.4513---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/inventory
+
+0c2e26538aea4657bf3475b36f3f670e-----------------------------2017-12-19 18:03:25.7785---------------------------
+请求服务获得返回:{
+  "fulfillment_nodes": [
+    {
+      "fulfillment_node_id": "80a760157ee64efcabda2dd6c0a4f71a",
+      "quantity": 100
+    }
+  ],
+  "inventory_last_update": "2017-12-16T02:31:28+00:00"
+}
+
+28f020a448bc49fab80358ea0d713671-----------------------------2017-12-19 18:05:40.0929---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=1233&_=1513677656466
+
+a7c68ae5640643d29cc656c68504e84a-----------------------------2017-12-19 18:05:42.4056---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/inventory
+
+15e19f1d6490435397385f883c686f1a-----------------------------2017-12-19 18:05:43.3818---------------------------
+请求服务获得返回:{
+  "fulfillment_nodes": [
+    {
+      "fulfillment_node_id": "80a760157ee64efcabda2dd6c0a4f71a",
+      "quantity": 100
+    }
+  ],
+  "inventory_last_update": "2017-12-16T02:31:28+00:00"
+}
+
+201865902bc749a181207f03ac2d05c8-----------------------------2017-12-19 18:06:01.6700---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=1233&_=1513677656467
+
+84ab050464d94a61ba71b34028e997ac-----------------------------2017-12-19 18:06:02.8614---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/inventory
+
+99a59504c76243a29a7fbfb1d960d0cc-----------------------------2017-12-19 18:06:03.5169---------------------------
+请求服务获得返回:{
+  "fulfillment_nodes": [
+    {
+      "fulfillment_node_id": "80a760157ee64efcabda2dd6c0a4f71a",
+      "quantity": 100
+    }
+  ],
+  "inventory_last_update": "2017-12-16T02:31:28+00:00"
+}
+
+55fc4000d8bf4d73ac8e0caa283fb5a8-----------------------------2017-12-19 18:08:08.6379---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=1233&_=1513677656468
+
+d7d84fb0f5844675b8ddd9fd2f61c025-----------------------------2017-12-19 18:08:11.2234---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/inventory
+
+d42770cc141546de8b1355f8a5973bd5-----------------------------2017-12-19 18:08:12.3104---------------------------
+请求服务获得返回:{
+  "fulfillment_nodes": [
+    {
+      "fulfillment_node_id": "80a760157ee64efcabda2dd6c0a4f71a",
+      "quantity": 100
+    }
+  ],
+  "inventory_last_update": "2017-12-16T02:31:28+00:00"
+}
+
+72e53b1a6583410287578f9d672add42-----------------------------2017-12-19 18:09:06.2079---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=1233&_=1513677656469
+
+d9b9f33b64e74fa3ae2e54402d9f22a6-----------------------------2017-12-19 18:09:08.4790---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/inventory
+
+7fb1ce752da8431f8fb4cc57eee1e436-----------------------------2017-12-19 18:09:08.7732---------------------------
+请求服务获得返回:{
+  "fulfillment_nodes": [
+    {
+      "fulfillment_node_id": "80a760157ee64efcabda2dd6c0a4f71a",
+      "quantity": 100
+    }
+  ],
+  "inventory_last_update": "2017-12-16T02:31:28+00:00"
+}
+
+2c17cd11a6e74c8bb5a391e3347478d0-----------------------------2017-12-19 18:10:04.1368---------------------------
+/Service/InternalService.ashx?t=InventoryUpload&skuId=1233&qty=120&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513677656470
+
+7a9595888fc74c1cafea242a2e73d531-----------------------------2017-12-19 18:10:31.2065---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/Inventory,发送报文:{"fulfillment_nodes":[{"fulfillment_node_id":"80a760157ee64efcabda2dd6c0a4f71a","quantity":120}]}
+
+18c52b7cac8b4031b0060683fa211b95-----------------------------2017-12-19 18:11:31.4652---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=1233&_=1513678289434
+
+f7d30d87ce1843838a13a45e980f7dfa-----------------------------2017-12-19 18:11:34.5237---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/inventory
+
+8b086ddbfbad4961a6245833bb793121-----------------------------2017-12-19 18:11:34.7949---------------------------
+请求服务获得返回:{
+  "fulfillment_nodes": [
+    {
+      "fulfillment_node_id": "80a760157ee64efcabda2dd6c0a4f71a",
+      "quantity": 120
+    }
+  ],
+  "inventory_last_update": "2017-12-19T10:10:31+00:00"
+}
+
+275138d992a14940b6937ffe5730b4ce-----------------------------2017-12-19 18:11:44.2831---------------------------
+/Service/InternalService.ashx?t=InventoryUpload&skuId=1233&quantity=130&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513678289435
+
+ebff001590b84fc8b9174048b14443b2-----------------------------2017-12-19 18:11:45.3954---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/Inventory,发送报文:{"fulfillment_nodes":[{"fulfillment_node_id":"80a760157ee64efcabda2dd6c0a4f71a","quantity":130}]}
+
+f7d8d70eb8464dc6b97e727989676b04-----------------------------2017-12-19 18:14:49.3708---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=321&_=1513678487779
+
+3a12248c0bdd4352964062392bb968d0-----------------------------2017-12-19 18:14:52.1545---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/321/inventory
+
+36233626a438444e93425e99b729ecf5-----------------------------2017-12-19 18:15:01.6843---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=1233&_=1513678487780
+
+9bfb5bd93ec54377bff68cbd1dd86954-----------------------------2017-12-19 18:15:01.6843---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/inventory
+
+bb7e23ba4dcf47978704688d65de77ce-----------------------------2017-12-19 18:15:01.9906---------------------------
+请求服务获得返回:{
+  "fulfillment_nodes": [
+    {
+      "fulfillment_node_id": "80a760157ee64efcabda2dd6c0a4f71a",
+      "quantity": 130
+    }
+  ],
+  "inventory_last_update": "2017-12-19T10:11:45+00:00"
+}
+
+ab72e3a66fc64ce69eaf57e134da90e7-----------------------------2017-12-19 18:34:29.9656---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=created&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513679614492
+
+063b2dbe90de483a98aad206b23c2616-----------------------------2017-12-19 18:34:29.9656---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/created?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+19b7f2199de64cef9f24ddb2f016d9af-----------------------------2017-12-19 18:34:31.0973---------------------------
+请求服务获得返回:{
+  "order_urls": []
+}
+
+f572d0161abd4877ba4fd046cbc78ed8-----------------------------2017-12-19 18:34:37.7398---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=created&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513679614493
+
+162b1f6b33334370bcfea87e562f4e13-----------------------------2017-12-19 18:34:37.7398---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/created?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+85f660d0a9be48579493721bdf912d1b-----------------------------2017-12-19 18:34:38.4153---------------------------
+请求服务获得返回:{
+  "order_urls": []
+}
+
+cfee6b570e3b4abfb521d05fc62b81d1-----------------------------2017-12-19 18:34:49.2363---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=created&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513679614494
+
+126c9beccc7f48dea3558f72bb9f4317-----------------------------2017-12-19 18:34:50.9430---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/created?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+abb5387d8c794ab392f72f0b9d3e438d-----------------------------2017-12-19 18:34:51.2042---------------------------
+请求服务获得返回:{
+  "order_urls": []
+}
+
+e5a269acf91d4e77ae3d404d877e4413-----------------------------2017-12-19 18:36:50.4370---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513679614495
+
+66e50950fd014f1697756a6947fdea84-----------------------------2017-12-19 18:36:54.5583---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+c5e8fbc76ea84f86bfce3faef07a78bb-----------------------------2017-12-19 18:36:55.7993---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071"
+  ]
+}
+
+c7d96276ba6e4e6a869212aa7056cbe7-----------------------------2017-12-19 18:37:53.2893---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513679843709
+
+66b108888cb04a43b9293280ee213efd-----------------------------2017-12-19 18:37:53.2893---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+5df58e0253484ddb97eaaa6411ab5299-----------------------------2017-12-19 18:37:53.5385---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071"
+  ]
+}
+
+a651ea4f171f43cb95216b1697e96805-----------------------------2017-12-19 18:38:04.7250---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513679843710
+
+feda2317eae94b87b041407cecb3117f-----------------------------2017-12-19 18:38:04.7250---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+69a9f4c3f8504fc6b2689fe3573d6b6b-----------------------------2017-12-19 18:38:05.1833---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071"
+  ]
+}
+
+722e0165cf68463dabf79bb2b30cc538-----------------------------2017-12-19 18:38:22.8466---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513679897984
+
+fdb7ad8a3dc74d56ab79d348344e29fc-----------------------------2017-12-19 18:38:22.8466---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+10682eb25a4d4e5bba2f08908a25c1bf-----------------------------2017-12-19 18:38:23.2989---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071"
+  ]
+}
+
+acbbf27726934220a0d6c63f1c93eebd-----------------------------2017-12-19 18:39:05.2146---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513679939761
+
+ebfdd9e3cd8b425abf3eac07923d6107-----------------------------2017-12-19 18:39:05.2146---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+d88a8f663a1246b186d4ca1a44dede62-----------------------------2017-12-19 18:39:05.5179---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071"
+  ]
+}
+
+8c961cedf8674ebba4d16c43c67003d6-----------------------------2017-12-19 18:39:33.0953---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513679969631
+
+e0693be2490e4a699da1d52d5ecf7024-----------------------------2017-12-19 18:39:33.0953---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+3c8e95f6e74c4c5590b90674aa69d351-----------------------------2017-12-19 18:39:33.5506---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071"
+  ]
+}
+
+c6d0c6df8bab4dc5a15b205c9d1ac36d-----------------------------2017-12-19 18:42:30.8550---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513680140057
+
+4afb7c6325884ec0b27d45333f23b7f4-----------------------------2017-12-19 18:42:30.8550---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+cee20e4c7ead4441a56c0faba0786306-----------------------------2017-12-19 18:42:32.1459---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071"
+  ]
+}
+
+c7437147b2374dcc94bfde0b5e285da2-----------------------------2017-12-19 18:43:18.7185---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513680192018
+
+49b81add82c54a969e431f2585fe35a0-----------------------------2017-12-19 18:43:18.7185---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+5a4c1fe44ba043f19f655fd9b368144b-----------------------------2017-12-19 18:43:19.2179---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071"
+  ]
+}
+
+98f288361fff485f8fd26c01ff0a70ed-----------------------------2017-12-19 18:43:42.7340---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=2222&_=1513680192019
+
+44724b27e24c49dfa873693e5416bdae-----------------------------2017-12-19 18:43:42.7340---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=2222
+
+3a8741626aa94e5b9dab70efd1f7c8f3-----------------------------2017-12-19 18:58:19.7239---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=231231&_=1513681091488
+
+f2cf325cebfd400d9b1c4f2d1cd62ebf-----------------------------2017-12-19 18:58:19.8760---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=231231
+
+823a2482838b484682dd0216a5523585-----------------------------2017-12-19 18:58:57.9087---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=231231&_=1513681091489
+
+b0aecdc8c7ae4d2f8bfbe90cc70359c7-----------------------------2017-12-19 18:59:03.8501---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=231231
