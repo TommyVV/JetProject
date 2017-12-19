@@ -41,7 +41,7 @@ public class InternalService : IHttpHandler
                 result = SearchInvenotry(request["skuId"]);
                 break;
             case "QueryOrder":
-                result = QueryOrder(request["status"],request["isCancel"],request["nodeId"]);
+                result = QueryOrder(request["status"], request["isCancel"], request["nodeId"]);
                 break;
             case "QueryOrderDetail":
                 result = QueryOrderDetail(request["jetDefinedOrderId"]);
@@ -68,7 +68,7 @@ public class InternalService : IHttpHandler
         }
         catch (TransactionException ex)
         {
-            return "{\"returnCode\":\""+ex.ErrorCode+"\",\"returnMessage\":\""+ex.ErrorMessage+"\"}";
+            return "{\"returnCode\":\"" + ex.ErrorCode + "\",\"returnMessage\":\"" + ex.ErrorMessage + "\"}";
         }
         catch (Exception e)
         {
@@ -81,13 +81,13 @@ public class InternalService : IHttpHandler
     {
         try
         {
-            var url =$"https://merchant-api.jet.com/api/orders/withoutShipmentDetail/{jetDefinedOrderId}";
+            var url = $"https://merchant-api.jet.com/api/orders/withoutShipmentDetail/{jetDefinedOrderId}";
             var result = GetData(url);
             return result;
         }
         catch (TransactionException ex)
         {
-            return "{\"returnCode\":\""+ex.ErrorCode+"\",\"returnMessage\":\""+ex.ErrorMessage+"\"}";
+            return "{\"returnCode\":\"" + ex.ErrorCode + "\",\"returnMessage\":\"" + ex.ErrorMessage + "\"}";
         }
         catch (Exception e)
         {
@@ -101,16 +101,16 @@ public class InternalService : IHttpHandler
         try
         {
             var url = $"https://merchant-api.jet.com/api/merchant-skus/{skuId}/inventory";
-            var result=GetData(url);
-            var response = JsonConvert.DeserializeObject<Dictionary<string,object>>(result);
+            var result = GetData(url);
+            var response = JsonConvert.DeserializeObject<Dictionary<string, object>>(result);
             var nodes = response["fulfillment_nodes"].ToString();
 
             //var fulfillmentNodes = JsonConvert.SerializeObject(nodes);
-            return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\",\"fulfillmentNodes\":"+nodes+"}";
+            return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\",\"fulfillmentNodes\":" + nodes + "}";
         }
         catch (TransactionException ex)
         {
-            return "{\"returnCode\":\""+ex.ErrorCode+"\",\"returnMessage\":\""+ex.ErrorMessage+"\"}";
+            return "{\"returnCode\":\"" + ex.ErrorCode + "\",\"returnMessage\":\"" + ex.ErrorMessage + "\"}";
         }
         catch (Exception e)
         {
@@ -129,7 +129,7 @@ public class InternalService : IHttpHandler
         }
         catch (TransactionException ex)
         {
-            return "{\"returnCode\":\""+ex.ErrorCode+"\",\"returnMessage\":\""+ex.ErrorMessage+"\"}";
+            return "{\"returnCode\":\"" + ex.ErrorCode + "\",\"returnMessage\":\"" + ex.ErrorMessage + "\"}";
         }
         catch (Exception e)
         {
@@ -149,7 +149,7 @@ public class InternalService : IHttpHandler
         }
         catch (TransactionException ex)
         {
-            return "{\"returnCode\":\""+ex.ErrorCode+"\",\"returnMessage\":\""+ex.ErrorMessage+"\"}";
+            return "{\"returnCode\":\"" + ex.ErrorCode + "\",\"returnMessage\":\"" + ex.ErrorMessage + "\"}";
         }
         catch (Exception e)
         {
@@ -172,7 +172,7 @@ public class InternalService : IHttpHandler
         }
         catch (TransactionException ex)
         {
-            return "{\"returnCode\":\""+ex.ErrorCode+"\",\"returnMessage\":\""+ex.ErrorMessage+"\"}";
+            return "{\"returnCode\":\"" + ex.ErrorCode + "\",\"returnMessage\":\"" + ex.ErrorMessage + "\"}";
         }
         catch (Exception e)
         {
@@ -192,7 +192,7 @@ public class InternalService : IHttpHandler
         }
         catch (TransactionException ex)
         {
-            return "{\"returnCode\":\""+ex.ErrorCode+"\",\"returnMessage\":\""+ex.ErrorMessage+"\"}";
+            return "{\"returnCode\":\"" + ex.ErrorCode + "\",\"returnMessage\":\"" + ex.ErrorMessage + "\"}";
         }
         catch (Exception e)
         {
@@ -213,7 +213,7 @@ public class InternalService : IHttpHandler
             : "{\"returnCode\":\"0096\",\"returnMessage\":\"用户名密码错误\"}";
     }
 
-    private void GetToken(bool needRefresh=false,bool last=false)
+    private void GetToken(bool needRefresh = false, bool last = false)
     {
 
         try
@@ -222,11 +222,11 @@ public class InternalService : IHttpHandler
             {
                 GetConfig();
             }
-            if (needRefresh||string.IsNullOrEmpty(Token))
+            if (needRefresh || string.IsNullOrEmpty(Token))
             {
                 var url = "https://merchant-api.jet.com/api/token";
                 var data = "{ \"user\":\"" + User + "\",\"pass\":\"" + Pass + "\" }";
-                var response = PostData(url, data, "POST", false,last);
+                var response = PostData(url, data, "POST", false, last);
                 if (string.IsNullOrEmpty(response))
                 {
                     throw new Exception("jet 请求错误");
@@ -247,7 +247,7 @@ public class InternalService : IHttpHandler
         }
     }
 
-    private string GetData(string url,bool islast=false)
+    private string GetData(string url, bool islast = false)
     {
         try
         {
@@ -264,9 +264,12 @@ public class InternalService : IHttpHandler
 
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
             request.Headers.Add("Authorization", "bearer " + Token);
-            WebProxy proxy = new WebProxy("http://s1firewall:8080", true);
-            proxy.Credentials = new NetworkCredential("tz67", "Newegg123456");
-            request.Proxy = proxy;
+            if (Proxy == "1")
+            {
+                WebProxy proxy = new WebProxy("http://s1firewall:8080", true);
+                proxy.Credentials = new NetworkCredential("tz67", "Newegg123456");
+                request.Proxy = proxy;
+            }
             request.Method = "GET";
             request.ContentType = "application/json";
             // 提交请求数据 
@@ -288,7 +291,7 @@ public class InternalService : IHttpHandler
             {
                 if (!islast)
                 {
-                    GetToken(needRefresh: true,last:true);
+                    GetToken(needRefresh: true, last: true);
                 }
                 else
                 {
@@ -300,9 +303,9 @@ public class InternalService : IHttpHandler
                 switch (resp.StatusCode)
                 {
                     case HttpStatusCode.BadRequest:
-                        throw new TransactionException("0400","请求数据不正确,或者没有找到相关信息");
+                        throw new TransactionException("0400", "请求数据不正确,或者没有找到相关信息");
                     case HttpStatusCode.NoContent:
-                        throw new TransactionException("0200","未查询到数据");
+                        throw new TransactionException("0200", "未查询到数据");
                 }
             }
             throw;
@@ -316,11 +319,11 @@ public class InternalService : IHttpHandler
 
 
 
-    private string PostData(string url, string data, string method, bool needToken = true,bool islast=false)
+    private string PostData(string url, string data, string method, bool needToken = true, bool islast = false)
     {
         try
         {
-            if (string.IsNullOrEmpty(Token)&&needToken)
+            if (string.IsNullOrEmpty(Token) && needToken)
             {
                 GetToken();
             }
@@ -334,11 +337,14 @@ public class InternalService : IHttpHandler
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
             if (needToken)
             {
-                request.Headers.Add("Authorization", "bearer "+Token);
+                request.Headers.Add("Authorization", "bearer " + Token);
             }
-            WebProxy proxy = new WebProxy("http://s1firewall:8080", true);
-            proxy.Credentials = new NetworkCredential("tz67", "Newegg123456");
-            request.Proxy = proxy;
+            if (Proxy == "1")
+            {
+                WebProxy proxy = new WebProxy("http://s1firewall:8080", true);
+                proxy.Credentials = new NetworkCredential("tz67", "Newegg123456");
+                request.Proxy = proxy;
+            }
             request.Method = method;
             request.ContentType = "application/json";
             // 提交请求数据 
@@ -371,7 +377,7 @@ public class InternalService : IHttpHandler
             {
                 if (!islast)
                 {
-                    GetToken(needRefresh: true,last:true);
+                    GetToken(needRefresh: true, last: true);
                 }
                 else
                 {
@@ -384,9 +390,9 @@ public class InternalService : IHttpHandler
                 switch (resp.StatusCode)
                 {
                     case HttpStatusCode.BadRequest:
-                        throw new TransactionException("0400","请求数据不正确,或者没有找到相关信息");
+                        throw new TransactionException("0400", "请求数据不正确,或者没有找到相关信息");
                     case HttpStatusCode.NoContent:
-                        throw new TransactionException("0200","未查询到数据");
+                        throw new TransactionException("0200", "未查询到数据");
                 }
             }
             throw;
@@ -406,6 +412,7 @@ public class InternalService : IHttpHandler
         User = configData["user"];
         Pass = configData["pass"];
         Token = configData["token"];
+        Proxy = configData["proxy"];
     }
 
     private void WriteConfig()
@@ -415,12 +422,13 @@ public class InternalService : IHttpHandler
         {
             {"user",User },
             {"pass",Pass },
-            {"token",Token }
+            {"token",Token },
+            {"proxy",Proxy }
         };
         File.WriteAllText(path, JsonConvert.SerializeObject(dic), Encoding.UTF8);
     }
 
-
+    private string Proxy { get; set; }
 
     private string User { get; set; }
 
