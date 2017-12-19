@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
-using System.ServiceModel.Channels;
 using System.Text;
 using System.Web;
 using Newtonsoft.Json;
@@ -23,9 +22,6 @@ public class InternalService : IHttpHandler
         var result = "";
         switch (t)
         {
-            case "getToken":
-                result = GetToken();
-                break;
             case "Login":
                 result = UserLogin(request["userName"], request["pwd"]);
                 break;
@@ -33,7 +29,10 @@ public class InternalService : IHttpHandler
                 result = PriceUpload(request["skuId"], Convert.ToInt32(request["price"]));
                 break;
             case "InventoryUpload":
-                result = PriceUpload(request["skuId"], Convert.ToInt32(request["price"]));
+                result = InventoryUpload(request["skuId"], Convert.ToInt32(request["quantity"]), request["nodeId"]);
+                break;
+            case "UploadSKU":
+                result = UploadSKU(request["skuId"], request["data"]);
                 break;
             case "SearchSKU":
                 result = SearchSKU(request["skuId"]);
@@ -48,9 +47,17 @@ public class InternalService : IHttpHandler
 
     private string UploadSKU(string id, string data)
     {
-        var url = $"https://merchant-api.jet.com/api/merchant-skus/{id}";
-        PostData(url, data, "PUT");
-        return null;
+        try
+        {
+            var url = $"https://merchant-api.jet.com/api/merchant-skus/{id}";
+            PostData(url, data, "PUT");
+            return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\"}";
+        }
+        catch (Exception e)
+        {
+            logger.Error(e);
+            return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
+        }
     }
 
     private string PriceUpload(string skuId, decimal price)
@@ -75,9 +82,9 @@ public class InternalService : IHttpHandler
         try
         {
             var url = $"https://merchant-api.jet.com/api/merchant-skus/{skuId}";
-            var response=JsonConvert.DeserializeObject<Dictionary<string,Object>>(GetData(url));
-                response.Add("returnCode","0000");
-            response.Add("returnMessage","请求成功");
+            var response = JsonConvert.DeserializeObject<Dictionary<string, Object>>(GetData(url));
+            response.Add("returnCode", "0000");
+            response.Add("returnMessage", "请求成功");
             var result = JsonConvert.SerializeObject(response);
             return result;
         }
@@ -88,12 +95,12 @@ public class InternalService : IHttpHandler
         }
     }
 
-    private string InventoryUpload(string skuId, decimal price)
+    private string InventoryUpload(string skuId, int qty, string nodeId)
     {
         try
         {
             var url = string.Format("https://merchant-api.jet.com/api/merchant-skus/{0}/Inventory", skuId);
-            string data = "{\"price\":" + price + "}";
+            string data = "{\"fulfillment_nodes\":[{\"fulfillment_node_id\":\"" + nodeId + "\",\"quantity\":" + qty + "}]}";
             PostData(url, data, "PUT");
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\"}";
         }
@@ -116,37 +123,44 @@ public class InternalService : IHttpHandler
             : "{\"returnCode\":\"0096\",\"returnMessage\":\"用户名密码错误\"}";
     }
 
-    private string GetToken()
+    private void GetToken()
     {
 
         try
         {
-            var user = "9BD7AA25D356387250E97564D2B91B4A29E7B677";
-            var pass = "G/93glgnE+S2tRhvyE9/RavsBZMR385jqRl+o+172T3T";
+            if (string.IsNullOrEmpty(User) || string.IsNullOrEmpty(Pass))
+            {
+                GetConfig();
+            }
             var url = "https://merchant-api.jet.com/api/token";
-            var data = "{ \"user\":\"" + user + "\",\"pass\":\"" + pass + "\" }";
+            var data = "{ \"user\":\"" + User + "\",\"pass\":\"" + Pass + "\" }";
             var response = PostData(url, data, "POST", false);
             if (string.IsNullOrEmpty(response))
             {
-                return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
+                throw new Exception("jet 请求错误");
+                //return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
             }
             var jsonData = JsonConvert.DeserializeObject<Dictionary<string, string>>(response);
             string token = "";
             jsonData.TryGetValue("id_token", out token);
-            return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\",\"token\":\"" + token + "\"}";
+            Token = token;
+            WriteConfig();
         }
         catch (Exception e)
         {
             logger.Error(e);
             throw;
         }
-
     }
 
     private string GetData(string url)
     {
         try
         {
+            if (string.IsNullOrEmpty(Token))
+            {
+                GetToken();
+            }
             ServicePointManager.ServerCertificateValidationCallback += delegate
             {
                 return true;
@@ -154,8 +168,9 @@ public class InternalService : IHttpHandler
             logger.Info("asdsdsda");
             logger.Info($"请求地址:{url},\\r\\n");
             // 设置提交的相关参数 
+            
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
-            request.Headers.Add("Authorization", "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IldscUZYb2E1WkxSQ0hldmxwa1BHOVdHS0JrMCJ9.eyJpc19zYW5kYm94X3VpZCI6InRydWUiLCJtZXJjaGFudF9pZCI6ImM0OTA4MjFhM2VlZDRjNzRiMTUzNTVhYTUwM2Q4ZGQ3IiwicGFydG5lcl90eXBlIjoiTWVyY2hhbnQiLCJzY29wZSI6Imlyb25tYW4tYXBpIiwiaXNzIjoiamV0LmNvbSIsImV4cCI6MTUxMzE2NjI0NCwibmJmIjoxNTEzMTMwMjQ0fQ.JlbRZaqEJzp9ixbGF0hkm5f-H_wAnHLBLgrGeJRM0BbIj3X5nWOpbnppqqiFgFGBkDG4A_K68-Tyd92LAyxRIzOIqmV_8bSkSq2AkZtSKU5FqZqIuYwGqS-3KLaIa08AxOv7afphlIZ0D9Rp7_SEWvispjO_0HRbslaYQ3yscJRHLkdOUrdIUyicAG5hQZRwywbCh_gWBAnBTnO0nE2Mo27_scArG8d_Dc4KXrl1iuGpoMh4k-D0w6BLXQoEVjIGZblB34ae8KDyjZPKnJsiQ11LVpzL6PloUiYjvhdLNdLOhQeY-k1IdSgR-vcscjYUUA44d3qxlik7kFiL_1O8pC250tKU1yOS_K24YAqfombKOmQNNzwmJ6lXD5nDH5-_OxmxUW_ZS7jgjtIjhlNFnflkg6GhpMghtXFzNVz6ilrMGRMDN5j4HJ-w1YIDrsX1jqlIQq8Dxp7pywwgV6ofpRuTJ34ER1GhR8tzfisFX5EZK7w_vc0SX52BUro4KvwHMrfAwGc5oPLgbzwYh669JNGO9nwIViyMqTymaOJx8qTA0yUn2AH5SclKibtvRfqeOiSCvis9R6qZ3i_qo1wL030MOc9GeCbcv9K8x2REDur1W2rq6zzISBrjVDquXZMXtNB0vhI1dzeMFYX3VCwAvsDQT8y1YZl34LiLdMhDeaY");
+            request.Headers.Add("Authorization", "bearer " + Token);
             WebProxy proxy = new WebProxy("http://s1firewall:8080", true);
             proxy.Credentials = new NetworkCredential("tz67", "Newegg123456");
             request.Proxy = proxy;
@@ -173,6 +188,15 @@ public class InternalService : IHttpHandler
             logger.Info("请求服务获得返回:" + result);
             return result;
         }
+        catch (WebException e)
+        {
+            HttpWebResponse resp = (HttpWebResponse)e.Response;
+            if (resp.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                GetToken();
+            }
+            throw;
+        }
         catch (Exception e)
         {
             Console.WriteLine(e);
@@ -180,10 +204,16 @@ public class InternalService : IHttpHandler
         }
     }
 
+
+
     private string PostData(string url, string data, string method, bool needToken = true)
     {
         try
         {
+            if (string.IsNullOrEmpty(Token)&&needToken)
+            {
+                GetToken();
+            }
             ServicePointManager.ServerCertificateValidationCallback += delegate
             {
                 return true;
@@ -195,7 +225,7 @@ public class InternalService : IHttpHandler
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
             if (needToken)
             {
-                request.Headers.Add("Authorization", "bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IldscUZYb2E1WkxSQ0hldmxwa1BHOVdHS0JrMCJ9.eyJpc19zYW5kYm94X3VpZCI6InRydWUiLCJtZXJjaGFudF9pZCI6ImM0OTA4MjFhM2VlZDRjNzRiMTUzNTVhYTUwM2Q4ZGQ3IiwicGFydG5lcl90eXBlIjoiTWVyY2hhbnQiLCJzY29wZSI6Imlyb25tYW4tYXBpIiwiaXNzIjoiamV0LmNvbSIsImV4cCI6MTUxMzE2NjI0NCwibmJmIjoxNTEzMTMwMjQ0fQ.JlbRZaqEJzp9ixbGF0hkm5f-H_wAnHLBLgrGeJRM0BbIj3X5nWOpbnppqqiFgFGBkDG4A_K68-Tyd92LAyxRIzOIqmV_8bSkSq2AkZtSKU5FqZqIuYwGqS-3KLaIa08AxOv7afphlIZ0D9Rp7_SEWvispjO_0HRbslaYQ3yscJRHLkdOUrdIUyicAG5hQZRwywbCh_gWBAnBTnO0nE2Mo27_scArG8d_Dc4KXrl1iuGpoMh4k-D0w6BLXQoEVjIGZblB34ae8KDyjZPKnJsiQ11LVpzL6PloUiYjvhdLNdLOhQeY-k1IdSgR-vcscjYUUA44d3qxlik7kFiL_1O8pC250tKU1yOS_K24YAqfombKOmQNNzwmJ6lXD5nDH5-_OxmxUW_ZS7jgjtIjhlNFnflkg6GhpMghtXFzNVz6ilrMGRMDN5j4HJ-w1YIDrsX1jqlIQq8Dxp7pywwgV6ofpRuTJ34ER1GhR8tzfisFX5EZK7w_vc0SX52BUro4KvwHMrfAwGc5oPLgbzwYh669JNGO9nwIViyMqTymaOJx8qTA0yUn2AH5SclKibtvRfqeOiSCvis9R6qZ3i_qo1wL030MOc9GeCbcv9K8x2REDur1W2rq6zzISBrjVDquXZMXtNB0vhI1dzeMFYX3VCwAvsDQT8y1YZl34LiLdMhDeaY");
+                request.Headers.Add("Authorization", "bearer "+Token);
             }
             WebProxy proxy = new WebProxy("http://s1firewall:8080", true);
             proxy.Credentials = new NetworkCredential("tz67", "Newegg123456");
@@ -225,12 +255,52 @@ public class InternalService : IHttpHandler
             }
 
         }
+        catch (WebException e)
+        {
+            HttpWebResponse resp = (HttpWebResponse)e.Response;
+            if (resp.StatusCode == HttpStatusCode.Unauthorized)
+            {
+                GetToken();
+            }
+            throw;
+        }
         catch (Exception e)
         {
             Console.WriteLine(e);
             throw;
         }
     }
+
+    private void GetConfig()
+    {
+        var path = HttpContext.Current.Server.MapPath("../config.json");
+        var config = File.ReadAllText(path, Encoding.UTF8);
+        var configData = JsonConvert.DeserializeObject<Dictionary<string, string>>(config);
+        User = configData["user"];
+        Pass = configData["pass"];
+        Token = configData["token"];
+    }
+
+    private void WriteConfig()
+    {
+        var path = HttpContext.Current.Server.MapPath("config.json");
+        var dic = new Dictionary<string, string>()
+        {
+            {"user",User },
+            {"pass",Pass },
+            {"token",Token }
+        };
+        File.WriteAllText(path, JsonConvert.SerializeObject(dic), Encoding.UTF8);
+    }
+
+
+
+    private string User { get; set; }
+
+    private string Pass { get; set; }
+
+
+    private string Token { get; set; }
 
     public bool IsReusable
     {

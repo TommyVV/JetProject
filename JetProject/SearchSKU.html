@@ -61,10 +61,10 @@
                             <span>SKU Manager</span>
                         </a>
                         <ul class="sub">
-                            <li><a href="SKU Upload.html">SKU Upload</a></li>
-                            <li><a href="Search SKU.html">Search SKU</a></li>
-                            <li><a href="Price Upload.html">Price Upload</a></li>
-                            <li><a href="Inventory upload.html">invenotry Upload</a></li>
+                            <li><a href="SKUUpload.html">SKU Upload</a></li>
+                            <li><a href="SearchSKU.html">Search SKU</a></li>
+                            <li><a href="PriceUpload.html">Price Upload</a></li>
+                            <li><a href="Inventoryupload.html">invenotry Upload</a></li>
                         </ul>
                     </li>
 
@@ -115,7 +115,7 @@
                             </div>
                             
                         </div><!-- /form-panel -->
-                        <div class="form-panel">
+                        <div class="form-panel" id="sku-info" style="display: none">
                             <h4 class="mb"><i class="fa fa-angle-right"></i> SKU Info </h4>
                             <div class="form-horizontal style-form">
                                 <div class="form-group">
@@ -145,6 +145,41 @@
                             </div>
                             <div class="form-inline  style-form width100">
                                 <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">brand</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="brand">
+                                    </div>
+                                </div>
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">manufacturer</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="manufacturer">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-inline  style-form width100">
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">standard product code type</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control" id="standard-product-code-type">
+                                            <option>NULL</option>
+                                            <option>GTIN-14</option>
+                                            <option>EAN</option>
+                                            <option>ISBN-10</option>
+                                            <option>ISBN-13</option>
+                                            <option>UPC</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">standard product code</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="standard-product-code">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-inline  style-form width100">
+                                <div class="form-group inline-width">
                                     <label class="col-sm-2 col-sm-2 control-label">multipack quantity </label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="multipack-quantity">
@@ -154,20 +189,6 @@
                                     <label class="col-sm-2 col-sm-2 control-label">shipping weight pounds</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="shipping-weight-pounds">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-inline style-form width100">
-                                <div class="form-group inline-width">
-                                    <label class="col-sm-2 col-sm-2 control-label">manufacturer</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="manufacturer">
-                                    </div>
-                                </div>
-                                <div class="form-group inline-width">
-                                    <label class="col-sm-2 col-sm-2 control-label">mfr part number</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="mfr-part-number">
                                     </div>
                                 </div>
                             </div>
@@ -230,6 +251,15 @@
                                         <input type="text" class="form-control" id="display-width-inches">
                                     </div>
                                 </div>
+                               
+                            </div>
+                            <div class="form-inline style-form width100">
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">mfr part number</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="mfr-part-number">
+                                    </div>
+                                </div>
                                 <div class="form-group inline-width">
                                     <label class="col-sm-2 col-sm-2 control-label">display height inches</label>
                                     <div class="col-sm-10">
@@ -237,8 +267,12 @@
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary">Update</button>
+                            <input type="hidden" id="skuId"/>
+                            <div class="alert alert-success" id="update-success">Update success</div>
+                            <div class="alert alert-danger" id="update-error"></div>
+                            <button type="button" class="btn btn-primary" id="btn-update">Update</button>
                         </div>
+                       
                     </div><!-- col-lg-12-->
 
                 </div><!--/ row -->
@@ -271,61 +305,207 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $(".alert-danger").hide();
+            $(".alert-success").hide();
             $("#btn-search").click(function () {
-                $(".alert-danger").hide();
-                $("#search-error").html("");
-                var skuId = $("#sku-id").val();
-                if (!skuId) {
-                    $("#search-error").show();
-                    $("#search-error").html("Please enter SKU Id ");
-                    return;
-                }
-                $.ajax({
-                    url: "Service/InternalService.ashx?t=SearchSKU&skuId=" + skuId,
-                    cache: false,
-                    dataType: "json",
-                    success: function(data) {
-                        if (data) {
-                            if (data.returnCode == "0000") {
-                                bindProd(data);
-                                $("#search-error").hide();
-                            } else {
-                                $("#search-error").show();
-                                $("#search-error").html(data.returnMessage);
-                            }
+                searchProd();
+            });
+            $("#btn-update").click(function() {
+                updateSku();
+            });
+        });
 
+        function searchProd() {
+            $(".alert-danger").hide();
+            $("#search-error").html("");
+            var skuId = $("#sku-id").val();
+            if (!skuId) {
+                $("#search-error").show();
+                $("#search-error").html("Please enter SKU Id ");
+                return;
+            }
+            $.ajax({
+                url: "Service/InternalService.ashx?t=SearchSKU&skuId=" + skuId,
+                cache: false,
+                dataType: "json",
+                success: function (data) {
+                    if (data) {
+                        if (data.returnCode == "0000") {
+                            $("#sku-info").show();
+                            bindProd(data);
+                            $("#search-error").hide();
                         } else {
                             $("#search-error").show();
-                            $("#search-error").html("系统错误,请联系技术支持");
+                            $("#search-error").html(data.returnMessage);
                         }
-                    },
-                    error: function(data) {
+
+                    } else {
                         $("#search-error").show();
                         $("#search-error").html("系统错误,请联系技术支持");
                     }
-                });
+                },
+                error: function (data) {
+                    $("#search-error").show();
+                    $("#search-error").html("系统错误,请联系技术支持");
+                }
             });
+        }
 
-            function bindProd(data) {
-                $("#product-title").val(data.product_title);
-                $("#main-image-url").val(data.main_image_url);
-                $("#safety-warning").val(data.safety_warning);
-                $("#product-description").val(data.product_description);
-                $("#multipack-quantity").val(data.multipack_quantity);
-                $("#shipping-weight-pounds").val(data.shipping_weight_pounds);
-                $("#manufacturer").val(data.manufacturer);
-                $("#mfr-part-number").val(data.mfr_part_number);
-                $("#map-implementation").val(data.map_implementation);
-                $("#map-price").val(data.map_price);
-                $("#price").val(data.price);
-                $("#country-of-origin").val(data.country_of_origin);
-                $("#product-tax-code").val(data.product_tax_code);
-                $("#number-units-for-price-per-unit").val(data.number_units_for_price_per_unit);
-                $("#display-length-inches").val(data.display_length_inches);
-                $("#display-width-inches").val(data.display_width_inches);
-                $("#display-height-inches").val(data.display_height_inches);
+        function bindProd(data) {
+            $("#product-title").val(data.product_title);
+            $("#main-image-url").val(data.main_image_url);
+            $("#safety-warning").val(data.safety_warning);
+            $("#product-description").val(data.product_description);
+            $("#multipack-quantity").val(data.multipack_quantity);
+            $("#shipping-weight-pounds").val(data.shipping_weight_pounds);
+            $("#manufacturer").val(data.manufacturer);
+            $("#mfr-part-number").val(data.mfr_part_number);
+            $("#map-implementation").val(data.map_implementation);
+            $("#map-price").val(data.map_price);
+            $("#price").val(data.price);
+            $("#country-of-origin").val(data.country_of_origin);
+            $("#product-tax-code").val(data.product_tax_code);
+            $("#number-units-for-price-per-unit").val(data.number_units_for_price_per_unit);
+            $("#display-length-inches").val(data.display_length_inches);
+            $("#display-width-inches").val(data.display_width_inches);
+            $("#display-height-inches").val(data.display_height_inches);
+            $("#brand").val(data.brand);
+            if (data.standard_product_codes) {
+                $("#standard-product-code-type").val(data.standard_product_codes[0].standard_product_code_type);
+                $("#standard-product-code").val(data.standard_product_codes[0].standard_product_code);
             }
-        });
+            $("#skuId").val(data.merchant_sku);
+        }
+
+        function updateSku() {
+            var product_title=$("#product-title").val();
+            var main_image_url=$("#main-image-url").val();
+            var safety_warning=$("#safety-warning").val();
+            var product_description=$("#product-description").val();
+            var multipack_quantity=$("#multipack-quantity").val();
+            var shipping_weight_pounds=$("#shipping-weight-pounds").val();
+            var manufacturer=$("#manufacturer").val();
+            var mfr_part_number=$("#mfr-part-number").val();
+            var map_implementation=$("#map-implementation").val();
+            var map_price=$("#map-price").val();
+            var country_of_origin=$("#country-of-origin").val();
+            var product_tax_code=$("#product-tax-code").val();
+            var number_units_for_price_per_unit=$("#number-units-for-price-per-unit").val();
+            var display_length_inches=$("#display-length-inches").val();
+            var display_width_inches=$("#display-width-inches").val();
+            var display_height_inches = $("#display-height-inches").val();
+            var standard_product_code_type = $("#standard-product-code-type").val();
+            var standard_product_code = $("#standard-product-code").val();
+            var brand=$("#brand").val();
+            var data = "data=";
+            if (standard_product_code_type != "NULL") {
+                data += '{"brand":"' + brand+'","product_title":"' +
+                    product_title +
+                    '","main_image_url":"' +
+                    main_image_url +
+                    '","safety_warning":"' +
+                    safety_warning +
+                    '","product_description":"' +
+                    product_description +
+                    '"' +
+                    ',"multipack_quantity":' +
+                    multipack_quantity +
+                    ',"shipping_weight_pounds":' +
+                    shipping_weight_pounds +
+                    ',"manufacturer":"' +
+                    manufacturer +
+                    '","mfr_part_number":"' +
+                    mfr_part_number +
+                    '"' +
+                    ',"map_implementation":"' +
+                    map_implementation +
+                    '","map_price":' +
+                    map_price +
+                    ',"country_of_origin":"' +
+                    country_of_origin +
+                    '","product_tax_code":"' +
+                    product_tax_code +
+                    '"' +
+                    ',"number_units_for_price_per_unit":' +
+                    number_units_for_price_per_unit +
+                    ',"display_length_inches":' +
+                    display_length_inches +
+                    ',"display_width_inches":' +
+                    display_width_inches +
+                    ',"display_height_inches":' +
+                    display_height_inches +
+                    '' +
+                    ',"standard_product_codes":[{"standard_product_code_type":"' +
+                    standard_product_code_type +
+                    '","standard_product_code":"' +
+                    standard_product_code +
+                    '"}] }';
+
+            } else {
+                data += '{"brand":"' + brand +'","product_title":"' +
+                    product_title +
+                    '","main_image_url":"' +
+                    main_image_url +
+                    '","safety_warning":"' +
+                    safety_warning +
+                    '","product_description":"' +
+                    product_description +
+                    '"' +
+                    ',"multipack_quantity":' +
+                    multipack_quantity +
+                    ',"shipping_weight_pounds":' +
+                    shipping_weight_pounds +
+                    ',"manufacturer":"' +
+                    manufacturer +
+                    '","mfr_part_number":"' +
+                    mfr_part_number +
+                    '"' +
+                    ',"map_implementation":"' +
+                    map_implementation +
+                    '","map_price":' +
+                    map_price +
+                    ',"country_of_origin":"' +
+                    country_of_origin +
+                    '","product_tax_code":"' +
+                    product_tax_code +
+                    '"' +
+                    ',"number_units_for_price_per_unit":' +
+                    number_units_for_price_per_unit +
+                    ',"display_length_inches":' +
+                    display_length_inches +
+                    ',"display_width_inches":' +
+                    display_width_inches +
+                    ',"display_height_inches":' +
+                    display_height_inches +
+                    '' +
+                    ',""}';
+            }
+            $.ajax({
+                url: "Service/InternalService.ashx?t=UploadSKU&skuId="+$("#skuId").val(),
+                cache: false,
+                dataType: "json",
+                data: data,
+                type:'POST',
+                success: function (data) {
+                    if (data) {
+                        if (data.returnCode == "0000") {
+                            $("#update-success").show();
+                        } else {
+                            $("#update-error").show();
+                            $("#update-error").html(data.returnMessage);
+                        }
+
+                    } else {
+                        $("#update-error").show();
+                        $("#update-error").html("系统错误,请联系技术支持");
+                    }
+                },
+                error: function (data) {
+                    $("#update-error").show();
+                    $("#update-error").html("系统错误,请联系技术支持");
+                }
+            });
+        }
+       
     </script>
 
 
