@@ -99,38 +99,147 @@
                 <h3><i class="fa fa-angle-right"></i>Order Detail</h3>
                 <div class="row mt">
                     <div class="col-lg-12">
-
                         <div class="form-panel">
                             <h4 class="mb"><i class="fa fa-angle-right"></i> Order Info</h4>
-                            <div class="form-horizontal style-form">
-                                <div class="form-group">
-                                    <label class="col-sm-2 col-sm-2 control-label">order status</label>
+                            <div class="form-inline  style-form width100">
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">alt order id</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" id="status">
-                                            <option>created</option>
-                                            <option>ready</option>
-                                            <option>inprogress</option>
-                                            <option>complete</option>
-                                        </select>
+                                        <p class="form-control-static" id="alt_order_id">873699361761</p>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 col-sm-2 control-label">fulfillment_node</label>
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">buyer name</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="nodeId" for="inputError">
+                                        <p class="form-control-static" id="name">Homer Simpson</p>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label class="col-sm-2 col-sm-2 control-label">isCancelled</label>
+                            </div>
+                            <div class="form-inline  style-form width100">
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">phone number</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" id="cancel">
-                                            <option value="0">False</option>
-                                            <option value="1">True</option>
-                                        </select>
+                                        <p class="form-control-static" id="phone_number">212-212-8880</p>
                                     </div>
                                 </div>
-                                <div class="alert alert-danger" id="search-error"></div>
-                                <button type="button" class="btn btn-primary" id="search">Search</button>
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">hash email</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="hash_email">Homer Simpson</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-inline  style-form width100">
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">request shipping method </label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="request_shipping_method">212-212-8880</p>
+                                    </div>
+                                </div>
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">request shipping carrier</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="request_shipping_carrier">Homer Simpson</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-inline  style-form width100">
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">request service level </label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="request_service_level">212-212-8880</p>
+                                    </div>
+                                </div>
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">request ship by</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="request_ship_by">Homer Simpson</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-inline  style-form width100">
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">request delivery by</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="request_delivery_by">212-212-8880</p>
+                                    </div>
+                                </div>
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">has_shipments</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="has_shipments">false</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-inline  style-form width100">
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">shipping to name </label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="shipping_name">212-212-8880</p>
+                                    </div>
+                                </div>
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">shipping to phone number</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="shipping_phone_name">Homer Simpson</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-inline  style-form width100">
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">address1 </label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="address1">212-212-8880</p>
+                                    </div>
+                                </div>
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">shipping to phone number</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="address2">Homer Simpson</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-inline  style-form width100">
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">city </label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="city">212-212-8880</p>
+                                    </div>
+                                </div>
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">state</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="state">Homer Simpson</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-inline  style-form width100">
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">zip code </label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="zip_code">212-212-8880</p>
+                                    </div>
+                                </div>
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">status</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="status">ready</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-inline  style-form width100">
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">order_placed_date </label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="order_placed_date">2017-12-19T08:35:53.7567923Z</p>
+                                    </div>
+                                </div>
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">order_transmission_date</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="order_transmission_date">2017-12-19T08:36:53.7567923Z</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="form-panel" id="orderList">
@@ -189,96 +298,74 @@
             $("#search").click(function () {
                 search();
             });
-
-            function search() {
-                $(".alert-success").hide();
-                $(".alert-danger").hide();
-                //search
-                var cancel = $("#cancel").val();
-                var status = $("#status").val();
-                var nodeId = $("#nodeId").val();
-                if (!nodeId) {
-                    $("#nodeId").parent().parent().addClass("has-error");
-                    $("#nodeId").focus();
-                    return;
+            var jetDefinedOrderId = getQueryString("orderId");
+            search(jetDefinedOrderId);
+        });
+        function search(jetDefinedOrderId) {
+            $(".alert-success").hide();
+            $(".alert-danger").hide();
+            //search
+            $.ajax({
+                url: "Service/InternalService.ashx?t=QueryOrder&jetDefinedOrderId=" + jetDefinedOrderId,
+                cache: false,
+                dataType: "json",
+                success: function (data) {
+                    
+                },
+                error: function (data) {
+                    $("#search-error").show();
+                    $("#search-error").html("系统错误,请联系技术支持");
                 }
-                $.ajax({
-                    url: "Service/InternalService.ashx?t=QueryOrder&status=" + status + "&isCancel=" + cancel + "&nodeId=" + nodeId,
-                    cache: false,
-                    dataType: "json",
-                    success: function (data) {
-                        if (data) {
-                            if (data.returnCode == "0000") {
-                                var orders = $("#orders");
-                                if (data.orderList) {
-                                    $.each(data.orderList,
-                                        function (i, order) {
-                                            var orderId = order.split('/')[3];
+            });
+        }
 
-                                            var s =
-                                                '<td>' + orderId + '</td><td><span class="label label-info label-mini">Due</span></td><td><a target="_blank" href="orderDetail.html?orderId=' + orderId + '"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a></td>';
-                                            orders.append(s);
-                                        });
-                                }
-                            } else {
-                                $("#search-error").show();
-                                $("#search-error").html(data.returnMessage);
-                            }
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
+        }
 
-                        } else {
-                            $("#search-error").show();
-                            $("#search-error").html("系统错误,请联系技术支持");
-                        }
-                    },
-                    error: function (data) {
-                        $("#search-error").show();
-                        $("#search-error").html("系统错误,请联系技术支持");
-                    }
-                });
+        function update() {
+            $(".focusedInput").removeClass("focusedInput");
+            //update
+            var skuId = $("#sku-id").val();
+            var nodeId = $("#fulfillment-nodes").html();
+            var qty = $("#quantity").val();
+            if (!skuId) {
+                $("#sku-id").parent().parent().addClass("has-error");
+                $("#sku-id").focus();
+                return;
             }
-
-            function update() {
-                $(".focusedInput").removeClass("focusedInput");
-                //update
-                var skuId = $("#sku-id").val();
-                var nodeId = $("#fulfillment-nodes").html();
-                var qty = $("#quantity").val();
-                if (!skuId) {
-                    $("#sku-id").parent().parent().addClass("has-error");
-                    $("#sku-id").focus();
-                    return;
-                }
-                if (!qty) {
-                    $("#quantity").parent().parent().addClass("has-error");
-                    $("#skquantity").focus();
-                    return;
-                }
-                $.ajax({
-                    url: "Service/InternalService.ashx?t=InventoryUpload&skuId=" + skuId + "&quantity=" + qty + "&nodeId=" + nodeId,
-                    cache: false,
-                    dataType: "json",
-                    success: function (data) {
-                        if (data) {
-                            if (data.returnCode == "0000") {
-                                $(".alert-success").show();
-                                $(".alert-success").html("Success");
-                            } else {
-                                $("#update-error").show();
-                                $("#update-error").html(data.returnMessage);
-                            }
-
+            if (!qty) {
+                $("#quantity").parent().parent().addClass("has-error");
+                $("#skquantity").focus();
+                return;
+            }
+            $.ajax({
+                url: "Service/InternalService.ashx?t=InventoryUpload&skuId=" + skuId + "&quantity=" + qty + "&nodeId=" + nodeId,
+                cache: false,
+                dataType: "json",
+                success: function (data) {
+                    if (data) {
+                        if (data.returnCode == "0000") {
+                            $(".alert-success").show();
+                            $(".alert-success").html("Success");
                         } else {
                             $("#update-error").show();
-                            $("#update-error").html("系统错误,请联系技术支持");
+                            $("#update-error").html(data.returnMessage);
                         }
-                    },
-                    error: function (data) {
+
+                    } else {
                         $("#update-error").show();
                         $("#update-error").html("系统错误,请联系技术支持");
                     }
-                });
-            }
-        });
+                },
+                error: function (data) {
+                    $("#update-error").show();
+                    $("#update-error").html("系统错误,请联系技术支持");
+                }
+            });
+        }
     </script>
 
 

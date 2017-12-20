@@ -1,6 +1,0 @@
-
-53e1355449e0461fb8d3fed3a9bbf3e1-----------------------------2017-12-19 17:52:46.3247---------------------------
-/Service/InternalService.ashx?t=InventoryUpload&skuId=1233&_=1513677157991
-
-42523756045d4d0caed8e2ac0a7ec6e4-----------------------------2017-12-19 17:52:46.4988---------------------------
-请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/Inventory,发送报文:{"fulfillment_nodes":[{"fulfillment_node_id":"","quantity":0}]}

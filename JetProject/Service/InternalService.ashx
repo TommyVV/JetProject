@@ -43,6 +43,9 @@ public class InternalService : IHttpHandler
             case "QueryOrder":
                 result = QueryOrder(request["status"],request["isCancel"],request["nodeId"]);
                 break;
+            case "QueryOrderDetail":
+                result = QueryOrderDetail(request["jetDefinedOrderId"]);
+                break;
             default:
                 break;
 
@@ -62,6 +65,25 @@ public class InternalService : IHttpHandler
             var response = JsonConvert.DeserializeObject<Dictionary<string, object>>(result);
             var orderUrls = response["order_urls"].ToString();
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\",\"orderList\":" + orderUrls + "}";
+        }
+        catch (TransactionException ex)
+        {
+            return "{\"returnCode\":\""+ex.ErrorCode+"\",\"returnMessage\":\""+ex.ErrorMessage+"\"}";
+        }
+        catch (Exception e)
+        {
+            logger.Error(e);
+            return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
+        }
+    }
+
+    private string QueryOrderDetail(string jetDefinedOrderId)
+    {
+        try
+        {
+            var url =$"https://merchant-api.jet.com/api/orders/withoutShipmentDetail/{jetDefinedOrderId}";
+            var result = GetData(url);
+            return result;
         }
         catch (TransactionException ex)
         {
@@ -266,7 +288,7 @@ public class InternalService : IHttpHandler
             {
                 if (!islast)
                 {
-                    GetToken(last:true);
+                    GetToken(needRefresh: true,last:true);
                 }
                 else
                 {
@@ -349,7 +371,7 @@ public class InternalService : IHttpHandler
             {
                 if (!islast)
                 {
-                    GetToken();
+                    GetToken(needRefresh: true,last:true);
                 }
                 else
                 {
