@@ -64,7 +64,7 @@
                             <li><a href="SKUUpload.html">SKU Upload</a></li>
                             <li><a href="SearchSKU.html">Search SKU</a></li>
                             <li><a href="PriceUpload.html">Price Upload</a></li>
-                            <li><a href="Inventoryupload.html">invenotry Upload</a></li>
+                            <li><a href="SearchInventory.html">invenotry Manager</a></li>
                         </ul>
                     </li>
 
@@ -117,7 +117,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 col-sm-2 control-label">fulfillment_node</label>
+                                    <label class="col-sm-2 col-sm-2 control-label">fulfillment node</label>
                                     <div class="col-sm-10">
                                         <input type="text" class="form-control" id="nodeId" for="inputError">
                                     </div>
@@ -141,9 +141,9 @@
                                 <hr>
                                 <thead>
                                     <tr>
-                                        <th><i class="fa fa-bullhorn"></i> jet_defined_order_id </th>
+                                        <th><i class="fa fa-bullhorn"></i> jet defined order id </th>
                                         <th><i class=" fa fa-edit"></i> Status</th>
-                                        <th></th>
+                                        <th><i class=" fa fa-edit"></i> ViewDetail</th>
                                     </tr>
                                 </thead>
                                 <tbody id="orders"></tbody>
@@ -202,6 +202,7 @@
                 $("#nodeId").focus();
                 return;
             }
+            $("#orders").html('');
             $.ajax({
                 url: "Service/InternalService.ashx?t=QueryOrder&status=" + status + "&isCancel=" + cancel + "&nodeId=" + nodeId,
                 cache: false,
@@ -216,7 +217,7 @@
                                         var orderId = order.split('/')[3];
 
                                         var s =
-                                            '<td>' + orderId + '</td><td><span class="label label-info label-mini">Due</span></td><td><a target="_blank" href="orderDetail.html?jetDefinedOrderId=' + orderId + '"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a></td>';
+                                            '<tr><td>' + orderId + '</td><td><span class="label label-info label-mini">Due</span></td><td><a target="_blank" href="orderDetail.html?jetDefinedOrderId=' + orderId + '"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a></td></tr>';
                                         orders.append(s);
                                     });
                             }

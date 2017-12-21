@@ -46,12 +46,56 @@ public class InternalService : IHttpHandler
             case "QueryOrderDetail":
                 result = QueryOrderDetail(request["jetDefinedOrderId"]);
                 break;
+            case "AcknowledgeOrder":
+                result = AcknowledgeOrder(request["data"],request["jetDefinedOrderId"]);
+                break;
+            case "ShipOrder":
+                result = ShipOrder(request["data"],request["jetDefinedOrderId"]);
+                break;
             default:
                 break;
 
         }
         context.Response.ContentType = "application/json";
         context.Response.Write(result);
+    }
+
+    private string AcknowledgeOrder(string data,string jetDefinedOrderId)
+    {
+        try
+        {
+            var url = $"https://merchant-api.jet.com/api/orders/{jetDefinedOrderId}/acknowledge";
+            PostData(url, data, "PUT");
+            return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\"}";
+        }
+        catch (TransactionException ex)
+        {
+            return "{\"returnCode\":\"" + ex.ErrorCode + "\",\"returnMessage\":\"" + ex.ErrorMessage + "\"}";
+        }
+        catch (Exception e)
+        {
+            logger.Error(e);
+            return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
+        }
+    }
+
+    private string ShipOrder(string data,string jetDefinedOrderId)
+    {
+        try
+        {
+            var url = $"https://merchant-api.jet.com/api/orders/{jetDefinedOrderId}/shipped";
+            PostData(url, data, "PUT");
+            return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\"}";
+        }
+        catch (TransactionException ex)
+        {
+            return "{\"returnCode\":\"" + ex.ErrorCode + "\",\"returnMessage\":\"" + ex.ErrorMessage + "\"}";
+        }
+        catch (Exception e)
+        {
+            logger.Error(e);
+            return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
+        }
     }
 
     private string QueryOrder(string status, string isCancel, string nodeId)

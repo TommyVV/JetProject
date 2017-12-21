@@ -1,0 +1,2836 @@
+
+a107f40376624b9bb1f8ad4d38535d85-----------------------------2017-12-21 13:15:37.2741---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513833331618
+
+5b7c07e2944949a79b444c4507a61f64-----------------------------2017-12-21 13:15:37.3171---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+cad2007c840447a58407dfe8e02e541e-----------------------------2017-12-21 13:15:39.0524---------------------------
+请求服务获得返回:{
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+1fab181e2f464b588b7b39a387c23190-----------------------------2017-12-21 13:21:46.2445---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513833702012
+
+e054e0b9a5df435db1b446d15b8fca22-----------------------------2017-12-21 13:21:46.2445---------------------------
+/Service/InternalService.ashx?t=AcknowledgeOrder&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&data={%22acknowledgement_status%22:%22accepted%22,%22alt_order_id%22:%22%22,%22order_items%22:%22[%22]}&_=1513833702013
+
+b420e2c3e3fa455caa44d2a9effcaeaf-----------------------------2017-12-21 13:22:27.8298---------------------------
+/Service/InternalService.ashx?t=AcknowledgeOrder&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&data={%22acknowledgement_status%22:%22accepted%22,%22alt_order_id%22:%22%22,%22order_items%22:%22[%22]}&_=1513833702014
+
+950e166a34b54f028902f7b4f68834ce-----------------------------2017-12-21 13:22:33.9996---------------------------
+/Service/InternalService.ashx?t=AcknowledgeOrder&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&data={%22acknowledgement_status%22:%22accepted%22,%22alt_order_id%22:%22%22,%22order_items%22:%22[%22]}&_=1513833741437
+
+29005cc144054f0c8164f89b7c8d7f30-----------------------------2017-12-21 13:22:34.0066---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513833741436
+
+21480a5fe09d4d1db8ce64b6fb126b62-----------------------------2017-12-21 13:22:38.7267---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/4f2fc03aa4c545da93862efb727a6071/acknowledge,发送报文:{"acknowledgement_status":"accepted","alt_order_id":"","order_items":"["]}
+
+8f719c5845214395965f8120d76a93cd-----------------------------2017-12-21 13:22:38.7267---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+f391e1abe79542139eef2fb7e4fc879f-----------------------------2017-12-21 13:22:38.7267---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+a86fcbdcbb184b11813d56aff31b1cf2-----------------------------2017-12-21 13:22:38.7267---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/4f2fc03aa4c545da93862efb727a6071/acknowledge,发送报文:{"acknowledgement_status":"accepted","alt_order_id":"","order_items":"["]}
+
+1fc7baecd8ad43ffb648b17d77f99efc-----------------------------2017-12-21 13:22:38.7267---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/4f2fc03aa4c545da93862efb727a6071/acknowledge,发送报文:{"acknowledgement_status":"accepted","alt_order_id":"","order_items":"["]}
+
+ef083ff19d2a4434a858dec97a227d0e-----------------------------2017-12-21 13:22:40.0219---------------------------
+请求服务获得返回:{
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+a36f8a195f38437791d25836966f490e-----------------------------2017-12-21 13:22:41.3383---------------------------
+请求服务获得返回:{
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+0e643c263c7b4f50a02cfcf1ee6c820a-----------------------------2017-12-21 13:22:52.9495---------------------------
+/Service/InternalService.ashx?t=AcknowledgeOrder&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&data={%22acknowledgement_status%22:%22accepted%22,%22alt_order_id%22:%22873699361761%22,%22order_items%22:%22[%22{%22order_item_acknowledgement_status%22:%22fulfillable%22,%22order_item_id%22:%221ed8a5e1619f492987f18c521e827127%22}]}&_=1513833741438
+
+7fc2e8c4ca3241d98f6c0b9d8337ce61-----------------------------2017-12-21 13:22:54.9290---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/4f2fc03aa4c545da93862efb727a6071/acknowledge,发送报文:{"acknowledgement_status":"accepted","alt_order_id":"873699361761","order_items":"["{"order_item_acknowledgement_status":"fulfillable","order_item_id":"1ed8a5e1619f492987f18c521e827127"}]}
+
+eaa2573ce9744e9abc2021e07dbd7f2f-----------------------------2017-12-21 13:23:04.5409---------------------------
+/Service/InternalService.ashx?t=AcknowledgeOrder&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&data={%22acknowledgement_status%22:%22accepted%22,%22alt_order_id%22:%22873699361761%22,%22order_items%22:%22[%22{%22order_item_acknowledgement_status%22:%22fulfillable%22,%22order_item_id%22:%221ed8a5e1619f492987f18c521e827127%22}]}&_=1513833741439
+
+e762e9945a3f49fb978ac05da430a4b1-----------------------------2017-12-21 13:23:47.5157---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/4f2fc03aa4c545da93862efb727a6071/acknowledge,发送报文:{"acknowledgement_status":"accepted","alt_order_id":"873699361761","order_items":"["{"order_item_acknowledgement_status":"fulfillable","order_item_id":"1ed8a5e1619f492987f18c521e827127"}]}
+
+0bb67447126f4875a0137d1fe3bf95ae-----------------------------2017-12-21 13:24:11.7770---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513833851701
+
+851d00699db64a6caa2c78c84121cfd1-----------------------------2017-12-21 13:24:13.9569---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+8ad81220c2364207823a02867a8eb853-----------------------------2017-12-21 13:24:15.0054---------------------------
+请求服务获得返回:{
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+b8af21142f5449edb8fa744f3cf57964-----------------------------2017-12-21 13:24:18.4710---------------------------
+/Service/InternalService.ashx?t=AcknowledgeOrder&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&data={%22acknowledgement_status%22:%22accepted%22,%22alt_order_id%22:%22873699361761%22,%22order_items%22:[{%22order_item_acknowledgement_status%22:%22fulfillable%22,%22order_item_id%22:%221ed8a5e1619f492987f18c521e827127%22}]}&_=1513833851702
+
+73719bf12a8d4cd1a397dc27545fd183-----------------------------2017-12-21 13:24:23.1905---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/4f2fc03aa4c545da93862efb727a6071/acknowledge,发送报文:{"acknowledgement_status":"accepted","alt_order_id":"873699361761","order_items":[{"order_item_acknowledgement_status":"fulfillable","order_item_id":"1ed8a5e1619f492987f18c521e827127"}]}
+
+f6661ad50fd14714b40adfa1403b5932-----------------------------2017-12-21 13:33:19.2985---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=1234&_=1513834395579
+
+1a3edf35ee1a403d859262367e764819-----------------------------2017-12-21 13:33:19.2985---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1234/inventory
+
+dda5743e21404884a10f1e828d6e57db-----------------------------2017-12-21 13:33:20.3163---------------------------
+请求服务获得返回:{
+  "fulfillment_nodes": [
+    {
+      "fulfillment_node_id": "80a760157ee64efcabda2dd6c0a4f71a",
+      "quantity": 100
+    }
+  ],
+  "inventory_last_update": "2017-12-21T05:29:54+00:00"
+}
+
+e5c408386f0d4a838d327bf51e1798c3-----------------------------2017-12-21 13:33:40.9762---------------------------
+/Service/InternalService.ashx?t=PriceUpload&skuId=1234&price=21&_=1513834416536
+
+9276352534bd4b48ab6f237307e68fd8-----------------------------2017-12-21 13:33:40.9762---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1234/price,发送报文:{"price":21}
+
+8d3579f093654d5e95ac47417aaa716b-----------------------------2017-12-21 13:34:49.2338---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513834470154
+
+6460a829cb534b3b9112e85d72ce6a7d-----------------------------2017-12-21 13:34:52.0244---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+9a2e16557c09485b96e6adb496c0197f-----------------------------2017-12-21 13:34:52.2826---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/8eaf3736eded4c988478e687b04d37de",
+    "/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e"
+  ]
+}
+
+e5e19abafec84f5eb26416c96f17cc12-----------------------------2017-12-21 13:34:58.5611---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=9ecbac5af5244424a2727c325725533e&_=1513834498514
+
+c96ad7c9f19b454ca56c56dd25dea380-----------------------------2017-12-21 13:34:58.5611---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e
+
+9c534073f4ba4b698aa89737b9f87a91-----------------------------2017-12-21 13:34:59.0865---------------------------
+请求服务获得返回:{
+  "alt_order_id": "087882510526",
+  "buyer": {
+    "name": "Maggie Simpson",
+    "phone_number": "212-212-5508"
+  },
+  "customer_reference_order_id": "954569093598",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "580412499853@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Standard",
+    "request_ship_by": "2017-12-22T05:34:19.1979083Z",
+    "request_delivery_by": "2017-12-23T05:34:19.1979083Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 3.69,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    },
+    {
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:19.1979083Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 4.74,
+      "item_shipping_tax": null,
+      "base_price": 144
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:19.1979083Z",
+  "reference_order_id": "146066449050",
+  "shipping_to": {
+    "recipient": {
+      "name": "Homer Simpson",
+      "phone_number": "212-212-7042"
+    },
+    "address": {
+      "address1": "55 Birch street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+c63ce0c24ce0464891a65727b510d66e-----------------------------2017-12-21 13:38:14.4294---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=9ecbac5af5244424a2727c325725533e&_=1513834690662
+
+f04464e8ffd148fb89adbfedc5e96718-----------------------------2017-12-21 13:38:14.4294---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e
+
+a212a47d53304fac8283da85ba7e38d1-----------------------------2017-12-21 13:38:15.4562---------------------------
+请求服务获得返回:{
+  "alt_order_id": "087882510526",
+  "buyer": {
+    "name": "Maggie Simpson",
+    "phone_number": "212-212-5508"
+  },
+  "customer_reference_order_id": "954569093598",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "580412499853@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Standard",
+    "request_ship_by": "2017-12-22T05:34:19.1979083Z",
+    "request_delivery_by": "2017-12-23T05:34:19.1979083Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 3.69,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    },
+    {
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:19.1979083Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 4.74,
+      "item_shipping_tax": null,
+      "base_price": 144
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:19.1979083Z",
+  "reference_order_id": "146066449050",
+  "shipping_to": {
+    "recipient": {
+      "name": "Homer Simpson",
+      "phone_number": "212-212-7042"
+    },
+    "address": {
+      "address1": "55 Birch street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+17c2f90b93814dadbeb1f707a4b2877d-----------------------------2017-12-21 13:38:20.8202---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=9ecbac5af5244424a2727c325725533e&_=1513834700777
+
+a8e5ba595cda4b6ab25bdfc6c7bf7209-----------------------------2017-12-21 13:38:20.8202---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e
+
+41de7654a5784c95b8c8bbbd354de165-----------------------------2017-12-21 13:38:21.0754---------------------------
+请求服务获得返回:{
+  "alt_order_id": "087882510526",
+  "buyer": {
+    "name": "Maggie Simpson",
+    "phone_number": "212-212-5508"
+  },
+  "customer_reference_order_id": "954569093598",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "580412499853@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Standard",
+    "request_ship_by": "2017-12-22T05:34:19.1979083Z",
+    "request_delivery_by": "2017-12-23T05:34:19.1979083Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 3.69,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    },
+    {
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:19.1979083Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 4.74,
+      "item_shipping_tax": null,
+      "base_price": 144
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:19.1979083Z",
+  "reference_order_id": "146066449050",
+  "shipping_to": {
+    "recipient": {
+      "name": "Homer Simpson",
+      "phone_number": "212-212-7042"
+    },
+    "address": {
+      "address1": "55 Birch street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+60fd2a4a59144d1f90e7772b06eaaada-----------------------------2017-12-21 13:38:54.0934---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=9ecbac5af5244424a2727c325725533e&_=1513834734055
+
+757dc1768d6c4f25b9880bc141d2033c-----------------------------2017-12-21 13:38:54.0934---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e
+
+3542953919cf4f48854ecdc40e8c72e6-----------------------------2017-12-21 13:38:54.6679---------------------------
+请求服务获得返回:{
+  "alt_order_id": "087882510526",
+  "buyer": {
+    "name": "Maggie Simpson",
+    "phone_number": "212-212-5508"
+  },
+  "customer_reference_order_id": "954569093598",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "580412499853@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Standard",
+    "request_ship_by": "2017-12-22T05:34:19.1979083Z",
+    "request_delivery_by": "2017-12-23T05:34:19.1979083Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 3.69,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    },
+    {
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:19.1979083Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 4.74,
+      "item_shipping_tax": null,
+      "base_price": 144
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:19.1979083Z",
+  "reference_order_id": "146066449050",
+  "shipping_to": {
+    "recipient": {
+      "name": "Homer Simpson",
+      "phone_number": "212-212-7042"
+    },
+    "address": {
+      "address1": "55 Birch street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+75e46830dca34901b85a8151d2593f81-----------------------------2017-12-21 13:39:28.2584---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=9ecbac5af5244424a2727c325725533e&_=1513834768215
+
+4f9f338682004ecb9d1159d6341a646e-----------------------------2017-12-21 13:39:28.2584---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e
+
+5662ea05c6a348a7b2229e8fc9c20508-----------------------------2017-12-21 13:39:29.1231---------------------------
+请求服务获得返回:{
+  "alt_order_id": "087882510526",
+  "buyer": {
+    "name": "Maggie Simpson",
+    "phone_number": "212-212-5508"
+  },
+  "customer_reference_order_id": "954569093598",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "580412499853@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Standard",
+    "request_ship_by": "2017-12-22T05:34:19.1979083Z",
+    "request_delivery_by": "2017-12-23T05:34:19.1979083Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 3.69,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    },
+    {
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:19.1979083Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 4.74,
+      "item_shipping_tax": null,
+      "base_price": 144
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:19.1979083Z",
+  "reference_order_id": "146066449050",
+  "shipping_to": {
+    "recipient": {
+      "name": "Homer Simpson",
+      "phone_number": "212-212-7042"
+    },
+    "address": {
+      "address1": "55 Birch street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+0e74dfff907041d38ab6b75c9eba95b2-----------------------------2017-12-21 13:40:12.7897---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=9ecbac5af5244424a2727c325725533e&_=1513834812746
+
+5c940490f9c549bbbe177f9d1642d401-----------------------------2017-12-21 13:40:12.7897---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e
+
+2c1e4d4f56b948f1aff255f842cd1633-----------------------------2017-12-21 13:40:13.0799---------------------------
+请求服务获得返回:{
+  "alt_order_id": "087882510526",
+  "buyer": {
+    "name": "Maggie Simpson",
+    "phone_number": "212-212-5508"
+  },
+  "customer_reference_order_id": "954569093598",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "580412499853@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Standard",
+    "request_ship_by": "2017-12-22T05:34:19.1979083Z",
+    "request_delivery_by": "2017-12-23T05:34:19.1979083Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 3.69,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    },
+    {
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:19.1979083Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 4.74,
+      "item_shipping_tax": null,
+      "base_price": 144
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:19.1979083Z",
+  "reference_order_id": "146066449050",
+  "shipping_to": {
+    "recipient": {
+      "name": "Homer Simpson",
+      "phone_number": "212-212-7042"
+    },
+    "address": {
+      "address1": "55 Birch street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+196861ecc5b2402a93f6dcbb2d0568de-----------------------------2017-12-21 13:40:58.7051---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=9ecbac5af5244424a2727c325725533e&_=1513834858664
+
+7d74cd144f7c4df2a73b67b84382e3ce-----------------------------2017-12-21 13:40:58.7051---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e
+
+b05671d3944741fba145506a8e42c161-----------------------------2017-12-21 13:40:59.2465---------------------------
+请求服务获得返回:{
+  "alt_order_id": "087882510526",
+  "buyer": {
+    "name": "Maggie Simpson",
+    "phone_number": "212-212-5508"
+  },
+  "customer_reference_order_id": "954569093598",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "580412499853@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Standard",
+    "request_ship_by": "2017-12-22T05:34:19.1979083Z",
+    "request_delivery_by": "2017-12-23T05:34:19.1979083Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 3.69,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    },
+    {
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:19.1979083Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 4.74,
+      "item_shipping_tax": null,
+      "base_price": 144
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:19.1979083Z",
+  "reference_order_id": "146066449050",
+  "shipping_to": {
+    "recipient": {
+      "name": "Homer Simpson",
+      "phone_number": "212-212-7042"
+    },
+    "address": {
+      "address1": "55 Birch street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+9ec5400a33bb412b8e796bccaad03c59-----------------------------2017-12-21 13:41:17.6398---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=9ecbac5af5244424a2727c325725533e&_=1513834877586
+
+3e2a73d38a7642e7aa4f8b1d5eecebe9-----------------------------2017-12-21 13:41:17.6398---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e
+
+2925ebceb4ac4a7d99c0d70d12008d52-----------------------------2017-12-21 13:41:17.9001---------------------------
+请求服务获得返回:{
+  "alt_order_id": "087882510526",
+  "buyer": {
+    "name": "Maggie Simpson",
+    "phone_number": "212-212-5508"
+  },
+  "customer_reference_order_id": "954569093598",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "580412499853@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Standard",
+    "request_ship_by": "2017-12-22T05:34:19.1979083Z",
+    "request_delivery_by": "2017-12-23T05:34:19.1979083Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 3.69,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    },
+    {
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:19.1979083Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 4.74,
+      "item_shipping_tax": null,
+      "base_price": 144
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:19.1979083Z",
+  "reference_order_id": "146066449050",
+  "shipping_to": {
+    "recipient": {
+      "name": "Homer Simpson",
+      "phone_number": "212-212-7042"
+    },
+    "address": {
+      "address1": "55 Birch street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+c0711f94e02842a3968af24b7fe1a3ac-----------------------------2017-12-21 13:41:31.0930---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=9ecbac5af5244424a2727c325725533e&_=1513834891051
+
+3c6cb9e567ab466c9e4cd921caa5d576-----------------------------2017-12-21 13:41:31.0930---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e
+
+efd19f42f0864d4a93f5e041dd6ba75f-----------------------------2017-12-21 13:41:31.6774---------------------------
+请求服务获得返回:{
+  "alt_order_id": "087882510526",
+  "buyer": {
+    "name": "Maggie Simpson",
+    "phone_number": "212-212-5508"
+  },
+  "customer_reference_order_id": "954569093598",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "580412499853@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Standard",
+    "request_ship_by": "2017-12-22T05:34:19.1979083Z",
+    "request_delivery_by": "2017-12-23T05:34:19.1979083Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 3.69,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    },
+    {
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:19.1979083Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 4.74,
+      "item_shipping_tax": null,
+      "base_price": 144
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:19.1979083Z",
+  "reference_order_id": "146066449050",
+  "shipping_to": {
+    "recipient": {
+      "name": "Homer Simpson",
+      "phone_number": "212-212-7042"
+    },
+    "address": {
+      "address1": "55 Birch street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+82cffb846791460384ba847cdd11cda0-----------------------------2017-12-21 13:42:01.3890---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=9ecbac5af5244424a2727c325725533e&_=1513834921347
+
+dcf7be33f84f47b3acd549f07bfcf8cc-----------------------------2017-12-21 13:42:01.3890---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e
+
+2e4cd3929c0a45b2b041800d6ac3d01c-----------------------------2017-12-21 13:42:01.6582---------------------------
+请求服务获得返回:{
+  "alt_order_id": "087882510526",
+  "buyer": {
+    "name": "Maggie Simpson",
+    "phone_number": "212-212-5508"
+  },
+  "customer_reference_order_id": "954569093598",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "580412499853@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Standard",
+    "request_ship_by": "2017-12-22T05:34:19.1979083Z",
+    "request_delivery_by": "2017-12-23T05:34:19.1979083Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 3.69,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    },
+    {
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:19.1979083Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 4.74,
+      "item_shipping_tax": null,
+      "base_price": 144
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:19.1979083Z",
+  "reference_order_id": "146066449050",
+  "shipping_to": {
+    "recipient": {
+      "name": "Homer Simpson",
+      "phone_number": "212-212-7042"
+    },
+    "address": {
+      "address1": "55 Birch street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+e5290cb3ce694241adc82b4fc16ec627-----------------------------2017-12-21 13:42:12.3294---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=9ecbac5af5244424a2727c325725533e&_=1513834932288
+
+6993ee49f5bf4b1e9c3dfb255493e320-----------------------------2017-12-21 13:42:12.3294---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e
+
+2d11604886894238aa47d32b0678325c-----------------------------2017-12-21 13:42:12.5826---------------------------
+请求服务获得返回:{
+  "alt_order_id": "087882510526",
+  "buyer": {
+    "name": "Maggie Simpson",
+    "phone_number": "212-212-5508"
+  },
+  "customer_reference_order_id": "954569093598",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "580412499853@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Standard",
+    "request_ship_by": "2017-12-22T05:34:19.1979083Z",
+    "request_delivery_by": "2017-12-23T05:34:19.1979083Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 3.69,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    },
+    {
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:19.1979083Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 4.74,
+      "item_shipping_tax": null,
+      "base_price": 144
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:19.1979083Z",
+  "reference_order_id": "146066449050",
+  "shipping_to": {
+    "recipient": {
+      "name": "Homer Simpson",
+      "phone_number": "212-212-7042"
+    },
+    "address": {
+      "address1": "55 Birch street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+78358e5687f64394922276dad6eb33f3-----------------------------2017-12-21 13:44:32.3274---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=9ecbac5af5244424a2727c325725533e&_=1513835072285
+
+91478c28ab8547ed8ace566195888c2e-----------------------------2017-12-21 13:44:32.3274---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e
+
+00f18c27547842728da2998cdae9082d-----------------------------2017-12-21 13:44:33.4782---------------------------
+请求服务获得返回:{
+  "alt_order_id": "087882510526",
+  "buyer": {
+    "name": "Maggie Simpson",
+    "phone_number": "212-212-5508"
+  },
+  "customer_reference_order_id": "954569093598",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "580412499853@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Standard",
+    "request_ship_by": "2017-12-22T05:34:19.1979083Z",
+    "request_delivery_by": "2017-12-23T05:34:19.1979083Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 3.69,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    },
+    {
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:19.1979083Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 4.74,
+      "item_shipping_tax": null,
+      "base_price": 144
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:19.1979083Z",
+  "reference_order_id": "146066449050",
+  "shipping_to": {
+    "recipient": {
+      "name": "Homer Simpson",
+      "phone_number": "212-212-7042"
+    },
+    "address": {
+      "address1": "55 Birch street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+b5eef39961164240b7b0a82f1be222e3-----------------------------2017-12-21 13:44:59.7639---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=created&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513835091247
+
+058f8b5a76544302b929524b0f4d890b-----------------------------2017-12-21 13:44:59.7659---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/created?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+2546a7f1eb4843e3945f0689647a107f-----------------------------2017-12-21 13:45:00.3073---------------------------
+请求服务获得返回:{
+  "order_urls": []
+}
+
+a44f2a678f55422fb3d1562da73f6684-----------------------------2017-12-21 13:45:04.9787---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=acknowledged&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513835091248
+
+8bf344028d2544498d7bbd82698750db-----------------------------2017-12-21 13:45:04.9787---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/acknowledged?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+933bdd8009024b9a8a03cd56cc696d5d-----------------------------2017-12-21 13:45:05.2690---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071"
+  ]
+}
+
+1ae5d1f1ce354baf83debca72d523cb5-----------------------------2017-12-21 13:45:07.4201---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513835107372
+
+e31d6f35a9014512a3c97419300044b2-----------------------------2017-12-21 13:45:07.4211---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+e2632fc817ea400bafebc3dd77f930e7-----------------------------2017-12-21 13:45:07.7047---------------------------
+请求服务获得返回:{
+  "acknowledgement_status": "accepted",
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_acknowledge_date": "2017-12-21T05:24:24Z",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233",
+      "order_item_acknowledgement_status": "fulfillable"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "acknowledged"
+}
+
+b0bed76fb6be46dba8eed815a00d732d-----------------------------2017-12-21 13:46:30.5278---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513835190483
+
+8604fb2bd24441139e150677228130cb-----------------------------2017-12-21 13:46:30.5278---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+3147aee52f16435aaaf5f1935be9863e-----------------------------2017-12-21 13:46:31.1293---------------------------
+请求服务获得返回:{
+  "acknowledgement_status": "accepted",
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_acknowledge_date": "2017-12-21T05:24:24Z",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233",
+      "order_item_acknowledgement_status": "fulfillable"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "acknowledged"
+}
+
+0d0829ae96174bd798ceec5cb73c69c7-----------------------------2017-12-21 13:46:47.8158---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513835207773
+
+31790af0116b43878d0ddda6ebf3ebf2-----------------------------2017-12-21 13:46:47.8158---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+5a009cc1f4e2423385f5bafe0b46ac6d-----------------------------2017-12-21 13:46:48.4424---------------------------
+请求服务获得返回:{
+  "acknowledgement_status": "accepted",
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_acknowledge_date": "2017-12-21T05:24:24Z",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233",
+      "order_item_acknowledgement_status": "fulfillable"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "acknowledged"
+}
+
+f45e9fb7caac48b3bbbf7b9c44d88769-----------------------------2017-12-21 13:47:27.0396---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513835246999
+
+8067a198d76c4fe98ca56f0761c5369c-----------------------------2017-12-21 13:47:27.0396---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+32089ecb81f94750bbd061ff4b706430-----------------------------2017-12-21 13:47:27.2978---------------------------
+请求服务获得返回:{
+  "acknowledgement_status": "accepted",
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_acknowledge_date": "2017-12-21T05:24:24Z",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233",
+      "order_item_acknowledgement_status": "fulfillable"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "acknowledged"
+}
+
+2b2c64ffb3ab4aac92fbce299bb58088-----------------------------2017-12-21 13:47:59.8080---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513835279767
+
+033b435072174a2ba249de87c584fef3-----------------------------2017-12-21 13:47:59.8080---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+6e1c18cee0584d8ebe9c875c8980dde9-----------------------------2017-12-21 13:48:00.0672---------------------------
+请求服务获得返回:{
+  "acknowledgement_status": "accepted",
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_acknowledge_date": "2017-12-21T05:24:24Z",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233",
+      "order_item_acknowledgement_status": "fulfillable"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "acknowledged"
+}
+
+ce482c03fd1442528eab02c4d26f0026-----------------------------2017-12-21 13:48:52.9841---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513835332898
+
+ab867d3128d6434aacabcfd1552e61ed-----------------------------2017-12-21 13:48:52.9861---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+e8e5de3eec1d461ba36e661b470cf6db-----------------------------2017-12-21 13:48:53.6910---------------------------
+请求服务获得返回:{
+  "acknowledgement_status": "accepted",
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_acknowledge_date": "2017-12-21T05:24:24Z",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233",
+      "order_item_acknowledgement_status": "fulfillable"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "acknowledged"
+}
+
+dcb7f73b305f4f0886c2149e4ef4f9ef-----------------------------2017-12-21 13:48:56.3445---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513835336266
+
+6ca5914425e44696ac6876dd9667fa5e-----------------------------2017-12-21 13:48:56.3445---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+4b7b02ae23c74762ac5d4d03ced6af29-----------------------------2017-12-21 13:48:56.6577---------------------------
+请求服务获得返回:{
+  "acknowledgement_status": "accepted",
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_acknowledge_date": "2017-12-21T05:24:24Z",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233",
+      "order_item_acknowledgement_status": "fulfillable"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "acknowledged"
+}
+
+fe80dfa29d2844638f066473346e2aea-----------------------------2017-12-21 13:49:19.6930---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513835352408
+
+90b7fb06d7dd4d0f87f4a044f79e8ad3-----------------------------2017-12-21 13:49:19.6930---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+4dd5af42594d4c3bbeee80a1772dd595-----------------------------2017-12-21 13:49:19.9572---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/8eaf3736eded4c988478e687b04d37de",
+    "/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e"
+  ]
+}
+
+ca4bf315219248699ec9f15630fcdbbc-----------------------------2017-12-21 13:49:22.8069---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=8eaf3736eded4c988478e687b04d37de&_=1513835362772
+
+8af60697841b4689ad390c3759b74bc6-----------------------------2017-12-21 13:49:22.8069---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/8eaf3736eded4c988478e687b04d37de
+
+527abe75d63143dcac8e5c6a8601b58a-----------------------------2017-12-21 13:49:23.1151---------------------------
+请求服务获得返回:{
+  "alt_order_id": "574923840190",
+  "buyer": {
+    "name": "Bart Simpson",
+    "phone_number": "212-212-7331"
+  },
+  "customer_reference_order_id": "909963099444",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "162447635605@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "8eaf3736eded4c988478e687b04d37de",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "UPS",
+    "request_service_level": "Scheduled (freight)",
+    "request_ship_by": "2017-12-22T05:34:04.3641936Z",
+    "request_delivery_by": "2017-12-23T05:34:04.3641936Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "4d0b6daacd634af480ead7f4cebf7a03",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:04.3641936Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 1.05,
+      "item_shipping_tax": null,
+      "base_price": 21
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:04.3641936Z",
+  "reference_order_id": "343006488184",
+  "shipping_to": {
+    "recipient": {
+      "name": "Lisa Simpson",
+      "phone_number": "212-212-6118"
+    },
+    "address": {
+      "address1": "78 Birch street",
+      "address2": "",
+      "city": "Old Cairo",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+63a16c628127452c80a2a555ecda3304-----------------------------2017-12-21 13:49:50.0260---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=8eaf3736eded4c988478e687b04d37de&_=1513835389994
+
+1a8d0c8d6d164392899ae613bf489911-----------------------------2017-12-21 13:49:50.0260---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/8eaf3736eded4c988478e687b04d37de
+
+5d70313febd14b79bd49e798dbc1f39a-----------------------------2017-12-21 13:49:50.5634---------------------------
+请求服务获得返回:{
+  "alt_order_id": "574923840190",
+  "buyer": {
+    "name": "Bart Simpson",
+    "phone_number": "212-212-7331"
+  },
+  "customer_reference_order_id": "909963099444",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "162447635605@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "8eaf3736eded4c988478e687b04d37de",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "UPS",
+    "request_service_level": "Scheduled (freight)",
+    "request_ship_by": "2017-12-22T05:34:04.3641936Z",
+    "request_delivery_by": "2017-12-23T05:34:04.3641936Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "4d0b6daacd634af480ead7f4cebf7a03",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:04.3641936Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 1.05,
+      "item_shipping_tax": null,
+      "base_price": 21
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:04.3641936Z",
+  "reference_order_id": "343006488184",
+  "shipping_to": {
+    "recipient": {
+      "name": "Lisa Simpson",
+      "phone_number": "212-212-6118"
+    },
+    "address": {
+      "address1": "78 Birch street",
+      "address2": "",
+      "city": "Old Cairo",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+1a2221dd58cf42b0a9c45005c0b594a7-----------------------------2017-12-21 13:50:28.4309---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=8eaf3736eded4c988478e687b04d37de&_=1513835428390
+
+bd62c093a45448c09802c416e46f73a1-----------------------------2017-12-21 13:50:28.4309---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/8eaf3736eded4c988478e687b04d37de
+
+ceaf361060704639b17d8aab3045fd68-----------------------------2017-12-21 13:50:28.9833---------------------------
+请求服务获得返回:{
+  "alt_order_id": "574923840190",
+  "buyer": {
+    "name": "Bart Simpson",
+    "phone_number": "212-212-7331"
+  },
+  "customer_reference_order_id": "909963099444",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "162447635605@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "8eaf3736eded4c988478e687b04d37de",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "UPS",
+    "request_service_level": "Scheduled (freight)",
+    "request_ship_by": "2017-12-22T05:34:04.3641936Z",
+    "request_delivery_by": "2017-12-23T05:34:04.3641936Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "4d0b6daacd634af480ead7f4cebf7a03",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:04.3641936Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 1.05,
+      "item_shipping_tax": null,
+      "base_price": 21
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:04.3641936Z",
+  "reference_order_id": "343006488184",
+  "shipping_to": {
+    "recipient": {
+      "name": "Lisa Simpson",
+      "phone_number": "212-212-6118"
+    },
+    "address": {
+      "address1": "78 Birch street",
+      "address2": "",
+      "city": "Old Cairo",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+f442e5035c8d403cab4195defc6e7bb0-----------------------------2017-12-21 13:51:28.0826---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513835488031
+
+b862bf549568408dbc6a3aa4b13c93bc-----------------------------2017-12-21 13:51:28.0826---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+5b6e3c3c67924aab8f80b2f3d1a276af-----------------------------2017-12-21 13:51:28.6941---------------------------
+请求服务获得返回:{
+  "acknowledgement_status": "accepted",
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_acknowledge_date": "2017-12-21T05:24:24Z",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233",
+      "order_item_acknowledgement_status": "fulfillable"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "acknowledged"
+}
+
+df05531d663a40b7bd7ddfe0e8d0139c-----------------------------2017-12-21 13:52:02.0084---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513835521895
+
+5a313e004e824636a21f7e0705f12e46-----------------------------2017-12-21 13:52:02.0084---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+e55b4b6b90b04a8d9d9d733ee8d60ada-----------------------------2017-12-21 13:52:02.2640---------------------------
+请求服务获得返回:{
+  "acknowledgement_status": "accepted",
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_acknowledge_date": "2017-12-21T05:24:24Z",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233",
+      "order_item_acknowledgement_status": "fulfillable"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "acknowledged"
+}
+
+90414c5877b14ad0b0cb59393e44db67-----------------------------2017-12-21 13:52:17.3214---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513835537205
+
+b7cf69aa17bc40faa3584d5e022ecaef-----------------------------2017-12-21 13:52:17.3214---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+b8c595f920c54d4c8b99e46cf093b516-----------------------------2017-12-21 13:52:17.6560---------------------------
+请求服务获得返回:{
+  "acknowledgement_status": "accepted",
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_acknowledge_date": "2017-12-21T05:24:24Z",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233",
+      "order_item_acknowledgement_status": "fulfillable"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "acknowledged"
+}
+
+ff678f5b903b49a59a36274caa1a5eda-----------------------------2017-12-21 13:52:51.5335---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513835571481
+
+f554112a8f8646e9b32cc1b6f328840c-----------------------------2017-12-21 13:52:51.5335---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+2784d3eded704a57b6bd202ad2c4f958-----------------------------2017-12-21 13:52:51.8680---------------------------
+请求服务获得返回:{
+  "acknowledgement_status": "accepted",
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_acknowledge_date": "2017-12-21T05:24:24Z",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233",
+      "order_item_acknowledgement_status": "fulfillable"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "acknowledged"
+}
+
+1c59a8ba91cb4cbf992c788a80790719-----------------------------2017-12-21 13:54:51.4365---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=4f2fc03aa4c545da93862efb727a6071&_=1513835691381
+
+362cd15e407a41cfbf8c0c06664b0812-----------------------------2017-12-21 13:54:51.4365---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/4f2fc03aa4c545da93862efb727a6071
+
+1feda05c05fc400295843bd089cedc9e-----------------------------2017-12-21 13:54:52.7364---------------------------
+请求服务获得返回:{
+  "acknowledgement_status": "accepted",
+  "alt_order_id": "873699361761",
+  "buyer": {
+    "name": "Homer Simpson",
+    "phone_number": "212-212-8880"
+  },
+  "customer_reference_order_id": "371871199512",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "591600580804@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "4f2fc03aa4c545da93862efb727a6071",
+  "order_acknowledge_date": "2017-12-21T05:24:24Z",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "SecondDay",
+    "request_ship_by": "2017-12-20T08:36:53.7567923Z",
+    "request_delivery_by": "2017-12-21T08:36:53.7567923Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1ed8a5e1619f492987f18c521e827127",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 2.46,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233",
+      "order_item_acknowledgement_status": "fulfillable"
+    }
+  ],
+  "order_placed_date": "2017-12-19T08:35:53.7567923Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 2.46,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-19T08:36:53.7567923Z",
+  "reference_order_id": "247457272351",
+  "shipping_to": {
+    "recipient": {
+      "name": "Marge Simpson",
+      "phone_number": "212-212-9823"
+    },
+    "address": {
+      "address1": "40 Oak street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "acknowledged"
+}
+
+b0d552a2200d455c8ce9a24473bc26c6-----------------------------2017-12-21 13:55:01.5639---------------------------
+/Service/InternalService.ashx?t=SearchInventory&skuId=1233&_=1513835698930
+
+788d1099a6b748c39d28b8d0cc0c7aa5-----------------------------2017-12-21 13:55:01.5639---------------------------
+请求地址:https://merchant-api.jet.com/api/merchant-skus/1233/inventory
+
+21375de793d54790bcb9698792a649a3-----------------------------2017-12-21 13:55:01.8811---------------------------
+请求服务获得返回:{
+  "fulfillment_nodes": [
+    {
+      "fulfillment_node_id": "80a760157ee64efcabda2dd6c0a4f71a",
+      "quantity": 100
+    }
+  ],
+  "inventory_last_update": "2017-12-21T05:31:06+00:00"
+}
+
+e981e7b9b762431e8ffb0deaf1e2d8d8-----------------------------2017-12-21 13:55:26.3559---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513835707808
+
+fd2aa823172a403aac443452c8eb321d-----------------------------2017-12-21 13:55:26.3559---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+1fff00aac4154794b8e503ae36d7cbec-----------------------------2017-12-21 13:55:26.6391---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/8eaf3736eded4c988478e687b04d37de",
+    "/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e"
+  ]
+}
+
+3bd519cb4bef439cb2b20f6da6ad3781-----------------------------2017-12-21 13:56:30.4639---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513835781972
+
+0dd90d777018419a886955dfce2fdf37-----------------------------2017-12-21 13:56:30.4639---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+f79c585722154df195f961a8bd7c5512-----------------------------2017-12-21 13:56:30.9442---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/8eaf3736eded4c988478e687b04d37de",
+    "/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e"
+  ]
+}
+
+4b11db2f458d4b3abb23b3cc18ec6424-----------------------------2017-12-21 13:56:58.5422---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513835815027
+
+f1c5f422e55c4af09efdfd2be61bdb54-----------------------------2017-12-21 13:56:58.5422---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+3b92287cee5041f0ac11fc987deffa8c-----------------------------2017-12-21 13:56:58.8094---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/8eaf3736eded4c988478e687b04d37de",
+    "/orders/withoutShipmentDetail/9ecbac5af5244424a2727c325725533e"
+  ]
+}
+
+32ccf46b6c9d45ce9ddae666bf580428-----------------------------2017-12-21 13:57:02.4888---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=8eaf3736eded4c988478e687b04d37de&_=1513835822447
+
+10da2d4d4c9141d1b9e0e37890b7a6de-----------------------------2017-12-21 13:57:02.4888---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/8eaf3736eded4c988478e687b04d37de
+
+dbaace0c49b74eb6bde0d16b87dd128d-----------------------------2017-12-21 13:57:02.7492---------------------------
+请求服务获得返回:{
+  "alt_order_id": "574923840190",
+  "buyer": {
+    "name": "Bart Simpson",
+    "phone_number": "212-212-7331"
+  },
+  "customer_reference_order_id": "909963099444",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "162447635605@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "8eaf3736eded4c988478e687b04d37de",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "UPS",
+    "request_service_level": "Scheduled (freight)",
+    "request_ship_by": "2017-12-22T05:34:04.3641936Z",
+    "request_delivery_by": "2017-12-23T05:34:04.3641936Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "4d0b6daacd634af480ead7f4cebf7a03",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:04.3641936Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 1.05,
+      "item_shipping_tax": null,
+      "base_price": 21
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:04.3641936Z",
+  "reference_order_id": "343006488184",
+  "shipping_to": {
+    "recipient": {
+      "name": "Lisa Simpson",
+      "phone_number": "212-212-6118"
+    },
+    "address": {
+      "address1": "78 Birch street",
+      "address2": "",
+      "city": "Old Cairo",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+85e06b2e398040db9670e9730605c643-----------------------------2017-12-21 13:57:50.0826---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=8eaf3736eded4c988478e687b04d37de&_=1513835870048
+
+9d935289b9254d79a2a00be26ae53c07-----------------------------2017-12-21 13:57:50.0826---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/8eaf3736eded4c988478e687b04d37de
+
+333450dea5d445c4bf472fa16d3e8820-----------------------------2017-12-21 13:57:50.6080---------------------------
+请求服务获得返回:{
+  "alt_order_id": "574923840190",
+  "buyer": {
+    "name": "Bart Simpson",
+    "phone_number": "212-212-7331"
+  },
+  "customer_reference_order_id": "909963099444",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "162447635605@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "8eaf3736eded4c988478e687b04d37de",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "UPS",
+    "request_service_level": "Scheduled (freight)",
+    "request_ship_by": "2017-12-22T05:34:04.3641936Z",
+    "request_delivery_by": "2017-12-23T05:34:04.3641936Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "4d0b6daacd634af480ead7f4cebf7a03",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:04.3641936Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 1.05,
+      "item_shipping_tax": null,
+      "base_price": 21
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:04.3641936Z",
+  "reference_order_id": "343006488184",
+  "shipping_to": {
+    "recipient": {
+      "name": "Lisa Simpson",
+      "phone_number": "212-212-6118"
+    },
+    "address": {
+      "address1": "78 Birch street",
+      "address2": "",
+      "city": "Old Cairo",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+03f7150d65de48688514c883d24a5ff0-----------------------------2017-12-21 13:58:08.3456---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=8eaf3736eded4c988478e687b04d37de&_=1513835888242
+
+12db69911ee74c66b698a309aab61458-----------------------------2017-12-21 13:58:08.3456---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/8eaf3736eded4c988478e687b04d37de
+
+f8db126df9df493b95800f7ca21262fa-----------------------------2017-12-21 13:58:08.5958---------------------------
+请求服务获得返回:{
+  "alt_order_id": "574923840190",
+  "buyer": {
+    "name": "Bart Simpson",
+    "phone_number": "212-212-7331"
+  },
+  "customer_reference_order_id": "909963099444",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "162447635605@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "8eaf3736eded4c988478e687b04d37de",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "UPS",
+    "request_service_level": "Scheduled (freight)",
+    "request_ship_by": "2017-12-22T05:34:04.3641936Z",
+    "request_delivery_by": "2017-12-23T05:34:04.3641936Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "4d0b6daacd634af480ead7f4cebf7a03",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:04.3641936Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 1.05,
+      "item_shipping_tax": null,
+      "base_price": 21
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:04.3641936Z",
+  "reference_order_id": "343006488184",
+  "shipping_to": {
+    "recipient": {
+      "name": "Lisa Simpson",
+      "phone_number": "212-212-6118"
+    },
+    "address": {
+      "address1": "78 Birch street",
+      "address2": "",
+      "city": "Old Cairo",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+bb0c9fbf23514111be8a5c8e8b74f31e-----------------------------2017-12-21 13:59:53.3958---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=8eaf3736eded4c988478e687b04d37de&_=1513835993283
+
+31a5c3bf18fb48d4b03a45f13da5f8f6-----------------------------2017-12-21 13:59:53.3958---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/8eaf3736eded4c988478e687b04d37de
+
+a00a19cad8d346aa8a45c7d8f0615a0b-----------------------------2017-12-21 13:59:54.3716---------------------------
+请求服务获得返回:{
+  "alt_order_id": "574923840190",
+  "buyer": {
+    "name": "Bart Simpson",
+    "phone_number": "212-212-7331"
+  },
+  "customer_reference_order_id": "909963099444",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "162447635605@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "8eaf3736eded4c988478e687b04d37de",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "UPS",
+    "request_service_level": "Scheduled (freight)",
+    "request_ship_by": "2017-12-22T05:34:04.3641936Z",
+    "request_delivery_by": "2017-12-23T05:34:04.3641936Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "4d0b6daacd634af480ead7f4cebf7a03",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-21T05:33:04.3641936Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 1.05,
+      "item_shipping_tax": null,
+      "base_price": 21
+    }
+  },
+  "order_transmission_date": "2017-12-21T05:34:04.3641936Z",
+  "reference_order_id": "343006488184",
+  "shipping_to": {
+    "recipient": {
+      "name": "Lisa Simpson",
+      "phone_number": "212-212-6118"
+    },
+    "address": {
+      "address1": "78 Birch street",
+      "address2": "",
+      "city": "Old Cairo",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}

@@ -2245,3 +2245,6 @@ label {
 
 .inline-width{width: 49% !important}
 .width100{width: 100% !important}
+.acknowledge, .ship {
+    display: none
+}
