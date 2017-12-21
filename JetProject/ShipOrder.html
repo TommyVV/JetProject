@@ -193,7 +193,7 @@
                         <div style="text-align: right">
                             <button type="button" class="btn btn-info" id="addNewItem">Add new item</button>
                         </div>
-                        
+
                         <div class="form-panel">
                             <h4 class="mb"><i class="fa fa-angle-right"></i> Submit ship </h4>
                             <div class="alert alert-success"></div>
@@ -232,92 +232,137 @@
     <!--script for this page-->
     <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".alert-success").hide();
-            $(".alert-danger").hide();
-            var i = 1;
-            $("#addNewItem").click(function() {
-                var itemList = $("#itemList");
-                i++;
-                itemList.append(
-                    '<div class="form-panel"><h4 class="mb"><i class="fa fa-angle-right"></i> Ship item #' + i
-                    + '</h4>' +
-                    '<div class="form-horizontal style-form"><div class="form-group"><label class="col-sm-2 col-sm-2 control-label">merchant sku id</label>' +
-                    '<div class="col-sm-10"><input type="text" class="form-control merchant_sku"></div></div><div class="form-group">' +
-                    '<label class="col-sm-2 col-sm-2 control-label">response shipment sku quantity</label><div class="col-sm-10">' +
-                    '<input type="text" class="form-control response_shipment_sku_quantity"></div></div><div class="form-group">' +
-                    '<label class="col-sm-2 col-sm-2 control-label">response shipment cancel qty</label><div class="col-sm-10">' +
-                    '<input type="text" class="form-control response_shipment_cancel_qty"></div></div></div></div>');
-            });
-            $("#submit").click(function () {
-                submitShip();
-            });
+    <script src="laydate/laydate.js"></script>
+<script type="text/javascript">
+    laydate.render({
+        elem: '#response_shipment_date'
+        , type: 'datetime'
+        , lang: 'en'
+    });
+    laydate.render({
+        elem: '#expected_delivery_date'
+        , type: 'datetime'
+        , lang: 'en'
+    });
+    laydate.render({
+        elem: '#carrier_pick_up_date'
+        , type: 'datetime'
+        , lang: 'en'
+    });
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]); return null;
+    }
+    $(document).ready(function () {
+        $(".alert-success").hide();
+        $(".alert-danger").hide();
+        var altOrderId = getQueryString("altOrderId");
+        var jetDefinedOrderId = getQueryString("jetDefinedOrderId");
+        $("#alt_order_id").html(altOrderId);
+        var i = 1;
+        $("#addNewItem").click(function () {
+            var itemList = $("#itemList");
+            i++;
+            itemList.append(
+                '<div class="form-panel"><h4 class="mb"><i class="fa fa-angle-right"></i> Ship item #' + i
+                + '</h4>' +
+                '<div class="form-horizontal style-form"><div class="form-group"><label class="col-sm-2 col-sm-2 control-label">merchant sku id</label>' +
+                '<div class="col-sm-10"><input type="text" class="form-control merchant_sku"></div></div><div class="form-group">' +
+                '<label class="col-sm-2 col-sm-2 control-label">response shipment sku quantity</label><div class="col-sm-10">' +
+                '<input type="text" class="form-control response_shipment_sku_quantity"></div></div><div class="form-group">' +
+                '<label class="col-sm-2 col-sm-2 control-label">response shipment cancel qty</label><div class="col-sm-10">' +
+                '<input type="text" class="form-control response_shipment_cancel_qty"></div></div></div></div>');
         });
+        $("#submit").click(function () {
+            submitShip(jetDefinedOrderId);
+        });
+    });
+    function haha(dateTime) {
+        var d = new Date(dateTime);
+        var localTime = d.getTime();
+        var localOffset=d.getTimezoneOffset()*60000;   //getTimezoneOffset()返回是以分钟为单位，需要转化成ms
+        var utc = localTime + localOffset;
+        offset =9; //以韩国时间为例，东9区
+        korean= utc + (3600000*offset);
+        nd = new Date(korean);
+        console.log("Korean time is " + nd.toLocaleString());
+    }
 
-        function submitShip() {
-            var itemList = $("#itemList").find(".form-panel");
-            var shipmentItems="["
-            $.each(itemList,
-                function(i,item) {
-                    var sku = $(item).find(".merchant_sku").val();
-                    var qty = $(item).find(".response_shipment_sku_quantity").val();
-                    var cancelQty = $(item).find(".response_shipment_cancel_qty").val();
-                    var itemString += '{\"merchant_sku\":\"' +
-                        sku +
-                        '\",\"response_shipment_sku_quantity\":' +
-                        qty +
-                        '\"response_shipment_cancel_qty\":' +
-                        cancelQty +
-                        '}';
-                });
-            shipmentItems += "]";
-            return;
-            $(".alert-success").hide();
-            $(".alert-danger").hide();
-            var skuId = $("#sku-id").val();
-            var quantity = $("#quantity").val();
-            var nodeId = $("#fulfillment-node-id").val();
-            if (!skuId) {
-
-                return;
-            }
-            if (!quantity) {
-
-                return;
-            }
-
-            $.ajax({
-                url: "Service/InternalService.ashx?t=InventoryUpload&skuId=" +
-                    skuId +
-                    "&quantity=" +
-                    quantity +
-                    "&nodeId=" +
-                    nodeId,
-                cache: false,
-                dataType: "json",
-                success: function(data) {
-                    if (data) {
-                        if (data.returnCode == "0000") {
-                            $(".alert-success").show();
-                            $(".alert-success").html("Success");
-                        } else {
-                            $(".alert-danger").show();
-                            $(".alert-danger").html(data.returnMessage);
-                        }
-
+    function submitShip(jetDefinedOrderId) {
+        var alt_order_id = $("#alt_order_id").html();
+        var alt_shipment_id = $("#alt_shipment_id").val();
+        var shipment_tracking_number = $("#shipment_tracking_number").val();
+        var response_shipment_date = Date.parse(new Date());
+        var response_shipment_method = $("#response_shipment_method").val();
+        var expected_delivery_date = Date.parse(new Date($("#expected_delivery_date").val()));
+        var ship_from_zip_code = $("#ship_from_zip_code").val();
+        var carrier = $("#carrier").val();
+        var carrier_pick_up_date = Date.parse(new Date($("#carrier_pick_up_date").val()));
+        var redirect_notification = $("#redirect_notification").val(); 
+        var itemList = $("#itemList").find(".form-panel");
+        var shipmentDate = new Date(response_shipment_date).toISOString();
+        var deliveryDate = new Date(expected_delivery_date).toISOString();
+        var pickupDate = new Date(carrier_pick_up_date).toISOString();
+        var shipmentItems = "[";
+        $.each(itemList,
+            function (i, item) {
+                var sku = $(item).find(".merchant_sku").val();
+                var qty = $(item).find(".response_shipment_sku_quantity").val();
+                var cancelQty = $(item).find(".response_shipment_cancel_qty").val();
+                shipmentItems += '{\"merchant_sku\":\"'+sku +'\",\"response_shipment_sku_quantity\":' +qty +',\"response_shipment_cancel_qty\":' +cancelQty +'}';
+            });
+        shipmentItems += "]";
+        var data = 'data={\"alt_order_id\":\"' +
+            alt_order_id +
+            '\",\"shipments\":[{\"alt_shipment_id\":\"' +
+            alt_shipment_id +
+            '\",\"shipment_tracking_number\":\"' + shipment_tracking_number+'\",\"response_shipment_date\":\"' +
+            shipmentDate +
+            '\",\"response_shipment_method\":\"' +
+            response_shipment_method +
+            '\",' +
+            '\"expected_delivery_date\":\"' +
+            deliveryDate +
+            '\",\"ship_from_zip_code\":\"' +
+            ship_from_zip_code +
+            '\",\"carrier\":\"' +
+            carrier +
+            '\"' +
+            ',\"carrier_pick_up_date\":\"' +
+            pickupDate +
+            '\",\"redirect_notification\":\"' +
+            redirect_notification +
+            '\",\"shipment_items\":' + shipmentItems+'}]}';
+       
+        $.ajax({
+            url: "Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=" + jetDefinedOrderId,
+            cache: false,
+            dataType: "json",
+            data: data,
+            type:'POST',
+            success: function (data) {
+                if (data) {
+                    if (data.returnCode == "0000") {
+                        $(".alert-success").show();
+                        $(".alert-success").html("Success");
                     } else {
                         $(".alert-danger").show();
-                        $(".alert-danger").html("系统错误,请联系技术支持");
+                        $(".alert-danger").html(data.returnMessage);
                     }
-                },
-                error: function(data) {
+
+                } else {
                     $(".alert-danger").show();
                     $(".alert-danger").html("系统错误,请联系技术支持");
                 }
-            });
-        }
-    </script>
+            },
+            error: function (data) {
+                $(".alert-danger").show();
+                $(".alert-danger").html("系统错误,请联系技术支持");
+            }
+        });
+    }
+</script>
 
 
 </body>

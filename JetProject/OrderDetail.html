@@ -337,7 +337,7 @@
                 update(jetDefinedOrderId);
             });
             $("#shipOrder").click(function () {
-                window.location = "ShipOrder.html?jetDefinedOrderId=" + jetDefinedOrderId;
+                window.location = "ShipOrder.html?jetDefinedOrderId=" + jetDefinedOrderId +"&altOrderId="+$("#alt_order_id").html();
             });
 
         });
