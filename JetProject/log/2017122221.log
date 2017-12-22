@@ -1,0 +1,355 @@
+
+3719e73806374a2ca4bce195971e8876-----------------------------2017-12-22 21:42:12.7811---------------------------
+/Service/InternalService.ashx?t=QueryReturnOrder&status=created&_=1513950126801
+
+fcfe1b1118c34d45b4aaa886b1e542bb-----------------------------2017-12-22 21:42:12.7811---------------------------
+请求地址:https://merchant-api.jet.com/api/returns/created
+
+87d652f9d9784c91aee2a9ab7b42ed46-----------------------------2017-12-22 21:42:14.8952---------------------------
+请求服务获得返回:{
+  "return_urls": [
+    "/returns/state/50e1e7fc2bba4c219c847eb91ce1d815"
+  ]
+}
+
+91ecd790c8f34701b075a4cd76049c0a-----------------------------2017-12-22 21:45:30.8784---------------------------
+/Service/InternalService.ashx?t=QueryReturnOrderDetail&jetDefinedOrderId=50e1e7fc2bba4c219c847eb91ce1d815&_=1513950330843
+
+529dd7f064ae4b36818db997ffada3a0-----------------------------2017-12-22 21:45:30.8784---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/50e1e7fc2bba4c219c847eb91ce1d815
+
+63bbee4ea6a34ca39b68a81aeac436bb-----------------------------2017-12-22 21:45:35.5217---------------------------
+/Service/InternalService.ashx?t=QueryReturnOrderDetail&jetDefinedOrderId=50e1e7fc2bba4c219c847eb91ce1d815&_=1513950335487
+
+b0ee36970182469c96a85fe1ea622b4b-----------------------------2017-12-22 21:45:35.5217---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/50e1e7fc2bba4c219c847eb91ce1d815
+
+d40e9087c83a49a9a649dad951ce0bfc-----------------------------2017-12-22 21:46:00.6011---------------------------
+/Service/InternalService.ashx?t=QueryReturnOrderDetail&jetDefinedOrderId=50e1e7fc2bba4c219c847eb91ce1d815&_=1513950360555
+
+16e7b75a2d4841099d7b5a2ce1713345-----------------------------2017-12-22 21:46:00.6011---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/50e1e7fc2bba4c219c847eb91ce1d815
+
+58ac45d6d9a64268b291ee76c35e0f5c-----------------------------2017-12-22 21:46:10.5247---------------------------
+/Service/InternalService.ashx?t=QueryReturnOrderDetail&jetDefinedOrderId=50e1e7fc2bba4c219c847eb91ce1d815&_=1513950370480
+
+64f6c656832841f49fd7f9acc2a10053-----------------------------2017-12-22 21:46:10.5247---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/50e1e7fc2bba4c219c847eb91ce1d815
+
+1f6000bf304c4b04a086c7753781ff91-----------------------------2017-12-22 21:46:30.0748---------------------------
+/Service/InternalService.ashx?t=QueryReturnOrderDetail&jetDefinedOrderId=50e1e7fc2bba4c219c847eb91ce1d815&_=1513950389988
+
+57674504c82947468e789b8cc119c9b7-----------------------------2017-12-22 21:46:30.0748---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/50e1e7fc2bba4c219c847eb91ce1d815
+
+b6d047b8f80e415bbc4d7da8806e36c5-----------------------------2017-12-22 21:47:20.1867---------------------------
+/Service/InternalService.ashx?t=QueryReturnOrderDetail&jetDefinedOrderId=50e1e7fc2bba4c219c847eb91ce1d815&_=1513950434762
+
+a9ebd0eaed3e47979a9fae057253c183-----------------------------2017-12-22 21:47:24.6389---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/50e1e7fc2bba4c219c847eb91ce1d815
+
+99c0312951914064b3a039004dce8491-----------------------------2017-12-22 21:48:03.0181---------------------------
+/Service/InternalService.ashx?t=QueryReturnOrderDetail&jetDefinedOrderId=50e1e7fc2bba4c219c847eb91ce1d815&_=1513950482730
+
+cd403ca925b9496ba39b0a63e8d1aaff-----------------------------2017-12-22 21:48:03.0181---------------------------
+请求地址:https://merchant-api.jet.com/api/returns/state/50e1e7fc2bba4c219c847eb91ce1d815
+
+8fa54322dee94fdd8a1580e3170b360a-----------------------------2017-12-22 21:48:03.4032---------------------------
+请求服务获得返回:{
+  "agree_to_return_charge": false,
+  "alt_order_id": "087882510526",
+  "items": [],
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "merchant_return_authorization_id": "50e1e7fc2bba4c219c847eb91ce1d815",
+  "merchant_return_charge": 4.15,
+  "reference_order_id": "146066449050",
+  "reference_return_authorization_id": "IBHM05Q8N6766OUHAK0GCUNH5B",
+  "refund_without_return": false,
+  "return_completion_date": "2017-12-22T06:00:07.3198015+00:00",
+  "return_date": "2017-12-22T05:59:07",
+  "return_location": [],
+  "return_merchant_SKUs": [
+    {
+      "merchant_sku": "1233",
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "reason": "Unwanted gift",
+      "requested_refund_amount": {
+        "principal": 123,
+        "tax": 0,
+        "shipping_cost": 3.69,
+        "shipping_tax": 0
+      },
+      "return_quantity": 1
+    },
+    {
+      "merchant_sku": "1234",
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "reason": "Unauthorized purchase",
+      "requested_refund_amount": {
+        "principal": 21,
+        "tax": 0,
+        "shipping_cost": 1.05,
+        "shipping_tax": 0
+      },
+      "return_quantity": 1
+    }
+  ],
+  "return_status": "created",
+  "shipping_carrier": "UPS",
+  "tracking_number": "1Z23W4561233459284"
+}
+
+619dcd0b55f3485faec2258e84d76719-----------------------------2017-12-22 21:53:35.5402---------------------------
+/Service/InternalService.ashx?t=QueryReturnOrderDetail&jetDefinedOrderId=50e1e7fc2bba4c219c847eb91ce1d815&_=1513950815505
+
+a457e7ef61ad4e16ad77b475208215c9-----------------------------2017-12-22 21:53:35.5402---------------------------
+请求地址:https://merchant-api.jet.com/api/returns/state/50e1e7fc2bba4c219c847eb91ce1d815
+
+b9806c100e7f42d983a7a77964b62d39-----------------------------2017-12-22 21:53:37.0462---------------------------
+请求服务获得返回:{
+  "agree_to_return_charge": false,
+  "alt_order_id": "087882510526",
+  "items": [],
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "merchant_return_authorization_id": "50e1e7fc2bba4c219c847eb91ce1d815",
+  "merchant_return_charge": 4.15,
+  "reference_order_id": "146066449050",
+  "reference_return_authorization_id": "IBHM05Q8N6766OUHAK0GCUNH5B",
+  "refund_without_return": false,
+  "return_completion_date": "2017-12-22T06:00:07.3198015+00:00",
+  "return_date": "2017-12-22T05:59:07",
+  "return_location": [],
+  "return_merchant_SKUs": [
+    {
+      "merchant_sku": "1233",
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "reason": "Unwanted gift",
+      "requested_refund_amount": {
+        "principal": 123,
+        "tax": 0,
+        "shipping_cost": 3.69,
+        "shipping_tax": 0
+      },
+      "return_quantity": 1
+    },
+    {
+      "merchant_sku": "1234",
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "reason": "Unauthorized purchase",
+      "requested_refund_amount": {
+        "principal": 21,
+        "tax": 0,
+        "shipping_cost": 1.05,
+        "shipping_tax": 0
+      },
+      "return_quantity": 1
+    }
+  ],
+  "return_status": "created",
+  "shipping_carrier": "UPS",
+  "tracking_number": "1Z23W4561233459284"
+}
+
+ac900de6b3a64bb990a72f0e686b68c6-----------------------------2017-12-22 21:53:57.7784---------------------------
+/Service/InternalService.ashx?t=QueryReturnOrderDetail&jetDefinedOrderId=50e1e7fc2bba4c219c847eb91ce1d815&_=1513950837730
+
+e98a46ac2f5f4bcebb983de77a5f14be-----------------------------2017-12-22 21:53:57.7784---------------------------
+请求地址:https://merchant-api.jet.com/api/returns/state/50e1e7fc2bba4c219c847eb91ce1d815
+
+2ae489a8736b4ba693cdcf36ec063b06-----------------------------2017-12-22 21:53:58.5775---------------------------
+请求服务获得返回:{
+  "agree_to_return_charge": false,
+  "alt_order_id": "087882510526",
+  "items": [],
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "merchant_return_authorization_id": "50e1e7fc2bba4c219c847eb91ce1d815",
+  "merchant_return_charge": 4.15,
+  "reference_order_id": "146066449050",
+  "reference_return_authorization_id": "IBHM05Q8N6766OUHAK0GCUNH5B",
+  "refund_without_return": false,
+  "return_completion_date": "2017-12-22T06:00:07.3198015+00:00",
+  "return_date": "2017-12-22T05:59:07",
+  "return_location": [],
+  "return_merchant_SKUs": [
+    {
+      "merchant_sku": "1233",
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "reason": "Unwanted gift",
+      "requested_refund_amount": {
+        "principal": 123,
+        "tax": 0,
+        "shipping_cost": 3.69,
+        "shipping_tax": 0
+      },
+      "return_quantity": 1
+    },
+    {
+      "merchant_sku": "1234",
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "reason": "Unauthorized purchase",
+      "requested_refund_amount": {
+        "principal": 21,
+        "tax": 0,
+        "shipping_cost": 1.05,
+        "shipping_tax": 0
+      },
+      "return_quantity": 1
+    }
+  ],
+  "return_status": "created",
+  "shipping_carrier": "UPS",
+  "tracking_number": "1Z23W4561233459284"
+}
+
+6672afca36734a06ad6950499a772a6c-----------------------------2017-12-22 21:54:59.6230---------------------------
+/Service/InternalService.ashx?t=QueryReturnOrderDetail&jetDefinedOrderId=50e1e7fc2bba4c219c847eb91ce1d815&_=1513950899307
+
+c61828095e424096999395272888d3fe-----------------------------2017-12-22 21:54:59.6230---------------------------
+请求地址:https://merchant-api.jet.com/api/returns/state/50e1e7fc2bba4c219c847eb91ce1d815
+
+ade2b4f3b3b64c28bfeb8759ac078991-----------------------------2017-12-22 21:54:59.9630---------------------------
+请求服务获得返回:{
+  "agree_to_return_charge": false,
+  "alt_order_id": "087882510526",
+  "items": [],
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "merchant_return_authorization_id": "50e1e7fc2bba4c219c847eb91ce1d815",
+  "merchant_return_charge": 4.15,
+  "reference_order_id": "146066449050",
+  "reference_return_authorization_id": "IBHM05Q8N6766OUHAK0GCUNH5B",
+  "refund_without_return": false,
+  "return_completion_date": "2017-12-22T06:00:07.3198015+00:00",
+  "return_date": "2017-12-22T05:59:07",
+  "return_location": [],
+  "return_merchant_SKUs": [
+    {
+      "merchant_sku": "1233",
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "reason": "Unwanted gift",
+      "requested_refund_amount": {
+        "principal": 123,
+        "tax": 0,
+        "shipping_cost": 3.69,
+        "shipping_tax": 0
+      },
+      "return_quantity": 1
+    },
+    {
+      "merchant_sku": "1234",
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "reason": "Unauthorized purchase",
+      "requested_refund_amount": {
+        "principal": 21,
+        "tax": 0,
+        "shipping_cost": 1.05,
+        "shipping_tax": 0
+      },
+      "return_quantity": 1
+    }
+  ],
+  "return_status": "created",
+  "shipping_carrier": "UPS",
+  "tracking_number": "1Z23W4561233459284"
+}
+
+df18ae53470c46ab8b7c2e580d1e4897-----------------------------2017-12-22 21:58:37.3434---------------------------
+/Service/InternalService.ashx?t=QueryReturnOrderDetail&jetDefinedOrderId=50e1e7fc2bba4c219c847eb91ce1d815&_=1513951117307
+
+f5067adc3bb64b8ca20ed85f9458bea8-----------------------------2017-12-22 21:58:37.3434---------------------------
+请求地址:https://merchant-api.jet.com/api/returns/state/50e1e7fc2bba4c219c847eb91ce1d815
+
+c29aac7c60384fa7ba92067f1ddd516d-----------------------------2017-12-22 21:58:38.1145---------------------------
+请求服务获得返回:{
+  "agree_to_return_charge": false,
+  "alt_order_id": "087882510526",
+  "items": [],
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "merchant_return_authorization_id": "50e1e7fc2bba4c219c847eb91ce1d815",
+  "merchant_return_charge": 4.15,
+  "reference_order_id": "146066449050",
+  "reference_return_authorization_id": "IBHM05Q8N6766OUHAK0GCUNH5B",
+  "refund_without_return": false,
+  "return_completion_date": "2017-12-22T06:00:07.3198015+00:00",
+  "return_date": "2017-12-22T05:59:07",
+  "return_location": [],
+  "return_merchant_SKUs": [
+    {
+      "merchant_sku": "1233",
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "reason": "Unwanted gift",
+      "requested_refund_amount": {
+        "principal": 123,
+        "tax": 0,
+        "shipping_cost": 3.69,
+        "shipping_tax": 0
+      },
+      "return_quantity": 1
+    },
+    {
+      "merchant_sku": "1234",
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "reason": "Unauthorized purchase",
+      "requested_refund_amount": {
+        "principal": 21,
+        "tax": 0,
+        "shipping_cost": 1.05,
+        "shipping_tax": 0
+      },
+      "return_quantity": 1
+    }
+  ],
+  "return_status": "created",
+  "shipping_carrier": "UPS",
+  "tracking_number": "1Z23W4561233459284"
+}
+
+db3ee17f2b894b7e949cdd9cc299ec34-----------------------------2017-12-22 21:58:41.7977---------------------------
+/Service/InternalService.ashx?t=QueryReturnOrderDetail&jetDefinedOrderId=50e1e7fc2bba4c219c847eb91ce1d815&_=1513951121764
+
+fe62db4f04b24577945d715955812973-----------------------------2017-12-22 21:58:41.7977---------------------------
+请求地址:https://merchant-api.jet.com/api/returns/state/50e1e7fc2bba4c219c847eb91ce1d815
+
+523afa0dc2934e8087b1b81592e7d282-----------------------------2017-12-22 21:58:42.1727---------------------------
+请求服务获得返回:{
+  "agree_to_return_charge": false,
+  "alt_order_id": "087882510526",
+  "items": [],
+  "merchant_order_id": "9ecbac5af5244424a2727c325725533e",
+  "merchant_return_authorization_id": "50e1e7fc2bba4c219c847eb91ce1d815",
+  "merchant_return_charge": 4.15,
+  "reference_order_id": "146066449050",
+  "reference_return_authorization_id": "IBHM05Q8N6766OUHAK0GCUNH5B",
+  "refund_without_return": false,
+  "return_completion_date": "2017-12-22T06:00:07.3198015+00:00",
+  "return_date": "2017-12-22T05:59:07",
+  "return_location": [],
+  "return_merchant_SKUs": [
+    {
+      "merchant_sku": "1233",
+      "order_item_id": "b1fc987e25e74fc09e1b61f14942bcd8",
+      "reason": "Unwanted gift",
+      "requested_refund_amount": {
+        "principal": 123,
+        "tax": 0,
+        "shipping_cost": 3.69,
+        "shipping_tax": 0
+      },
+      "return_quantity": 1
+    },
+    {
+      "merchant_sku": "1234",
+      "order_item_id": "90ffed68442b431eb1bd25a21dceb4f8",
+      "reason": "Unauthorized purchase",
+      "requested_refund_amount": {
+        "principal": 21,
+        "tax": 0,
+        "shipping_cost": 1.05,
+        "shipping_tax": 0
+      },
+      "return_quantity": 1
+    }
+  ],
+  "return_status": "created",
+  "shipping_carrier": "UPS",
+  "tracking_number": "1Z23W4561233459284"
+}
