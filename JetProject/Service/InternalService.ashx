@@ -52,6 +52,12 @@ public class InternalService : IHttpHandler
             case "ShipOrder":
                 result = ShipOrder(request["data"],request["jetDefinedOrderId"]);
                 break;
+            case "QueryReturnOrder":
+                result = QueryReturnOrder(request["status"]);
+                break;
+            case "QueryReturnOrderDetail":
+                result = QueryReturnOrderDetail(request["jetDefinedOrderId"]);
+                break;
             default:
                 break;
 
@@ -517,6 +523,46 @@ public class InternalService : IHttpHandler
             {"proxy",Proxy }
         };
         File.WriteAllText(path, JsonConvert.SerializeObject(dic), Encoding.UTF8);
+    }
+
+    private string QueryReturnOrder(string status)
+    {
+        try
+        {
+            var url =$"https://merchant-api.jet.com/api/returns/{status}";
+            var result = GetData(url);
+            var response = JsonConvert.DeserializeObject<Dictionary<string, object>>(result);
+            var orderUrls = response["return_urls"].ToString();
+            return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\",\"orderList\":" + orderUrls + "}";
+        }
+        catch (TransactionException ex)
+        {
+            return "{\"returnCode\":\"" + ex.ErrorCode + "\",\"returnMessage\":\"" + ex.ErrorMessage + "\"}";
+        }
+        catch (Exception e)
+        {
+            logger.Error(e);
+            return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
+        }
+    }
+
+    private string QueryReturnOrderDetail(string jetDefinedOrderId)
+    {
+        try
+        {
+            var url = $"https://merchant-api.jet.com/api/returns/state/{jetDefinedOrderId}";
+            var result = GetData(url);
+            return result;
+        }
+        catch (TransactionException ex)
+        {
+            return "{\"returnCode\":\"" + ex.ErrorCode + "\",\"returnMessage\":\"" + ex.ErrorMessage + "\"}";
+        }
+        catch (Exception e)
+        {
+            logger.Error(e);
+            return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
+        }
     }
 
     private string Proxy { get; set; }
