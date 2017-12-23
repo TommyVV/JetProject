@@ -268,7 +268,6 @@
     });
 
     function submitShip(jetDefinedOrderId) {
-        $(".has-error").removeClass("has-error");
         $(".alert-success").hide();
         $(".alert-danger").hide();
         var alt_order_id = $("#alt_order_id").html();
@@ -278,40 +277,16 @@
         var response_shipment_method = $("#response_shipment_method").val();
         var expected_delivery_date =$("#expected_delivery_date").val();
         var ship_from_zip_code = $("#ship_from_zip_code").val();
-        if (!alt_shipment_id) {
-            $("#alt_shipment_id").parent().parent().addClass("has-error");
-            $("#alt_shipment_id").focus();
-            return;
-        }
         var carrier = $("#carrier").val();
         var itemList = $("#itemList").find(".form-panel");
         var shipmentItems = "[";
-        var haserror = false;
         $.each(itemList,
             function (i, item) {
                 var sku = $(item).find(".merchant_sku").val();
                 var qty = $(item).find(".response_shipment_sku_quantity").val();
                 var cancelQty = $(item).find(".response_shipment_cancel_qty").val();
-                if (!sku) {
-                    haserror = true;
-                    $(item).find(".merchant_sku").parent().parent().addClass("has-error");
-                    return;
-                }
-                if (!qty) {
-                    haserror = true;
-                    $(item).find(".response_shipment_sku_quantity").parent().parent().addClass("has-error");
-                    return;
-                }
-                if (!cancelQty) {
-                    haserror = true;
-                    $(item).find(".response_shipment_cancel_qty").parent().parent().addClass("has-error");
-                    return;
-                }
                 shipmentItems += '{\"merchant_sku\":\"'+sku +'\",\"response_shipment_sku_quantity\":' +qty +',\"response_shipment_cancel_qty\":' +cancelQty +'},';
             });
-        if (haserror) {
-            return;
-        }
         shipmentItems = shipmentItems.substring(0, shipmentItems.length - 1);
         shipmentItems += "]";
         var data = 'data={\"alt_order_id\":\"' +

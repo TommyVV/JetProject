@@ -1,0 +1,434 @@
+
+f83f37576ead43c7aaf7275deb47cee2-----------------------------2017-12-22 10:00:34.9911---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513903914795
+
+06cb2815c3ea4072b24f0dc840a297f9-----------------------------2017-12-22 10:00:34.9911---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+b0984675c3984544bd22952e2472f7bc-----------------------------2017-12-22 10:00:35.5115---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/ae57898a1a894638a36a392260e16b85"
+  ]
+}
+
+2d55ee3bfcb24624a5414b21a876186b-----------------------------2017-12-22 10:00:37.6781---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85&_=1513908037634
+
+d70a183a50b545da8bc7651326b7e7e1-----------------------------2017-12-22 10:00:37.6781---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/ae57898a1a894638a36a392260e16b85
+
+f958a09a54dd4460b9f02a9fc2f67d6f-----------------------------2017-12-22 10:00:38.2115---------------------------
+请求服务获得返回:{
+  "alt_order_id": "167535241917",
+  "buyer": {
+    "name": "Marge Simpson",
+    "phone_number": "212-212-4472"
+  },
+  "customer_reference_order_id": "190917676137",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "683250824617@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "ae57898a1a894638a36a392260e16b85",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Expedited",
+    "request_ship_by": "2017-12-23T02:00:22.3614180Z",
+    "request_delivery_by": "2017-12-24T02:00:22.3614180Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "4f8ee187c78249e1b3dc235e10fbf455",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234"
+    }
+  ],
+  "order_placed_date": "2017-12-22T01:59:22.3614180Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 1.05,
+      "item_shipping_tax": null,
+      "base_price": 21
+    }
+  },
+  "order_transmission_date": "2017-12-22T02:00:22.3614180Z",
+  "reference_order_id": "345633998160",
+  "shipping_to": {
+    "recipient": {
+      "name": "Lisa Simpson",
+      "phone_number": "212-212-7148"
+    },
+    "address": {
+      "address1": "51 Elm street",
+      "address2": "",
+      "city": "Burtons",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+35487d2fccaa445dbcd0e6ac344249b3-----------------------------2017-12-22 10:00:57.1014---------------------------
+/Service/InternalService.ashx?t=AcknowledgeOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85&data={%22acknowledgement_status%22:%22accepted%22,%22alt_order_id%22:%22167535241917%22,%22order_items%22:[{%22order_item_acknowledgement_status%22:%22fulfillable%22,%22order_item_id%22:%224f8ee187c78249e1b3dc235e10fbf455%22}]}&_=1513908037635
+
+af0a596df4dd4063abf07c382a6d930a-----------------------------2017-12-22 10:00:57.1014---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ae57898a1a894638a36a392260e16b85/acknowledge,发送报文:{"acknowledgement_status":"accepted","alt_order_id":"167535241917","order_items":[{"order_item_acknowledgement_status":"fulfillable","order_item_id":"4f8ee187c78249e1b3dc235e10fbf455"}]}
+
+d627fcf6dad1496bb2b8cbb0e22a7994-----------------------------2017-12-22 10:01:57.6386---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=ready&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513903914796
+
+bb3f348d28e14b3eb0215d10cf0eeaaf-----------------------------2017-12-22 10:01:57.6386---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ready?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+21f923993c0849f29b53d6efc1d2bbe7-----------------------------2017-12-22 10:01:58.7784---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/6fb846355aca40aab331757eeeec5cd2"
+  ]
+}
+
+4dae449becb740a2abd9713b926af6eb-----------------------------2017-12-22 10:02:04.8978---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=6fb846355aca40aab331757eeeec5cd2&_=1513908124861
+
+b90ddc863f7b48cf83b86001e781d7ef-----------------------------2017-12-22 10:02:04.8978---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/6fb846355aca40aab331757eeeec5cd2
+
+deb112da22954c8fa840865f84a5fdbe-----------------------------2017-12-22 10:02:05.3366---------------------------
+请求服务获得返回:{
+  "alt_order_id": "464231740774",
+  "buyer": {
+    "name": "Marge Simpson",
+    "phone_number": "212-212-6259"
+  },
+  "customer_reference_order_id": "351057922875",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "732450335129@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "6fb846355aca40aab331757eeeec5cd2",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Expedited",
+    "request_ship_by": "2017-12-23T02:01:53.1453345Z",
+    "request_delivery_by": "2017-12-24T02:01:53.1453345Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1201a8000bf8410b88d118a7c54e5aa1",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 7.38,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233"
+    }
+  ],
+  "order_placed_date": "2017-12-22T02:00:53.1453345Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 7.38,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-22T02:01:53.1453345Z",
+  "reference_order_id": "197065661921",
+  "shipping_to": {
+    "recipient": {
+      "name": "Santa's Little Helper",
+      "phone_number": "212-212-7535"
+    },
+    "address": {
+      "address1": "1 Birch street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "ready"
+}
+
+88ea40883b6c428db2aee8b5ed8caf39-----------------------------2017-12-22 10:02:09.3270---------------------------
+/Service/InternalService.ashx?t=AcknowledgeOrder&jetDefinedOrderId=6fb846355aca40aab331757eeeec5cd2&data={%22acknowledgement_status%22:%22rejected%20-%20unfulfillable%20address%22,%22alt_order_id%22:%22464231740774%22,%22order_items%22:[{%22order_item_acknowledgement_status%22:%22fulfillable%22,%22order_item_id%22:%221201a8000bf8410b88d118a7c54e5aa1%22}]}&_=1513908124862
+
+aece28e8d21b4fa68f31cc1996bfbd0d-----------------------------2017-12-22 10:02:09.3270---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/6fb846355aca40aab331757eeeec5cd2/acknowledge,发送报文:{"acknowledgement_status":"rejected - unfulfillable address","alt_order_id":"464231740774","order_items":[{"order_item_acknowledgement_status":"fulfillable","order_item_id":"1201a8000bf8410b88d118a7c54e5aa1"}]}
+
+be2a79dd5adc43c989f3d5b02fd9fdbc-----------------------------2017-12-22 10:02:20.8815---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=6fb846355aca40aab331757eeeec5cd2&_=1513908140850
+
+e4ebd6179ea14e3f9fcfa924c1638d25-----------------------------2017-12-22 10:02:20.8815---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/6fb846355aca40aab331757eeeec5cd2
+
+4b92087952ac44fc936fcf2791f54b54-----------------------------2017-12-22 10:02:21.9363---------------------------
+请求服务获得返回:{
+  "acknowledgement_status": "rejected - unfulfillable address",
+  "alt_order_id": "464231740774",
+  "buyer": {
+    "name": "Marge Simpson",
+    "phone_number": "212-212-6259"
+  },
+  "customer_reference_order_id": "351057922875",
+  "exception_state": "exception - order rejected",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "732450335129@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "6fb846355aca40aab331757eeeec5cd2",
+  "order_acknowledge_date": "2017-12-22T02:02:11Z",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Expedited",
+    "request_ship_by": "2017-12-23T02:01:53.1453345Z",
+    "request_delivery_by": "2017-12-24T02:01:53.1453345Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "1201a8000bf8410b88d118a7c54e5aa1",
+      "merchant_sku": "1233",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 7.38,
+        "item_shipping_tax": null,
+        "base_price": 123
+      },
+      "product_title": "My Product1",
+      "url": "http://www.jet.com/api/merchant_skus/1233",
+      "order_item_acknowledgement_status": "fulfillable"
+    }
+  ],
+  "order_placed_date": "2017-12-22T02:00:53.1453345Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 7.38,
+      "item_shipping_tax": null,
+      "base_price": 123
+    }
+  },
+  "order_transmission_date": "2017-12-22T02:01:53.1453345Z",
+  "reference_order_id": "197065661921",
+  "shipping_to": {
+    "recipient": {
+      "name": "Santa's Little Helper",
+      "phone_number": "212-212-7535"
+    },
+    "address": {
+      "address1": "1 Birch street",
+      "address2": "",
+      "city": "Altitude",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "complete"
+}
+
+9ef85e8fce5344d0833f9a69088f88df-----------------------------2017-12-22 10:05:31.9796---------------------------
+/Service/InternalService.ashx?t=QueryOrder&status=acknowledged&isCancel=0&nodeId=80a760157ee64efcabda2dd6c0a4f71a&_=1513908319113
+
+c7140636e7e1498e84c54d9821b1e025-----------------------------2017-12-22 10:05:31.9796---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/acknowledged?isCancelled=False&fulfillment_node=80a760157ee64efcabda2dd6c0a4f71a
+
+8297e46cb93e4c2eb02069d0bc6df0ce-----------------------------2017-12-22 10:05:33.2131---------------------------
+请求服务获得返回:{
+  "order_urls": [
+    "/orders/withoutShipmentDetail/ae57898a1a894638a36a392260e16b85"
+  ]
+}
+
+8e099515ce3f452c8cb099e85b1f8d43-----------------------------2017-12-22 10:05:34.9132---------------------------
+/Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85&_=1513908334866
+
+586401192fc5460eb547c07e614040af-----------------------------2017-12-22 10:05:34.9132---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/withoutShipmentDetail/ae57898a1a894638a36a392260e16b85
+
+e23804598d474db99dfb9d60b2a0d2d3-----------------------------2017-12-22 10:05:35.1704---------------------------
+请求服务获得返回:{
+  "acknowledgement_status": "accepted",
+  "alt_order_id": "167535241917",
+  "buyer": {
+    "name": "Marge Simpson",
+    "phone_number": "212-212-4472"
+  },
+  "customer_reference_order_id": "190917676137",
+  "fulfillment_node": "80a760157ee64efcabda2dd6c0a4f71a",
+  "has_shipments": false,
+  "hash_email": "683250824617@customer.jet.com",
+  "jet_request_directed_cancel": false,
+  "merchant_order_id": "ae57898a1a894638a36a392260e16b85",
+  "order_acknowledge_date": "2017-12-22T02:00:58Z",
+  "order_detail": {
+    "request_shipping_method": "FedEx Ground",
+    "request_shipping_carrier": "FedEx",
+    "request_service_level": "Expedited",
+    "request_ship_by": "2017-12-23T02:00:22.3614180Z",
+    "request_delivery_by": "2017-12-24T02:00:22.3614180Z"
+  },
+  "order_items": [
+    {
+      "order_item_id": "4f8ee187c78249e1b3dc235e10fbf455",
+      "merchant_sku": "1234",
+      "request_order_quantity": 1,
+      "request_order_cancel_qty": 0,
+      "item_tax_code": "",
+      "item_price": {
+        "item_tax": null,
+        "item_shipping_cost": 1.05,
+        "item_shipping_tax": null,
+        "base_price": 21
+      },
+      "product_title": "prod tommy ",
+      "url": "http://www.jet.com/api/merchant_skus/1234",
+      "order_item_acknowledgement_status": "fulfillable"
+    }
+  ],
+  "order_placed_date": "2017-12-22T01:59:22.3614180Z",
+  "order_totals": {
+    "item_price": {
+      "item_tax": null,
+      "item_shipping_cost": 1.05,
+      "item_shipping_tax": null,
+      "base_price": 21
+    }
+  },
+  "order_transmission_date": "2017-12-22T02:00:22.3614180Z",
+  "reference_order_id": "345633998160",
+  "shipping_to": {
+    "recipient": {
+      "name": "Lisa Simpson",
+      "phone_number": "212-212-7148"
+    },
+    "address": {
+      "address1": "51 Elm street",
+      "address2": "",
+      "city": "Burtons",
+      "state": "MS",
+      "zip_code": "38829"
+    }
+  },
+  "status": "acknowledged"
+}
+
+391dee30fb084d149cd41388adf8277e-----------------------------2017-12-22 10:05:51.4730---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+103b7dccd1e0443aa06b41f89fcf5b93-----------------------------2017-12-22 10:06:59.7881---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+6b6ed503ec4a41afbfa3073b7252f0ef-----------------------------2017-12-22 10:07:11.9631---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+5eec20f0156f4c1d9bf18086f2f90802-----------------------------2017-12-22 10:07:20.9511---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+d5ec23f577094c06ab5e30b8a3432f67-----------------------------2017-12-22 10:07:20.9511---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ae57898a1a894638a36a392260e16b85/shipped,发送报文:{"alt_order_id":"167535241917","shipments":[{"alt_shipment_id":"","shipment_tracking_number":"","response_shipment_date":"","response_shipment_method":"","expected_delivery_date":"","ship_from_zip_code":"","carrier":"","shipment_items":[{"merchant_sku":"1234","response_shipment_sku_quantity":0,"response_shipment_cancel_qty":1}]}]}
+
+63d029d48b3e419ba56fa6ff3cc32bfc-----------------------------2017-12-22 10:07:30.4642---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+75dad2e7ec7847649cdb993a474a39ec-----------------------------2017-12-22 10:07:54.5807---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ae57898a1a894638a36a392260e16b85/shipped,发送报文:{"alt_order_id":"167535241917","shipments":[{"alt_shipment_id":"","shipment_tracking_number":"","response_shipment_date":"","response_shipment_method":"","expected_delivery_date":"","ship_from_zip_code":"","carrier":"","shipment_items":[{"merchant_sku":"1234","response_shipment_sku_quantity":0,"response_shipment_cancel_qty":1}]}]}
+
+6e5e5da9dd9a406ba161be5db95f1507-----------------------------2017-12-22 10:13:31.0748---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+4a7cfe58c6284a75b9354c8920df159f-----------------------------2017-12-22 10:13:31.0748---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ae57898a1a894638a36a392260e16b85/shipped,发送报文:{"alt_order_id":"167535241917","shipments":[{"alt_shipment_id":"","expected_delivery_date":"","shipment_items":[{"merchant_sku":"1234","response_shipment_sku_quantity":0,"response_shipment_cancel_qty":1}]}]}
+
+f302c6b20b9743ea98193f756d69545f-----------------------------2017-12-22 10:13:44.9782---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+8a7771ea87ba45029e1c8842c7dfbea0-----------------------------2017-12-22 10:14:13.9931---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ae57898a1a894638a36a392260e16b85/shipped,发送报文:{"alt_order_id":"167535241917","shipments":[{"alt_shipment_id":"","expected_delivery_date":"","shipment_items":[{"merchant_sku":"1234","response_shipment_sku_quantity":0,"response_shipment_cancel_qty":1}]}]}
+
+081f850e4c7e485daaaff851e3c125bb-----------------------------2017-12-22 10:15:14.1004---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+37ab068f2b1847808d4cca5fcdee39db-----------------------------2017-12-22 10:15:14.1054---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ae57898a1a894638a36a392260e16b85/shipped,发送报文:{"alt_order_id":"167535241917","shipments":[{"shipment_items":[{"merchant_sku":"1234","response_shipment_sku_quantity":0,"response_shipment_cancel_qty":1}]}]}
+
+1a3787f345024297a738d1eb956fefed-----------------------------2017-12-22 10:15:26.0748---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+250fc6bb20c34b1b9bacd4afd1bb49fa-----------------------------2017-12-22 10:15:58.2042---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ae57898a1a894638a36a392260e16b85/shipped,发送报文:{"alt_order_id":"167535241917","shipments":[{"shipment_items":[{"merchant_sku":"1234","response_shipment_sku_quantity":0,"response_shipment_cancel_qty":1}]}]}
+
+7760682fc0514c33a3c91ef4d6ba1ca9-----------------------------2017-12-22 10:16:48.9944---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+a18bcd3414364e2aa92790ed1b39c657-----------------------------2017-12-22 10:17:00.1794---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+4a2156b21c784496a3e794110c0456de-----------------------------2017-12-22 10:17:20.7809---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+c59c9dd5f6ec438482de71c54620b04c-----------------------------2017-12-22 10:17:28.8730---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+68432a5dab234f8db06c004f811b8b66-----------------------------2017-12-22 10:18:33.6130---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+83061ac55c164c0989d7e4afbf1b115c-----------------------------2017-12-22 10:19:19.6396---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+ec61c02ecdb94698be283f8371005495-----------------------------2017-12-22 10:22:35.2554---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+4f1c1a8b7d554719b1b1fae0a6254319-----------------------------2017-12-22 10:22:41.1360---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ae57898a1a894638a36a392260e16b85/shipped,发送报文:{"alt_order_id":"167535241917","shipments":[{"shipment_items":[{"merchant_sku":"1234","response_shipment_sku_quantity":0,"response_shipment_cancel_qty":1}]}]}
+
+10ef4fb2281e4322bbc7080a797bd1e4-----------------------------2017-12-22 10:22:46.7149---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+54e2f985fc3846588c22fca11eba0f69-----------------------------2017-12-22 10:22:58.8514---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ae57898a1a894638a36a392260e16b85/shipped,发送报文:{"alt_order_id":"167535241917","shipments":[{"shipment_items":[{"merchant_sku":"1234","response_shipment_sku_quantity":0,"response_shipment_cancel_qty":1}]}]}
+
+699fffa00e6e41d6b3ca46c8747b4650-----------------------------2017-12-22 10:23:38.9586---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+9b747cc84a524a9fbffcb6cb593ca53d-----------------------------2017-12-22 10:23:51.6491---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ae57898a1a894638a36a392260e16b85/shipped,发送报文:{"alt_order_id":"167535241917","shipments":[{"shipment_items":[{"merchant_sku":"1234","response_shipment_cancel_qty":1}]}]}
+
+e45ffa118fea4e5b8e33a33cd3d00272-----------------------------2017-12-22 10:23:57.9150---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+deeef1305e264d849824a7efaa4108e6-----------------------------2017-12-22 10:24:29.8909---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ae57898a1a894638a36a392260e16b85/shipped,发送报文:{"alt_order_id":"167535241917","shipments":[{"shipment_items":[{"merchant_sku":"1234","response_shipment_cancel_qty":1}]}]}
+
+ffffbbfb1dd44e35ae594adc754dbe07-----------------------------2017-12-22 10:24:50.8365---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85
+
+bb45868aaf07420d925155d4647035a9-----------------------------2017-12-22 10:24:54.2813---------------------------
+请求地址:https://merchant-api.jet.com/api/orders/ae57898a1a894638a36a392260e16b85/shipped,发送报文:{"alt_order_id":"167535241917","shipments":[{"alt_shipment_id":"11223344","shipment_items":[{"merchant_sku":"1234","response_shipment_cancel_qty":1}]}]}
+
+3f5bf3cab517482a9609f7fb6c65f19a-----------------------------2017-12-22 10:30:11.2229---------------------------
+/Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=ae57898a1a894638a36a392260e16b85

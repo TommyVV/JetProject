@@ -83,6 +83,53 @@ public class InternalService : IHttpHandler
     {
         try
         {
+            var ob = JsonConvert.DeserializeObject<Ship>(data);
+            var ship = ob.shipments[0];
+            if (!string.IsNullOrEmpty(ship["response_shipment_date"].ToString()))
+            {
+                ship["response_shipment_date"] =Convert.ToDateTime( ship["response_shipment_date"]).ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss.fffffff-hh:mm");
+            }
+            else
+            {
+                ship.Remove("response_shipment_date");
+            }
+            if (!string.IsNullOrEmpty(ship["expected_delivery_date"].ToString()))
+            {
+                ship["expected_delivery_date"] =Convert.ToDateTime( ship["expected_delivery_date"]).ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss.fffffff-hh:mm");
+            }
+            else
+            {
+                ship.Remove("expected_delivery_date");
+            }
+            if (string.IsNullOrEmpty(ship["shipment_tracking_number"].ToString()))
+            {
+                ship.Remove("shipment_tracking_number");
+            }
+            if (string.IsNullOrEmpty(ship["response_shipment_method"].ToString()))
+            {
+                ship.Remove("response_shipment_method");
+            }
+            if (string.IsNullOrEmpty(ship["ship_from_zip_code"].ToString()))
+            {
+                ship.Remove("ship_from_zip_code");
+            }
+            if (string.IsNullOrEmpty(ship["carrier"].ToString()))
+            {
+                ship.Remove("carrier");
+            }
+            if (string.IsNullOrEmpty(ship["alt_shipment_id"].ToString()))
+            {
+                ship.Remove("alt_shipment_id");
+            }
+            var items = ship["shipment_items"];
+            var itemObj = JsonConvert.DeserializeObject<List<Dictionary<string, Object>>>(items.ToString());
+            if (Convert.ToInt32(itemObj[0]["response_shipment_sku_quantity"].ToString())==0)
+            {
+                itemObj[0].Remove("response_shipment_sku_quantity");
+                ship["shipment_items"] = itemObj;
+            }
+            //ship["carrier_pick_up_date"] =Convert.ToDateTime( ship["carrier_pick_up_date"]).ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss.fffffff-hh:mm");
+            data = JsonConvert.SerializeObject(ob);
             var url = $"https://merchant-api.jet.com/api/orders/{jetDefinedOrderId}/shipped";
             PostData(url, data, "PUT");
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"请求成功\"}";
@@ -480,6 +527,13 @@ public class InternalService : IHttpHandler
 
 
     private string Token { get; set; }
+
+    class Ship
+    {
+        public string alt_order_id { get; set; }
+
+        public List<Dictionary<string,object>> shipments { get; set; }
+    }
 
     public bool IsReusable
     {

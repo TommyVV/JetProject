@@ -420,10 +420,11 @@
                             itemResult +
                             '","order_item_id":"' +
                             item.order_item_id +
-                            '"}';
+                            '"},';
 
                     });
             }
+            items = items.substring(0, items.length - 1);
             items += "]";
             var data = '{"acknowledgement_status":"' +
                 result +
@@ -440,8 +441,10 @@
                     if (data) {
                         if (data.returnCode == "0000") {
                             $(".alert-success").show();
-                            $(".alert-success").html("");
-                            $(".ship").show();
+                            if (result == "accepted") {
+                                $(".ship").show();
+                            }
+                            $(".acknowledge").hide();
                         } else {
                             $("#update-error").show();
                             $("#update-error").html(data.returnMessage);
