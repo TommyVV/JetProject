@@ -13,6 +13,7 @@ public class InternalService : IHttpHandler
 {
     private static Logger logger = LogManager.GetCurrentClassLogger();
 
+    #region ProcessRequest
     public void ProcessRequest(HttpContext context)
     {
         context.Response.ContentType = "text/plain";
@@ -47,10 +48,10 @@ public class InternalService : IHttpHandler
                 result = QueryOrderDetail(request["jetDefinedOrderId"]);
                 break;
             case "AcknowledgeOrder":
-                result = AcknowledgeOrder(request["data"],request["jetDefinedOrderId"]);
+                result = AcknowledgeOrder(request["data"], request["jetDefinedOrderId"]);
                 break;
             case "ShipOrder":
-                result = ShipOrder(request["data"],request["jetDefinedOrderId"]);
+                result = ShipOrder(request["data"], request["jetDefinedOrderId"]);
                 break;
             case "QueryReturnOrder":
                 result = QueryReturnOrder(request["status"]);
@@ -64,9 +65,11 @@ public class InternalService : IHttpHandler
         }
         context.Response.ContentType = "application/json";
         context.Response.Write(result);
-    }
+    } 
+    #endregion
 
-    private string AcknowledgeOrder(string data,string jetDefinedOrderId)
+    #region AcknowledgeOrder
+    private string AcknowledgeOrder(string data, string jetDefinedOrderId)
     {
         try
         {
@@ -84,8 +87,10 @@ public class InternalService : IHttpHandler
             return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
         }
     }
+    #endregion
 
-    private string ShipOrder(string data,string jetDefinedOrderId)
+    #region ShipOrder
+    private string ShipOrder(string data, string jetDefinedOrderId)
     {
         try
         {
@@ -93,7 +98,7 @@ public class InternalService : IHttpHandler
             var ship = ob.shipments[0];
             if (!string.IsNullOrEmpty(ship["response_shipment_date"].ToString()))
             {
-                ship["response_shipment_date"] =Convert.ToDateTime( ship["response_shipment_date"]).ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss.fffffff-hh:mm");
+                ship["response_shipment_date"] = Convert.ToDateTime(ship["response_shipment_date"]).ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss.fffffff-hh:mm");
             }
             else
             {
@@ -101,7 +106,7 @@ public class InternalService : IHttpHandler
             }
             if (!string.IsNullOrEmpty(ship["expected_delivery_date"].ToString()))
             {
-                ship["expected_delivery_date"] =Convert.ToDateTime( ship["expected_delivery_date"]).ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss.fffffff-hh:mm");
+                ship["expected_delivery_date"] = Convert.ToDateTime(ship["expected_delivery_date"]).ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss.fffffff-hh:mm");
             }
             else
             {
@@ -129,7 +134,7 @@ public class InternalService : IHttpHandler
             }
             var items = ship["shipment_items"];
             var itemObj = JsonConvert.DeserializeObject<List<Dictionary<string, Object>>>(items.ToString());
-            if (Convert.ToInt32(itemObj[0]["response_shipment_sku_quantity"].ToString())==0)
+            if (Convert.ToInt32(itemObj[0]["response_shipment_sku_quantity"].ToString()) == 0)
             {
                 itemObj[0].Remove("response_shipment_sku_quantity");
                 ship["shipment_items"] = itemObj;
@@ -150,7 +155,9 @@ public class InternalService : IHttpHandler
             return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
         }
     }
+    #endregion
 
+    #region QueryOrder
     private string QueryOrder(string status, string isCancel, string nodeId)
     {
         try
@@ -173,7 +180,9 @@ public class InternalService : IHttpHandler
             return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
         }
     }
+    #endregion
 
+    #region QueryOrderDetail
     private string QueryOrderDetail(string jetDefinedOrderId)
     {
         try
@@ -192,7 +201,9 @@ public class InternalService : IHttpHandler
             return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
         }
     }
+    #endregion
 
+    #region SearchInvenotry
     private string SearchInvenotry(string skuId)
     {
         try
@@ -215,7 +226,9 @@ public class InternalService : IHttpHandler
             return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
         }
     }
+    #endregion
 
+    #region UploadSKU
     private string UploadSKU(string id, string data)
     {
         try
@@ -234,7 +247,9 @@ public class InternalService : IHttpHandler
             return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
         }
     }
+    #endregion
 
+    #region PriceUpload
     private string PriceUpload(string skuId, decimal price)
     {
         try
@@ -255,7 +270,9 @@ public class InternalService : IHttpHandler
         }
 
     }
+    #endregion
 
+    #region SearchSKU
     private string SearchSKU(string skuId)
     {
         try
@@ -277,7 +294,9 @@ public class InternalService : IHttpHandler
             return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
         }
     }
+    #endregion
 
+    #region InventoryUpload
     private string InventoryUpload(string skuId, int qty, string nodeId)
     {
         try
@@ -298,7 +317,9 @@ public class InternalService : IHttpHandler
         }
 
     }
+    #endregion
 
+    #region UserLogin
     private string UserLogin(string userName, string pwd)
     {
         if (string.IsNullOrEmpty(userName) || string.IsNullOrEmpty(pwd))
@@ -309,7 +330,9 @@ public class InternalService : IHttpHandler
             ? "{\"returnCode\":\"0096\",\"returnMessage\":\"请求成功\"}"
             : "{\"returnCode\":\"0096\",\"returnMessage\":\"用户名密码错误\"}";
     }
+    #endregion
 
+    #region GetToken
     private void GetToken(bool needRefresh = false, bool last = false)
     {
 
@@ -343,7 +366,9 @@ public class InternalService : IHttpHandler
             throw;
         }
     }
+    #endregion
 
+    #region GetData
     private string GetData(string url, bool islast = false)
     {
         try
@@ -413,9 +438,9 @@ public class InternalService : IHttpHandler
             throw;
         }
     }
+    #endregion
 
-
-
+    #region PostData
     private string PostData(string url, string data, string method, bool needToken = true, bool islast = false)
     {
         try
@@ -500,7 +525,9 @@ public class InternalService : IHttpHandler
             throw;
         }
     }
+    #endregion
 
+    #region GetConfig
     private void GetConfig()
     {
         var path = HttpContext.Current.Server.MapPath("../config.json");
@@ -511,7 +538,9 @@ public class InternalService : IHttpHandler
         Token = configData["token"];
         Proxy = configData["proxy"];
     }
+    #endregion
 
+    #region WriteConfig
     private void WriteConfig()
     {
         var path = HttpContext.Current.Server.MapPath("../config.json");
@@ -524,12 +553,14 @@ public class InternalService : IHttpHandler
         };
         File.WriteAllText(path, JsonConvert.SerializeObject(dic), Encoding.UTF8);
     }
+    #endregion
 
+    #region QueryReturnOrder
     private string QueryReturnOrder(string status)
     {
         try
         {
-            var url =$"https://merchant-api.jet.com/api/returns/{status}";
+            var url = $"https://merchant-api.jet.com/api/returns/{status}";
             var result = GetData(url);
             var response = JsonConvert.DeserializeObject<Dictionary<string, object>>(result);
             var orderUrls = response["return_urls"].ToString();
@@ -545,7 +576,9 @@ public class InternalService : IHttpHandler
             return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
         }
     }
+    #endregion
 
+    #region QueryReturnOrderDetail
     private string QueryReturnOrderDetail(string jetDefinedOrderId)
     {
         try
@@ -564,8 +597,12 @@ public class InternalService : IHttpHandler
             return "{\"returnCode\":\"0096\",\"returnMessage\":\"jet 请求错误\"}";
         }
     }
+    #endregion
+
+    #region Field
 
     private string Proxy { get; set; }
+
 
     private string User { get; set; }
 
@@ -573,13 +610,16 @@ public class InternalService : IHttpHandler
 
 
     private string Token { get; set; }
+    #endregion
 
+    #region Model
     class Ship
     {
         public string alt_order_id { get; set; }
 
-        public List<Dictionary<string,object>> shipments { get; set; }
+        public List<Dictionary<string, object>> shipments { get; set; }
     }
+    #endregion
 
     public bool IsReusable
     {
