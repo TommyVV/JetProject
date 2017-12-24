@@ -1,13 +1,8 @@
 ﻿<%@ WebHandler Language="C#" Class="InternalService" %>
 
 using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Net;
-using System.Text;
 using System.Web;
 using System.Web.SessionState;
-using Newtonsoft.Json;
 using NLog;
 
 public class InternalService : IHttpHandler, IRequiresSessionState
@@ -18,74 +13,75 @@ public class InternalService : IHttpHandler, IRequiresSessionState
     public void ProcessRequest(HttpContext context)
     {
         try
-        {context.Response.ContentType = "text/plain";
-        var result = "";
-        var request = context.Request;
-        var t = request["t"];
-        var sessionId = context.Session["login"] as string;
-        if (string.IsNullOrEmpty(sessionId) && t != "Login")
         {
-            result = "{\"returnCode\":\"1000\",\"returnMessage\":\"please log in first  \"}";
-        }
-        else
-        {
-            logger.Info(request.RawUrl);
-            var sericesHelper=new ServiceHelper();
-            switch (t)
+            context.Response.ContentType = "text/plain";
+            var result = "";
+            var request = context.Request;
+            var t = request["t"];
+            var sessionId = context.Session["login"] as string;
+            if (string.IsNullOrEmpty(sessionId) && t != "Login")
             {
-                case "Login":
-                    result = sericesHelper.UserLogin(request["userName"], request["pwd"]);
-                    break;
-                case "PriceUpload":
-                    result = sericesHelper.PriceUpload(request["skuId"], Convert.ToInt32(request["price"]));
-                    break;
-                case "InventoryUpload":
-                    result = sericesHelper.InventoryUpload(request["skuId"], Convert.ToInt32(request["quantity"]), request["nodeId"]);
-                    break;
-                case "UploadSKU":
-                    result = sericesHelper.UploadSKU(request["skuId"], request["data"]);
-                    break;
-                case "SearchSKU":
-                    result = sericesHelper.SearchSKU(request["skuId"]);
-                    break;
-                case "SearchInventory":
-                    result = sericesHelper.SearchInvenotry(request["skuId"]);
-                    break;
-                case "QueryOrder":
-                    result = sericesHelper.QueryOrder(request["status"], request["isCancel"], request["nodeId"]);
-                    break;
-                case "QueryOrderDetail":
-                    result = sericesHelper.QueryOrderDetail(request["jetDefinedOrderId"]);
-                    break;
-                case "AcknowledgeOrder":
-                    result = sericesHelper.AcknowledgeOrder(request["data"], request["jetDefinedOrderId"]);
-                    break;
-                case "ShipOrder":
-                    result = sericesHelper.ShipOrder(request["data"], request["jetDefinedOrderId"]);
-                    break;
-                case "QueryReturnOrder":
-                    result = sericesHelper.QueryReturnOrder(request["status"]);
-                    break;
-                case "QueryReturnOrderDetail":
-                    result = sericesHelper.QueryReturnOrderDetail(request["jetDefinedOrderId"]);
-                    break;
-                case "CompleteReturn":
-                    result = sericesHelper.CompleteReturn(request["data"], request["jetDefinedOrderId"]);
-                    break;
-                default:
-                    break;
-
+                result = "{\"returnCode\":\"1000\",\"returnMessage\":\"please log in first  \"}";
             }
-        }
+            else
+            {
+                logger.Info(request.RawUrl);
+                var sericesHelper = new ServiceHelper();
+                switch (t)
+                {
+                    case "Login":
+                        result = sericesHelper.UserLogin(request["userName"], request["pwd"]);
+                        break;
+                    case "PriceUpload":
+                        result = sericesHelper.PriceUpload(request["skuId"], Convert.ToInt32(request["price"]));
+                        break;
+                    case "InventoryUpload":
+                        result = sericesHelper.InventoryUpload(request["skuId"], Convert.ToInt32(request["quantity"]), request["nodeId"]);
+                        break;
+                    case "UploadSKU":
+                        result = sericesHelper.UploadSKU(request["skuId"], request["data"]);
+                        break;
+                    case "SearchSKU":
+                        result = sericesHelper.SearchSKU(request["skuId"]);
+                        break;
+                    case "SearchInventory":
+                        result = sericesHelper.SearchInvenotry(request["skuId"]);
+                        break;
+                    case "QueryOrder":
+                        result = sericesHelper.QueryOrder(request["status"], request["isCancel"], request["nodeId"]);
+                        break;
+                    case "QueryOrderDetail":
+                        result = sericesHelper.QueryOrderDetail(request["jetDefinedOrderId"]);
+                        break;
+                    case "AcknowledgeOrder":
+                        result = sericesHelper.AcknowledgeOrder(request["data"], request["jetDefinedOrderId"]);
+                        break;
+                    case "ShipOrder":
+                        result = sericesHelper.ShipOrder(request["data"], request["jetDefinedOrderId"]);
+                        break;
+                    case "QueryReturnOrder":
+                        result = sericesHelper.QueryReturnOrder(request["status"]);
+                        break;
+                    case "QueryReturnOrderDetail":
+                        result = sericesHelper.QueryReturnOrderDetail(request["jetDefinedOrderId"]);
+                        break;
+                    case "CompleteReturn":
+                        result = sericesHelper.CompleteReturn(request["data"], request["jetDefinedOrderId"]);
+                        break;
+                    default:
+                        break;
+
+                }
+            }
             context.Response.ContentType = "application/json";
             context.Response.Write(result);
         }
         catch (Exception e)
         {
-           logger.Error(e);
+            logger.Error(e);
         }
-        
-        
+
+
 
     }
     #endregion

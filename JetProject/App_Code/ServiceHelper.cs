@@ -387,6 +387,7 @@ public class ServiceHelper
         }
         catch (WebException e)
         {
+            Logger.Error(e);
             HttpWebResponse resp = (HttpWebResponse)e.Response;
             if (resp.StatusCode == HttpStatusCode.Unauthorized)
             {
@@ -475,6 +476,7 @@ public class ServiceHelper
         }
         catch (WebException e)
         {
+            Logger.Error(e);
             HttpWebResponse resp = (HttpWebResponse)e.Response;
             if (resp.StatusCode == HttpStatusCode.Unauthorized)
             {
@@ -534,7 +536,9 @@ public class ServiceHelper
             {"user",User },
             {"pass",Pass },
             {"token",Token },
-            {"proxy",Proxy }
+            {"proxy",Proxy },
+            {"userName",UserName },
+            {"password",Password }
         };
         File.WriteAllText(path, JsonConvert.SerializeObject(dic), Encoding.UTF8);
     }
