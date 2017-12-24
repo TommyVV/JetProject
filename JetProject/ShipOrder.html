@@ -51,10 +51,8 @@
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
-
                     <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                     <h5 class="centered">Jet</h5>
-
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-desktop"></i>
@@ -64,7 +62,8 @@
                             <li><a href="SKUUpload.html">SKU Upload</a></li>
                             <li><a href="SearchSKU.html">Search SKU</a></li>
                             <li><a href="PriceUpload.html">Price Upload</a></li>
-                            <li><a href="SearchInventory.html">invenotry Manager</a></li>
+                            <li><a href="InventoryUpload.html">Invenotry Upload</a></li>
+                            <li><a href="SearchInventory.html">Search invenotry</a></li>
                         </ul>
                     </li>
 
@@ -190,16 +189,6 @@
             </section>
         </section><!-- /MAIN CONTENT -->
         <!--main content end-->
-        <!--footer start-->
-        <footer class="site-footer">
-            <div class="text-center">
-                2014 - Alvarez.is - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-                <a href="general.html#" class="go-top">
-                    <i class="fa fa-angle-up"></i>
-                </a>
-            </div>
-        </footer>
-        <!--footer end-->
     </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
@@ -217,145 +206,139 @@
     <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
     <script src="laydate/laydate.js"></script>
-<script type="text/javascript">
-    laydate.render({
-        elem: '#response_shipment_date'
-        , type: 'datetime'
-        , lang: 'en'
-    });
-    laydate.render({
-        elem: '#expected_delivery_date'
-        , type: 'datetime'
-        , lang: 'en'
-    });
-    laydate.render({
-        elem: '#carrier_pick_up_date'
-        , type: 'datetime'
-        , lang: 'en'
-    });
-    function getQueryString(name) {
-        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
-        var r = window.location.search.substr(1).match(reg);
-        if (r != null) return unescape(r[2]); return null;
-    }
-    $(document).ready(function () {
-        $(".alert-success").hide();
-        $(".alert-danger").hide();
-        var altOrderId = getQueryString("altOrderId");
-        var jetDefinedOrderId = getQueryString("jetDefinedOrderId");
-        $("#alt_order_id").html(altOrderId);
-        var i = 1;
-        $("#addNewItem").click(function () {
-            var itemList = $("#itemList");
-            i++;
-            itemList.append(
-                '<div class="form-panel"><h4 class="mb"><i class="fa fa-angle-right"></i> Ship item #' + i
-                + '</h4>' +
-                '<div class="form-horizontal style-form"><div class="form-group"><label class="col-sm-2 col-sm-2 control-label">merchant sku id</label>' +
-                '<div class="col-sm-10"><input type="text" class="form-control merchant_sku"></div></div><div class="form-group">' +
-                '<label class="col-sm-2 col-sm-2 control-label">response shipment sku quantity</label><div class="col-sm-10">' +
-                '<input type="text" class="form-control response_shipment_sku_quantity"></div></div><div class="form-group">' +
-                '<label class="col-sm-2 col-sm-2 control-label">response shipment cancel qty</label><div class="col-sm-10">' +
-                '<input type="text" class="form-control response_shipment_cancel_qty"></div></div></div></div>');
+    <script src="Common/Comm.js"></script>
+    <script type="text/javascript">
+        laydate.render({
+            elem: '#response_shipment_date'
+            , type: 'datetime'
+            , lang: 'en'
         });
-        $("#submit").click(function () {
-            submitShip(jetDefinedOrderId);
+        laydate.render({
+            elem: '#expected_delivery_date'
+            , type: 'datetime'
+            , lang: 'en'
         });
-    });
-
-    function submitShip(jetDefinedOrderId) {
-        $(".has-error").removeClass("has-error");
-        $(".alert-success").hide();
-        $(".alert-danger").hide();
-        var alt_order_id = $("#alt_order_id").html();
-        var alt_shipment_id = $("#alt_shipment_id").val();
-        var shipment_tracking_number = $("#shipment_tracking_number").val();
-        var response_shipment_date = $("#response_shipment_date").val();
-        var response_shipment_method = $("#response_shipment_method").val();
-        var expected_delivery_date =$("#expected_delivery_date").val();
-        var ship_from_zip_code = $("#ship_from_zip_code").val();
-        if (!alt_shipment_id) {
-            $("#alt_shipment_id").parent().parent().addClass("has-error");
-            $("#alt_shipment_id").focus();
-            return;
+        laydate.render({
+            elem: '#carrier_pick_up_date'
+            , type: 'datetime'
+            , lang: 'en'
+        });
+        function getQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]); return null;
         }
-        var carrier = $("#carrier").val();
-        var itemList = $("#itemList").find(".form-panel");
-        var shipmentItems = "[";
-        var haserror = false;
-        $.each(itemList,
-            function (i, item) {
-                var sku = $(item).find(".merchant_sku").val();
-                var qty = $(item).find(".response_shipment_sku_quantity").val();
-                var cancelQty = $(item).find(".response_shipment_cancel_qty").val();
-                if (!sku) {
-                    haserror = true;
-                    $(item).find(".merchant_sku").parent().parent().addClass("has-error");
-                    return;
-                }
-                if (!qty) {
-                    haserror = true;
-                    $(item).find(".response_shipment_sku_quantity").parent().parent().addClass("has-error");
-                    return;
-                }
-                if (!cancelQty) {
-                    haserror = true;
-                    $(item).find(".response_shipment_cancel_qty").parent().parent().addClass("has-error");
-                    return;
-                }
-                shipmentItems += '{\"merchant_sku\":\"'+sku +'\",\"response_shipment_sku_quantity\":' +qty +',\"response_shipment_cancel_qty\":' +cancelQty +'},';
+        $(document).ready(function () {
+            $(".alert-success").hide();
+            $(".alert-danger").hide();
+            var altOrderId = getQueryString("altOrderId");
+            var jetDefinedOrderId = getQueryString("jetDefinedOrderId");
+            $("#alt_order_id").html(altOrderId);
+            var i = 1;
+            $("#addNewItem").click(function () {
+                var itemList = $("#itemList");
+                i++;
+                itemList.append(
+                    '<div class="form-panel"><h4 class="mb"><i class="fa fa-angle-right"></i> Ship item #' + i
+                    + '</h4>' +
+                    '<div class="form-horizontal style-form"><div class="form-group"><label class="col-sm-2 col-sm-2 control-label">merchant sku id</label>' +
+                    '<div class="col-sm-10"><input type="text" class="form-control merchant_sku"></div></div><div class="form-group">' +
+                    '<label class="col-sm-2 col-sm-2 control-label">response shipment sku quantity</label><div class="col-sm-10">' +
+                    '<input type="text" class="form-control response_shipment_sku_quantity"></div></div><div class="form-group">' +
+                    '<label class="col-sm-2 col-sm-2 control-label">response shipment cancel qty</label><div class="col-sm-10">' +
+                    '<input type="text" class="form-control response_shipment_cancel_qty"></div></div></div></div>');
             });
-        if (haserror) {
-            return;
-        }
-        shipmentItems = shipmentItems.substring(0, shipmentItems.length - 1);
-        shipmentItems += "]";
-        var data = 'data={\"alt_order_id\":\"' +
-            alt_order_id +
-            '\",\"shipments\":[{\"alt_shipment_id\":\"' +
-            alt_shipment_id +
-            '\",\"shipment_tracking_number\":\"' + shipment_tracking_number+'\",\"response_shipment_date\":\"' +
-            response_shipment_date +
-            '\",\"response_shipment_method\":\"' +
-            response_shipment_method +
-            '\",' +
-            '\"expected_delivery_date\":\"' +
-            expected_delivery_date +
-            '\",\"ship_from_zip_code\":\"' +
-            ship_from_zip_code +
-            '\",\"carrier\":\"' +
-            carrier +
-            '\"' +
-            ',\"shipment_items\":' + shipmentItems+'}]}';
-       
-        $.ajax({
-            url: "Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=" + jetDefinedOrderId,
-            cache: false,
-            dataType: "json",
-            data: data,
-            type:'POST',
-            success: function (data) {
-                if (data) {
-                    if (data.returnCode == "0000") {
-                        $(".alert-success").show();
-                        $(".alert-success").html("Success");
+            $("#submit").click(function () {
+                submitShip(jetDefinedOrderId);
+            });
+        });
+
+        function submitShip(jetDefinedOrderId) {
+            $(".has-error").removeClass("has-error");
+            $(".alert-success").hide();
+            $(".alert-danger").hide();
+            var alt_order_id = $("#alt_order_id").html();
+            var alt_shipment_id = $("#alt_shipment_id").val();
+            var shipment_tracking_number = $("#shipment_tracking_number").val();
+            var response_shipment_date = $("#response_shipment_date").val();
+            var response_shipment_method = $("#response_shipment_method").val();
+            var expected_delivery_date = $("#expected_delivery_date").val();
+            var ship_from_zip_code = $("#ship_from_zip_code").val();
+            if (!alt_shipment_id) {
+                $("#alt_shipment_id").parent().parent().addClass("has-error");
+                $("#alt_shipment_id").focus();
+                return;
+            }
+            var carrier = $("#carrier").val();
+            var itemList = $("#itemList").find(".form-panel");
+            var shipmentItems = "[";
+            var haserror = false;
+            $.each(itemList,
+                function (i, item) {
+                    var sku = $(item).find(".merchant_sku").val();
+                    var qty = $(item).find(".response_shipment_sku_quantity").val();
+                    var cancelQty = $(item).find(".response_shipment_cancel_qty").val();
+                    if (!sku) {
+                        haserror = true;
+                        $(item).find(".merchant_sku").parent().parent().addClass("has-error");
+                        return;
+                    }
+                    if (!qty) {
+                        haserror = true;
+                        $(item).find(".response_shipment_sku_quantity").parent().parent().addClass("has-error");
+                        return;
+                    }
+                    if (!cancelQty) {
+                        haserror = true;
+                        $(item).find(".response_shipment_cancel_qty").parent().parent().addClass("has-error");
+                        return;
+                    }
+                    shipmentItems += '{\"merchant_sku\":\"' + sku + '\",\"response_shipment_sku_quantity\":' + qty + ',\"response_shipment_cancel_qty\":' + cancelQty + '},';
+                });
+            if (haserror) {
+                return;
+            }
+            shipmentItems = shipmentItems.substring(0, shipmentItems.length - 1);
+            shipmentItems += "]";
+            var data = 'data={\"alt_order_id\":\"' +
+                alt_order_id +
+                '\",\"shipments\":[{\"alt_shipment_id\":\"' +
+                alt_shipment_id +
+                '\",\"shipment_tracking_number\":\"' + shipment_tracking_number + '\",\"response_shipment_date\":\"' +
+                response_shipment_date +
+                '\",\"response_shipment_method\":\"' +
+                response_shipment_method +
+                '\",' +
+                '\"expected_delivery_date\":\"' +
+                expected_delivery_date +
+                '\",\"ship_from_zip_code\":\"' +
+                ship_from_zip_code +
+                '\",\"carrier\":\"' +
+                carrier +
+                '\"' +
+                ',\"shipment_items\":' + shipmentItems + '}]}';
+            var url = "../Service/InternalService.ashx?t=ShipOrder&jetDefinedOrderId=" + jetDefinedOrderId;
+            requestService(url,
+                data,
+                function(data) {
+                    if (data) {
+                        if (data.returnCode == "0000") {
+                            $(".alert-success").show();
+                            $(".alert-success").html("Success");
+                        } else {
+                            $(".alert-danger").show();
+                            $(".alert-danger").html(data.returnMessage);
+                        }
+
                     } else {
                         $(".alert-danger").show();
-                        $(".alert-danger").html(data.returnMessage);
+                        $(".alert-danger").html("系统错误,请联系技术支持");
                     }
-
-                } else {
-                    $(".alert-danger").show();
-                    $(".alert-danger").html("系统错误,请联系技术支持");
-                }
-            },
-            error: function (data) {
-                $(".alert-danger").show();
-                $(".alert-danger").html("系统错误,请联系技术支持");
-            }
-        });
-    }
-</script>
+                },
+                null,
+                true);
+        }
+    </script>
 
 
 </body>

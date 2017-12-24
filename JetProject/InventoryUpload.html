@@ -51,10 +51,8 @@
               <div id="sidebar" class="nav-collapse ">
                   <!-- sidebar menu start-->
                   <ul class="sidebar-menu" id="nav-accordion">
-
                       <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                       <h5 class="centered">Jet</h5>
-
                       <li class="sub-menu">
                           <a href="javascript:;">
                               <i class="fa fa-desktop"></i>
@@ -64,7 +62,8 @@
                               <li><a href="SKUUpload.html">SKU Upload</a></li>
                               <li><a href="SearchSKU.html">Search SKU</a></li>
                               <li><a href="PriceUpload.html">Price Upload</a></li>
-                              <li class="active"><a href="SearchInventory.html">invenotry Manager</a></li>
+                              <li><a href="InventoryUpload.html">Invenotry Upload</a></li>
+                              <li><a href="SearchInventory.html">Search invenotry</a></li>
                           </ul>
                       </li>
 
@@ -128,16 +127,6 @@
               </section>
           </section><!-- /MAIN CONTENT -->
           <!--main content end-->
-          <!--footer start-->
-          <footer class="site-footer">
-              <div class="text-center">
-                  2014 - Alvarez.is - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-                  <a href="general.html#" class="go-top">
-                      <i class="fa fa-angle-up"></i>
-                  </a>
-              </div>
-          </footer>
-          <!--footer end-->
       </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
@@ -161,20 +150,28 @@
           $(".btn-primary").click(function () {
               $(".alert-success").hide();
               $(".alert-danger").hide();
+              $(".has-error").removeClass("has-error");
               var skuId = $("#sku-id").val();
               var quantity = $("#quantity").val();
               var nodeId = $("#fulfillment-node-id").val();
               if (!skuId) {
-                  
+                  $("#sku-id").parent().addClass("has-error");
+                  $("#sku-id").focus();
+                  return;
+              }
+              if (!nodeId) {
+                  $("#skufulfillment-node-id").parent().addClass("has-error");
+                  $("#fulfillment-node-id").focus();
                   return;
               }
               if (!quantity) {
-                  
+                  $("#quantity").parent().addClass("has-error");
+                  $("#quantity").focus();
                   return;
               }
             
               $.ajax({
-                  url: "Service/InternalService.ashx?t=InventoryUpload&skuId=" + skuId + "&quantity=" + quantity + "&nodeId=" + nodeId,
+                  url: "../Service/InternalService.ashx?t=InventoryUpload&skuId=" + skuId + "&quantity=" + quantity + "&nodeId=" + nodeId,
                   cache: false,
                   dataType: "json",
                   success: function(data) {

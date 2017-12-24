@@ -47,49 +47,48 @@
         </header>
         <!--header end-->
         <!--sidebar start-->
-    <aside>
-        <div id="sidebar" class="nav-collapse ">
-            <!-- sidebar menu start-->
-            <ul class="sidebar-menu" id="nav-accordion">
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                    <h5 class="centered">Jet</h5>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-desktop"></i>
+                            <span>SKU Manager</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="SKUUpload.html">SKU Upload</a></li>
+                            <li><a href="SearchSKU.html">Search SKU</a></li>
+                            <li><a href="PriceUpload.html">Price Upload</a></li>
+                            <li><a href="InventoryUpload.html">Invenotry Upload</a></li>
+                            <li><a href="SearchInventory.html">Search invenotry</a></li>
+                        </ul>
+                    </li>
 
-                <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                <h5 class="centered">Jet</h5>
-
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-desktop"></i>
-                        <span>SKU Manager</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="SKUUpload.html">SKU Upload</a></li>
-                        <li><a href="SearchSKU.html">Search SKU</a></li>
-                        <li><a href="PriceUpload.html">Price Upload</a></li>
-                        <li><a href="SearchInventory.html">invenotry Manager</a></li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-cogs"></i>
-                        <span>Order Manager</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="SearchOrder.html">Search Order</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Return Manager</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="SearchReturnOrder.html">Check for returns</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- sidebar menu end-->
-        </div>
-    </aside>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span>Order Manager</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="SearchOrder.html">Search Order</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-book"></i>
+                            <span>Return Manager</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="SearchReturnOrder.html">Check for returns</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
@@ -162,7 +161,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group inline-width">
-                                    <label class="col-sm-2 col-sm-2 control-label">has_shipments</label>
+                                    <label class="col-sm-2 col-sm-2 control-label">has shipments</label>
                                     <div class="col-sm-10">
                                         <p class="form-control-static" id="has_shipments"></p>
                                     </div>
@@ -296,16 +295,6 @@
             </section>
         </section><!-- /MAIN CONTENT -->
         <!--main content end-->
-        <!--footer start-->
-        <footer class="site-footer">
-            <div class="text-center">
-                2014 - Alvarez.is - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-                <a href="general.html#" class="go-top">
-                    <i class="fa fa-angle-up"></i>
-                </a>
-            </div>
-        </footer>
-        <!--footer end-->
     </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
@@ -322,6 +311,7 @@
     <!--script for this page-->
     <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+    <script src="Common/Comm.js"></script>
     <script type="text/javascript">
         var itemListData = null;
         $(document).ready(function () {
@@ -333,29 +323,28 @@
                 update(jetDefinedOrderId);
             });
             $("#shipOrder").click(function () {
-                window.location = "ShipOrder.html?jetDefinedOrderId=" + jetDefinedOrderId +"&altOrderId="+$("#alt_order_id").html();
+                window.location = "ShipOrder.html?jetDefinedOrderId=" + jetDefinedOrderId + "&altOrderId=" + $("#alt_order_id").html();
             });
 
         });
         function search(jetDefinedOrderId) {
             //search
-            $.ajax({
-                url: "Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=" + jetDefinedOrderId,
-                cache: false,
-                dataType: "json",
-                success: function (data) {
+            var url = "../Service/InternalService.ashx?t=QueryOrderDetail&jetDefinedOrderId=" + jetDefinedOrderId;
+            requestService(url,
+                null,
+                function (data) {
                     var hide = "display:none";
                     if (data) {
                         $("#alt_order_id").html(data.alt_order_id);
                         $("#name").html(data.buyer.name);
-                        $("#alt_ordephone_numberr_id").html(data.buyer.phone_number);
+                        $("#phone_number").html(data.buyer.phone_number);
                         $("#hash_email").html(data.hash_email);
                         $("#request_shipping_method").html(data.order_detail.request_shipping_method);
                         $("#request_shipping_carrier").html(data.order_detail.request_shipping_carrier);
                         $("#request_service_level").html(data.order_detail.request_service_level);
                         $("#request_ship_by").html(data.order_detail.request_ship_by);
                         $("#request_delivery_by").html(data.order_detail.request_delivery_by);
-                        $("#has_shipments").html(data.has_shipments);
+                        $("#has_shipments").html(data.has_shipments.toString());
                         $("#shipping_name").html(data.shipping_to.recipient.name);
                         $("#shipping_phone_number").html(data.shipping_to.recipient.phone_number);
                         $("#address1").html(data.shipping_to.address.address1);
@@ -370,7 +359,7 @@
                             $(".acknowledge").show();
                             hide = "";
                         }
-                        if (data.status == "acknowledged") {
+                        if (data.status != "ready") {
                             $(".ship").show();
                         }
                     }
@@ -378,22 +367,38 @@
                         itemListData = data.order_items;
                         var itemList = $("#items");
                         var items = data.order_items;
-                        $.each(items, function (i, item) {
-                            var s = '<tr><td>' + item.merchant_sku + '</td><td>' + item.product_title + '</td><td>' + item.request_order_quantity + '</td>' +
-                                '<td>' + item.item_price.item_tax + '</td><td>' + item.item_price.item_shipping_cost + '</td>' +
-                                '<td>' + item.item_price.item_shipping_tax + '</td><td>' + item.item_price.base_price + '</td>' +
-                                '<td>' + item.merchant_sku + '</td><td style="' + hide
-                                + '"><select class="form-control" id="' + item.order_item_id + '">' +
-                                '<option>fulfillable</option><option>nonfulfillable - invalid merchant SKU</option><option>nonfulfillable - no inventory</option></select></td></tr>';
-                            itemList.append(s);
-                        });
+                        $.each(items,
+                            function (i, item) {
+                                var s = '<tr><td>' +
+                                    item.merchant_sku +
+                                    '</td><td>' +
+                                    item.product_title +
+                                    '</td><td>' +
+                                    item.request_order_quantity +
+                                    '</td>' +
+                                    '<td>' +
+                                    item.request_order_cancel_qty +
+                                    '</td><td>' +
+                                    item.item_price.item_tax +
+                                    '</td>' +
+                                    '<td>' +
+                                    item.item_price.item_shipping_cost +
+                                    '</td><td>' +
+                                    item.item_price.item_shipping_tax +
+                                    '</td>' +
+                                    '<td>' +
+                                    item.item_price.base_price +
+                                    '</td><td style="' +
+                                    hide +
+                                    '"><select class="form-control " id="' +
+                                    item.order_item_id +
+                                    '">' +
+                                    '<option>fulfillable</option><option>nonfulfillable - invalid merchant SKU</option><option>nonfulfillable - no inventory</option></select></td></tr>';
+                                itemList.append(s);
+                            });
                     }
-                },
-                error: function (data) {
-                    $("#search-error").show();
-                    $("#search-error").html("系统错误,请联系技术支持");
-                }
-            });
+                    
+                });
         }
 
         function getQueryString(name) {
@@ -429,15 +434,17 @@
                 '","order_items":' +
                 items +
                 '}';
-            $.ajax({
-                url: "Service/InternalService.ashx?t=AcknowledgeOrder&jetDefinedOrderId=" + jetDefinedOrderId + "&data=" + data,
-                cache: false,
-                dataType: "json",
-                success: function (data) {
+            var url = "../Service/InternalService.ashx?t=AcknowledgeOrder&jetDefinedOrderId=" +
+                jetDefinedOrderId +
+                "&data=" +
+                data;
+            requestService(url,
+                null,
+                function (data) {
                     if (data) {
                         if (data.returnCode == "0000") {
                             $(".alert-success").show();
-                            if (result == "accepted") {
+                            if (result != "accepted") {
                                 $(".ship").show();
                             }
                             $(".acknowledge").hide();
@@ -450,12 +457,7 @@
                         $("#update-error").show();
                         $("#update-error").html("系统错误,请联系技术支持");
                     }
-                },
-                error: function (data) {
-                    $("#update-error").show();
-                    $("#update-error").html("系统错误,请联系技术支持");
-                }
-            });
+                });
         }
     </script>
 

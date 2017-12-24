@@ -47,49 +47,48 @@
         </header>
         <!--header end-->
         <!--sidebar start-->
-    <aside>
-        <div id="sidebar" class="nav-collapse ">
-            <!-- sidebar menu start-->
-            <ul class="sidebar-menu" id="nav-accordion">
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                    <h5 class="centered">Jet</h5>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-desktop"></i>
+                            <span>SKU Manager</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="SKUUpload.html">SKU Upload</a></li>
+                            <li><a href="SearchSKU.html">Search SKU</a></li>
+                            <li><a href="PriceUpload.html">Price Upload</a></li>
+                            <li><a href="InventoryUpload.html">Invenotry Upload</a></li>
+                            <li><a href="SearchInventory.html">Search invenotry</a></li>
+                        </ul>
+                    </li>
 
-                <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                <h5 class="centered">Jet</h5>
-
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-desktop"></i>
-                        <span>SKU Manager</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="SKUUpload.html">SKU Upload</a></li>
-                        <li><a href="SearchSKU.html">Search SKU</a></li>
-                        <li><a href="PriceUpload.html">Price Upload</a></li>
-                        <li><a href="SearchInventory.html">invenotry Manager</a></li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-cogs"></i>
-                        <span>Order Manager</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="SearchOrder.html">Search Order</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Return Manager</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="SearchReturnOrder.html">Check for returns</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- sidebar menu end-->
-        </div>
-    </aside>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span>Order Manager</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="SearchOrder.html">Search Order</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-book"></i>
+                            <span>Return Manager</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="SearchReturnOrder.html">Check for returns</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
@@ -275,16 +274,6 @@
             </section>
         </section><!-- /MAIN CONTENT -->
         <!--main content end-->
-        <!--footer start-->
-        <footer class="site-footer">
-            <div class="text-center">
-                2014 - Alvarez.is - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-                <a href="general.html#" class="go-top">
-                    <i class="fa fa-angle-up"></i>
-                </a>
-            </div>
-        </footer>
-        <!--footer end-->
     </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
@@ -298,6 +287,7 @@
     <!--script for this page-->
     <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+    <script src="Common/Comm.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $(".alert-danger").hide();
@@ -305,7 +295,7 @@
             $("#btn-search").click(function () {
                 searchProd();
             });
-            $("#btn-update").click(function() {
+            $("#btn-update").click(function () {
                 updateSku();
             });
         });
@@ -319,11 +309,10 @@
                 $("#search-error").html("Please enter SKU Id ");
                 return;
             }
-            $.ajax({
-                url: "Service/InternalService.ashx?t=SearchSKU&skuId=" + skuId,
-                cache: false,
-                dataType: "json",
-                success: function (data) {
+            var url = "../Service/InternalService.ashx?t=SearchSKU&skuId=" + skuId;
+            requestService(url,
+                null,
+                function(data) {
                     if (data) {
                         if (data.returnCode == "0000") {
                             $("#sku-info").show();
@@ -338,12 +327,7 @@
                         $("#search-error").show();
                         $("#search-error").html("系统错误,请联系技术支持");
                     }
-                },
-                error: function (data) {
-                    $("#search-error").show();
-                    $("#search-error").html("系统错误,请联系技术支持");
-                }
-            });
+                });
         }
 
         function bindProd(data) {
@@ -373,28 +357,28 @@
         }
 
         function updateSku() {
-            var product_title=$("#product-title").val();
-            var main_image_url=$("#main-image-url").val();
-            var safety_warning=$("#safety-warning").val();
-            var product_description=$("#product-description").val();
-            var multipack_quantity=$("#multipack-quantity").val();
-            var shipping_weight_pounds=$("#shipping-weight-pounds").val();
-            var manufacturer=$("#manufacturer").val();
-            var mfr_part_number=$("#mfr-part-number").val();
-            var map_implementation=$("#map-implementation").val();
-            var map_price=$("#map-price").val();
-            var country_of_origin=$("#country-of-origin").val();
-            var product_tax_code=$("#product-tax-code").val();
-            var number_units_for_price_per_unit=$("#number-units-for-price-per-unit").val();
-            var display_length_inches=$("#display-length-inches").val();
-            var display_width_inches=$("#display-width-inches").val();
+            var product_title = $("#product-title").val();
+            var main_image_url = $("#main-image-url").val();
+            var safety_warning = $("#safety-warning").val();
+            var product_description = $("#product-description").val();
+            var multipack_quantity = $("#multipack-quantity").val();
+            var shipping_weight_pounds = $("#shipping-weight-pounds").val();
+            var manufacturer = $("#manufacturer").val();
+            var mfr_part_number = $("#mfr-part-number").val();
+            var map_implementation = $("#map-implementation").val();
+            var map_price = $("#map-price").val();
+            var country_of_origin = $("#country-of-origin").val();
+            var product_tax_code = $("#product-tax-code").val();
+            var number_units_for_price_per_unit = $("#number-units-for-price-per-unit").val();
+            var display_length_inches = $("#display-length-inches").val();
+            var display_width_inches = $("#display-width-inches").val();
             var display_height_inches = $("#display-height-inches").val();
             var standard_product_code_type = $("#standard-product-code-type").val();
             var standard_product_code = $("#standard-product-code").val();
-            var brand=$("#brand").val();
+            var brand = $("#brand").val();
             var data = "data=";
             if (standard_product_code_type != "NULL") {
-                data += '{"brand":"' + brand+'","product_title":"' +
+                data += '{"brand":"' + brand + '","product_title":"' +
                     product_title +
                     '","main_image_url":"' +
                     main_image_url +
@@ -437,7 +421,7 @@
                     '"}] }';
 
             } else {
-                data += '{"brand":"' + brand +'","product_title":"' +
+                data += '{"brand":"' + brand + '","product_title":"' +
                     product_title +
                     '","main_image_url":"' +
                     main_image_url +
@@ -475,13 +459,10 @@
                     '' +
                     ',""}';
             }
-            $.ajax({
-                url: "Service/InternalService.ashx?t=UploadSKU&skuId="+$("#skuId").val(),
-                cache: false,
-                dataType: "json",
-                data: data,
-                type:'POST',
-                success: function (data) {
+            var url = "../Service/InternalService.ashx?t=UploadSKU&skuId=" + $("#skuId").val();
+            requestService(url,
+                data,
+                function(data) {
                     if (data) {
                         if (data.returnCode == "0000") {
                             $("#update-success").show();
@@ -494,14 +475,9 @@
                         $("#update-error").show();
                         $("#update-error").html("系统错误,请联系技术支持");
                     }
-                },
-                error: function (data) {
-                    $("#update-error").show();
-                    $("#update-error").html("系统错误,请联系技术支持");
-                }
-            });
+                });
         }
-       
+
     </script>
 
 

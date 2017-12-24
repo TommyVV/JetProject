@@ -51,10 +51,8 @@
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
-
                     <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                     <h5 class="centered">Jet</h5>
-
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-desktop"></i>
@@ -64,7 +62,8 @@
                             <li><a href="SKUUpload.html">SKU Upload</a></li>
                             <li><a href="SearchSKU.html">Search SKU</a></li>
                             <li><a href="PriceUpload.html">Price Upload</a></li>
-                            <li><a href="SearchInventory.html">invenotry Manager</a></li>
+                            <li><a href="InventoryUpload.html">Invenotry Upload</a></li>
+                            <li><a href="SearchInventory.html">Search invenotry</a></li>
                         </ul>
                     </li>
 
@@ -74,7 +73,7 @@
                             <span>Order Manager</span>
                         </a>
                         <ul class="sub">
-                            <li class="active"><a href="SearchOrder.html">Search Order</a></li>
+                            <li><a href="SearchOrder.html">Search Order</a></li>
                         </ul>
                     </li>
                     <li class="sub-menu">
@@ -150,16 +149,6 @@
             </section>
         </section><!-- /MAIN CONTENT -->
         <!--main content end-->
-        <!--footer start-->
-        <footer class="site-footer">
-            <div class="text-center">
-                2014 - Alvarez.is - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-                <a href="general.html#" class="go-top">
-                    <i class="fa fa-angle-up"></i>
-                </a>
-            </div>
-        </footer>
-        <!--footer end-->
     </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
@@ -173,6 +162,7 @@
     <!--script for this page-->
     <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+    <script src="Common/Comm.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $(".alert-success").hide();
@@ -199,39 +189,40 @@
                 return;
             }
             $("#orders").html('');
-            $.ajax({
-                url: "Service/InternalService.ashx?t=QueryOrder&status=" + status + "&isCancel=" + cancel + "&nodeId=" + nodeId,
-                cache: false,
-                dataType: "json",
-                success: function (data) {
-                    if (data) {
-                        if (data.returnCode == "0000") {
-                            var orders = $("#orders");
-                            if (data.orderList) {
-                                $.each(data.orderList,
-                                    function (i, order) {
-                                        var orderId = order.split('/')[3];
+            var url = "../Service/InternalService.ashx?t=QueryOrder&status=" +
+                status +
+                "&isCancel=" +
+                cancel +
+                "&nodeId=" +
+                nodeId;
 
-                                        var s =
-                                            '<tr><td>' + orderId + '</td><td><span class="label label-info label-mini">Due</span></td><td><a target="_blank" href="orderDetail.html?jetDefinedOrderId=' + orderId + '"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a></td></tr>';
-                                        orders.append(s);
-                                    });
-                            }
+            requestService(url,null,
+                function (data) {
+                    if (data.returnCode == "0000") {
+                        var orders = $("#orders");
+                        if (data.orderList&&data.orderList.length>0) {
+                            $.each(data.orderList,
+                                function(i, order) {
+                                    var orderId = order.split('/')[3];
+
+                                    var s =
+                                        '<tr><td>' +
+                                            orderId +
+                                        '</td><td><span class="label label-info label-mini">' + status+'</span></td><td><a target="_blank" href="orderDetail.html?jetDefinedOrderId=' +
+                                            orderId +
+                                            '"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a></td></tr>';
+                                    orders.append(s);
+                                });
                         } else {
-                            $("#search-error").show();
-                            $("#search-error").html(data.returnMessage);
+                            $(".alert-danger").show();
+                            $(".alert-danger").html("no result");
                         }
-
                     } else {
                         $("#search-error").show();
-                        $("#search-error").html("系统错误,请联系技术支持");
+                        $("#search-error").html(data.returnMessage);
                     }
-                },
-                error: function (data) {
-                    $("#search-error").show();
-                    $("#search-error").html("系统错误,请联系技术支持");
-                }
-            });
+                });
+
         }
 
         function update() {
@@ -250,11 +241,15 @@
                 $("#skquantity").focus();
                 return;
             }
-            $.ajax({
-                url: "Service/InternalService.ashx?t=InventoryUpload&skuId=" + skuId + "&quantity=" + qty + "&nodeId=" + nodeId,
-                cache: false,
-                dataType: "json",
-                success: function (data) {
+            var url = "../Service/InternalService.ashx?t=InventoryUpload&skuId=" +
+                skuId +
+                "&quantity=" +
+                qty +
+                "&nodeId=" +
+                nodeId;
+            requestService(url,
+                null,
+                function(data) {
                     if (data) {
                         if (data.returnCode == "0000") {
                             $(".alert-success").show();
@@ -268,12 +263,7 @@
                         $("#update-error").show();
                         $("#update-error").html("系统错误,请联系技术支持");
                     }
-                },
-                error: function (data) {
-                    $("#update-error").show();
-                    $("#update-error").html("系统错误,请联系技术支持");
-                }
-            });
+                });
         }
     </script>
 

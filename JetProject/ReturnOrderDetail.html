@@ -47,49 +47,48 @@
         </header>
         <!--header end-->
         <!--sidebar start-->
-    <aside>
-        <div id="sidebar" class="nav-collapse ">
-            <!-- sidebar menu start-->
-            <ul class="sidebar-menu" id="nav-accordion">
+        <aside>
+            <div id="sidebar" class="nav-collapse ">
+                <!-- sidebar menu start-->
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                    <h5 class="centered">Jet</h5>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-desktop"></i>
+                            <span>SKU Manager</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="SKUUpload.html">SKU Upload</a></li>
+                            <li><a href="SearchSKU.html">Search SKU</a></li>
+                            <li><a href="PriceUpload.html">Price Upload</a></li>
+                            <li><a href="InventoryUpload.html">Invenotry Upload</a></li>
+                            <li><a href="SearchInventory.html">Search invenotry</a></li>
+                        </ul>
+                    </li>
 
-                <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                <h5 class="centered">Jet</h5>
-
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-desktop"></i>
-                        <span>SKU Manager</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="SKUUpload.html">SKU Upload</a></li>
-                        <li><a href="SearchSKU.html">Search SKU</a></li>
-                        <li><a href="PriceUpload.html">Price Upload</a></li>
-                        <li><a href="SearchInventory.html">invenotry Manager</a></li>
-                    </ul>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-cogs"></i>
-                        <span>Order Manager</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="SearchOrder.html">Search Order</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="javascript:;">
-                        <i class="fa fa-book"></i>
-                        <span>Return Manager</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a href="SearchReturnOrder.html">Check for returns</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <!-- sidebar menu end-->
-        </div>
-    </aside>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span>Order Manager</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="SearchOrder.html">Search Order</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-book"></i>
+                            <span>Return Manager</span>
+                        </a>
+                        <ul class="sub">
+                            <li><a href="SearchReturnOrder.html">Check for returns</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- sidebar menu end-->
+            </div>
+        </aside>
         <!--main content start-->
         <section id="main-content">
             <section class="wrapper">
@@ -148,30 +147,36 @@
                                     </div>
                                 </div>
                                 <div class="form-group inline-width">
-                                    <label class="col-sm-2 col-sm-2 control-label">request ship by</label>
+                                    <label class="col-sm-2 col-sm-2 control-label">return completion date</label>
                                     <div class="col-sm-10">
-                                        <p class="form-control-static" id="request_ship_by"></p>
+                                        <p class="form-control-static" id="return_completion_date"></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-inline  style-form width100">
+                                <div class="form-group inline-width">
+                                    <label class="col-sm-2 col-sm-2 control-label">status</label>
+                                    <div class="col-sm-10">
+                                        <p class="form-control-static" id="status"></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="form-panel">
+                        <div class="form-panel" id="itemPanel" style="display: none">
                             <table class="table table-striped table-advance table-hover">
                                 <h4><i class="fa fa-angle-right"></i> Item List</h4>
                                 <hr>
                                 <thead>
-                                <tr>
-                                    <th><i class="fa fa-bullhorn"></i> order_item_id</th>
-                                    <th><i class=" fa fa-edit"></i> alt order item_id</th>
-                                    <th><i class="fa fa-bullhorn"></i> total quantity returned</th>
-                                    <th><i class="fa fa-bullhorn"></i> order return refund qty</th>
-                                    <th><i class="fa fa-bullhorn"></i> return refund feedback</th>
-                                    <th><i class="fa fa-bullhorn"></i>refund principal</th>
-                                    <th><i class="fa fa-bullhorn"></i> refund tax</th>
-                                    <th><i class="fa fa-bullhorn"></i> refund shipping cost</th>
-                                    <th><i class="fa fa-bullhorn"></i> refund shipping tax</th>
-                                    <th class="acknowledge"><i class="fa fa-bullhorn "></i> Process</th>
-                                </tr>
+                                    <tr>
+                                        <th><i class="fa fa-bullhorn"></i> order_item_id</th>
+                                        <th><i class="fa fa-bullhorn"></i> total quantity returned</th>
+                                        <th><i class="fa fa-bullhorn"></i> order return refund qty</th>
+                                        <th><i class="fa fa-bullhorn"></i> return refund feedback</th>
+                                        <th><i class="fa fa-bullhorn"></i>refund principal</th>
+                                        <th><i class="fa fa-bullhorn"></i> refund tax</th>
+                                        <th><i class="fa fa-bullhorn"></i> refund shipping cost</th>
+                                        <th><i class="fa fa-bullhorn"></i> refund shipping tax</th>
+                                    </tr>
                                 </thead>
                                 <tbody id="itemsList"></tbody>
                             </table>
@@ -181,93 +186,97 @@
                                 <h4><i class="fa fa-angle-right"></i> Merchant SKU List</h4>
                                 <hr>
                                 <thead>
-                                <tr>
-                                    <th><i class="fa fa-bullhorn"></i> order_item_id</th>
-                                    <th><i class="fa fa-bullhorn"></i> return quantity</th>
-                                    <th><i class="fa fa-bullhorn"></i> merchant sku</th>
-                                    <th><i class="fa fa-bullhorn"></i> reason</th>
-                                    <th><i class="fa fa-bullhorn"></i>refund principal</th>
-                                    <th><i class="fa fa-bullhorn"></i> refund tax</th>
-                                    <th><i class="fa fa-bullhorn"></i> refund shipping cost</th>
-                                    <th><i class="fa fa-bullhorn"></i> refund shipping tax</th>
-                                    <th class="acknowledge"><i class="fa fa-bullhorn "></i> Process</th>
-                                </tr>
+                                    <tr>
+                                        <th><i class="fa fa-bullhorn"></i> order_item_id</th>
+                                        <th><i class="fa fa-bullhorn"></i> return quantity</th>
+                                        <th><i class="fa fa-bullhorn"></i> merchant sku</th>
+                                        <th><i class="fa fa-bullhorn"></i> reason</th>
+                                        <th><i class="fa fa-bullhorn"></i>refund principal</th>
+                                        <th><i class="fa fa-bullhorn"></i> refund tax</th>
+                                        <th><i class="fa fa-bullhorn"></i> refund shipping cost</th>
+                                        <th><i class="fa fa-bullhorn"></i> refund shipping tax</th>
+                                    </tr>
                                 </thead>
                                 <tbody id="skuList"></tbody>
                             </table>
+                            <div class="alert alert-success">Submit success</div>
+                            <div class="alert alert-danger" id="update-error"></div>
                         </div>
-                        <div id="itemList">
-                            <div class="form-panel">
-                                <h4 class="mb"><i class="fa fa-angle-right"></i> Return Order item Info  #1</h4>
-                                <div class="form-inline  style-form width100">
-                                    <div class="form-group inline-width">
-                                        <label class="col-sm-2 col-sm-2 control-label">order item id</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control order_item_id">
+                        <div id="returnItem" style="display: none">
+                            <div id="returnItemList">
+                                <div class="form-panel">
+                                    <h4 class="mb"><i class="fa fa-angle-right"></i> Return Order item Info #1</h4>
+                                    <div class="form-inline  style-form width100">
+                                        <div class="form-group inline-width">
+                                            <label class="col-sm-2 col-sm-2 control-label">order item id</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control order_item_id">
+                                            </div>
+                                        </div>
+                                        <div class="form-group inline-width">
+                                            <label class="col-sm-2 col-sm-2 control-label">total quantity returned</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control total_quantity_returned">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group inline-width">
-                                        <label class="col-sm-2 col-sm-2 control-label">total quantity returned</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control total_quantity_returned">
+                                    <div class="form-inline  style-form width100">
+                                        <div class="form-group inline-width">
+                                            <label class="col-sm-2 col-sm-2 control-label">order return refund qty</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control order_return_refund_qty">
+                                            </div>
+                                        </div>
+                                        <div class="form-group inline-width">
+                                            <label class="col-sm-2 col-sm-2 control-label">return refund feedback</label>
+                                            <div class="col-sm-10">
+                                                <select class="form-control return_refund_feedback">
+                                                    <option>item damaged</option>
+                                                    <option>not shipped in original packaging</option>
+                                                    <option>customer opened item</option>
+                                                    <option>general adjustment - notes required</option>
+                                                    <option>other</option>
+                                                </select>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="form-inline  style-form width100">
-                                    <div class="form-group inline-width">
-                                        <label class="col-sm-2 col-sm-2 control-label">order return refund qty</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control order_return_refund_qty">
+
+                                    <div class="form-inline  style-form width100">
+                                        <div class="form-group inline-width">
+                                            <label class="col-sm-2 col-sm-2 control-label">principal </label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control principal">
+                                            </div>
+                                        </div>
+                                        <div class="form-group inline-width">
+                                            <label class="col-sm-2 col-sm-2 control-label">tax</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control tax">
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="form-group inline-width">
-                                        <label class="col-sm-2 col-sm-2 control-label">return refund feedback</label>
-                                        <div class="col-sm-10">
-                                            <select class="form-control return_refund_feedback">
-                                                <option>item damaged</option>
-                                                <option>not shipped in original packaging</option>
-                                                <option>customer opened item</option>
-                                                <option>general adjustment - notes required</option>
-                                                <option>other</option>
-                                            </select>
+                                    <div class="form-inline  style-form width100">
+                                        <div class="form-group inline-width">
+                                            <label class="col-sm-2 col-sm-2 control-label">shipping cost</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control shipping_cost">
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                               
-                                <div class="form-inline  style-form width100">
-                                    <div class="form-group inline-width">
-                                        <label class="col-sm-2 col-sm-2 control-label">principal </label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control principal">
-                                        </div>
-                                    </div>
-                                    <div class="form-group inline-width">
-                                        <label class="col-sm-2 col-sm-2 control-label">tax</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control tax">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form-inline  style-form width100">
-                                    <div class="form-group inline-width">
-                                        <label class="col-sm-2 col-sm-2 control-label">shipping cost</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control shipping_cost">
-                                        </div>
-                                    </div>
-                                    <div class="form-group inline-width">
-                                        <label class="col-sm-2 col-sm-2 control-label">shipping tax</label>
-                                        <div class="col-sm-10">
-                                            <input type="text" class="form-control shipping_tax">
+                                        <div class="form-group inline-width">
+                                            <label class="col-sm-2 col-sm-2 control-label">shipping tax</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control shipping_tax">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div style="text-align: right">
-                            <button type="button" class="btn btn-info" id="addNewItem">Add new item</button>
+                            <div style="text-align: right">
+                                <button type="button" class="btn btn-info" id="addNewItem">Add new item</button>
+                            </div>
                         </div>
                         <div class="row mt ">
+
                             <div class="col-lg-12">
                                 <div class="form-panel acknowledge">
                                     <h4 class="mb"><i class="fa fa-angle-right"></i>Acknowledge </h4>
@@ -281,27 +290,25 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" style="display: none" id="feed_back">
                                             <label class="col-sm-2 col-sm-2 control-label">return_charge_feedback</label>
                                             <div class="col-sm-10">
                                                 <select class="form-control" id="return_charge_feedback">
-                                                    <option>true</option>
-                                                    <option>false</option>
+                                                    <option>other</option>
+                                                    <option>outsideMerchantPolicy</option>
+                                                    <option>notMerchantError</option>
+                                                    <option>wrongItem</option>
+                                                    <option>fraud</option>
+                                                    <option>returnedOutsideWindow</option>
                                                 </select>
                                             </div>
                                         </div>
-                                       
-                                        <div class="alert alert-success">Submit success</div>
-                                        <div class="alert alert-danger" id="update-error"></div>
+
+
                                         <button type="button" class="btn btn-primary" id="submit">Submit</button>
                                     </div>
                                 </div>
-                                <div class="form-panel ship">
-                                    <h4 class="mb"><i class="fa fa-angle-right"></i>Ship order </h4>
-                                    <div>
-                                        <button type="button" class="btn btn-primary" id="shipOrder">Go to Ship</button>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -309,16 +316,6 @@
             </section>
         </section><!-- /MAIN CONTENT -->
         <!--main content end-->
-        <!--footer start-->
-        <footer class="site-footer">
-            <div class="text-center">
-                2014 - Alvarez.is - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-                <a href="general.html#" class="go-top">
-                    <i class="fa fa-angle-up"></i>
-                </a>
-            </div>
-        </footer>
-        <!--footer end-->
     </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
@@ -335,28 +332,35 @@
     <!--script for this page-->
     <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+    <script src="Common/Comm.js"></script>
     <script type="text/javascript">
         var itemListData = null;
+        var i = 1;
         $(document).ready(function () {
-            $(".alert-success").hide();
             $(".alert-danger").hide();
+            $(".alert-success").hide();
             var jetDefinedOrderId = getQueryString("jetDefinedOrderId");
             search(jetDefinedOrderId);
             $("#submit").click(function () {
                 update(jetDefinedOrderId);
             });
-            $("#shipOrder").click(function () {
-                window.location = "ShipOrder.html?jetDefinedOrderId=" + jetDefinedOrderId +"&altOrderId="+$("#alt_order_id").html();
+            $("#addNewItem").click(function () {
+                addReturnItem();
             });
-
+            $("#agree_to_return_charge").change(function () {
+                if ($("#agree_to_return_charge").val() == "false") {
+                    $("#feed_back").show();
+                } else {
+                    $("#feed_back").hide();
+                }
+            });
         });
         function search(jetDefinedOrderId) {
             //search
-            $.ajax({
-                url: "Service/InternalService.ashx?t=QueryReturnOrderDetail&jetDefinedOrderId=" + jetDefinedOrderId,
-                cache: false,
-                dataType: "json",
-                success: function (data) {
+            var url = "../Service/InternalService.ashx?t=QueryReturnOrderDetail&jetDefinedOrderId=" + jetDefinedOrderId;
+            requestService(url,
+                null,
+                function (data) {
                     var hide = "display:none";
                     if (data) {
                         $("#alt_order_id").html(data.alt_order_id);
@@ -365,48 +369,75 @@
                         $("#shipping_carrier").html(data.shipping_carrier);
                         $("#tracking_number").html(data.tracking_number);
                         $("#merchant_return_charge").html(data.merchant_return_charge);
-                        $("#refund_without_return").html(data.refund_without_return);
-                        $("#request_ship_by").html(data.request_ship_by);
-                        //$("#request_delivery_by").html(data.order_detail.request_delivery_by);
-                        //$("#has_shipments").html(data.has_shipments);
-                        //$("#shipping_name").html(data.shipping_to.recipient.name);
-                        //$("#shipping_phone_number").html(data.shipping_to.recipient.phone_number);
-                        //$("#address1").html(data.shipping_to.address.address1);
-                        //$("#address2").html(data.shipping_to.address.address2);
-                        //$("#city").html(data.shipping_to.address.city);
-                        //$("#state").html(data.shipping_to.address.state);
-                        //$("#zip_code").html(data.shipping_to.address.zip_code);
-                        //$("#status").html(data.status);
-                        //$("#order_placed_date").html(data.order_placed_date);
-                        //$("#order_transmission_date").html(data.order_transmission_date);
-                        //if (data.status == "ready") {
-                        //    $(".acknowledge").show();
-                        //    hide = "";
-                        //}
-                        //if (data.status == "acknowledged") {
-                        //    $(".ship").show();
-                        //}
+                        $("#refund_without_return").html(data.refund_without_return.toString());
+                        $("#return_completion_date").html(data.return_completion_date);
+                        $("#status").html(data.return_status);
+                        $("#request_delivery_by").html(data.request_delivery_by);
+                        if (data.return_status == "created") {
+                            //create status  show return item
+                            $("#returnItem").show();
+                            $(".acknowledge").show();
+                        } else {
+                            $("#itemPanel").show();
+                        }
                     }
                     if (data.return_merchant_SKUs) {
                         itemListData = data.return_merchant_SKUs;
                         var itemList = $("#skuList");
                         var items = data.return_merchant_SKUs;
-                        $.each(items, function (i, item) {
-                            var s = '<tr><td>' + item.order_item_id + '</td><td>' + item.return_quantity + '</td>' +
-                                '<td>' + item.merchant_sku + '</td><td>' + item.reason + '</td>' +
-                                '<td>' + item.requested_refund_amount.principal + '</td><td>' + item.requested_refund_amount.tax + '</td>' +
-                                '<td>' + item.requested_refund_amount.shipping_cost + '</td><td>' + item.requested_refund_amount.shipping_tax + '</td><td style="' + hide
-                                + '"><select class="form-control" id="' + item.order_item_id + '">' +
-                                '<option>fulfillable</option><option>nonfulfillable - invalid merchant SKU</option><option>nonfulfillable - no inventory</option></select></td></tr>';
-                            itemList.append(s);
-                        });
+                        $.each(items,
+                            function (i, item) {
+                                var s = '<tr><td>' +
+                                    item.order_item_id +
+                                    '</td><td>' +
+                                    item.return_quantity +
+                                    '</td>' +
+                                    '<td>' +
+                                    item.merchant_sku +
+                                    '</td><td>' +
+                                    item.reason +
+                                    '</td>' +
+                                    '<td>' +
+                                    item.requested_refund_amount.principal +
+                                    '</td><td>' +
+                                    item.requested_refund_amount.tax +
+                                    '</td>' +
+                                    '<td>' +
+                                    item.requested_refund_amount.shipping_cost +
+                                    '</td><td>' +
+                                    item.requested_refund_amount.shipping_tax +
+                                    '</td></tr>';
+                                itemList.append(s);
+                            });
                     }
-                },
-                error: function (data) {
-                    $("#search-error").show();
-                    $("#search-error").html("系统错误,请联系技术支持");
-                }
-            });
+                    if (data.items) {
+                        var refundItemList = $("#itemsList");
+                        $.each(data.items,
+                            function (i, item) {
+                                var row = '<tr><td>' +
+                                    item.order_item_id +
+                                    '</td><td>' +
+                                    item.total_quantity_returned +
+                                    '</td>' +
+                                    '<td>' +
+                                    item.order_return_refund_qty +
+                                    '</td><td>' +
+                                    item.return_refund_feedback +
+                                    '</td>' +
+                                    '<td>' +
+                                    item.refund_amount.principal +
+                                    '</td><td>' +
+                                    item.refund_amount.tax +
+                                    '</td>' +
+                                    '<td>' +
+                                    item.refund_amount.shipping_cost +
+                                    '</td><td>' +
+                                    item.refund_amount.shipping_tax +
+                                    '</td></tr>';
+                                refundItemList.append(row);
+                            });
+                    }
+                });
         }
 
         function getQueryString(name) {
@@ -415,42 +446,104 @@
             if (r != null) return unescape(r[2]); return null;
         }
 
+        function addReturnItem() {
+            var itemList = $("#returnItemList");
+            i++;
+            var row =
+                '<div class="form-panel"><h4 class="mb"><i class="fa fa-angle-right"></i> Return Order item Info  #' + i + '</h4><div class="form-inline  style-form width100"><div class="form-group inline-width"><label class="col-sm-2 col-sm-2 control-label">order item id</label><div class="col-sm-10"><input type="text" class="form-control order_item_id"></div></div><div class="form-group inline-width"><label class="col-sm-2 col-sm-2 control-label">total quantity returned</label><div class="col-sm-10"><input type="text" class="form-control total_quantity_returned"></div></div></div><div class="form-inline  style-form width100"><div class="form-group inline-width"><label class="col-sm-2 col-sm-2 control-label">order return refund qty</label><div class="col-sm-10"><input type="text" class="form-control order_return_refund_qty"></div></div><div class="form-group inline-width"><label class="col-sm-2 col-sm-2 control-label">return refund feedback</label><div class="col-sm-10"><select class="form-control return_refund_feedback"><option>item damaged</option><option>not shipped in original packaging</option><option>customer opened item</option><option>general adjustment - notes required</option><option>other</option></select></div></div></div><div class="form-inline  style-form width100"><div class="form-group inline-width"><label class="col-sm-2 col-sm-2 control-label">principal </label><div class="col-sm-10"><input type="text" class="form-control principal"></div></div><div class="form-group inline-width"><label class="col-sm-2 col-sm-2 control-label">tax</label><div class="col-sm-10"><input type="text" class="form-control tax"></div></div></div><div class="form-inline  style-form width100"><div class="form-group inline-width"><label class="col-sm-2 col-sm-2 control-label">shipping cost</label><div class="col-sm-10"><input type="text" class="form-control shipping_cost"></div></div><div class="form-group inline-width"><label class="col-sm-2 col-sm-2 control-label">shipping tax</label><div class="col-sm-10"><input type="text" class="form-control shipping_tax"></div></div></div></div>';
+            itemList.append(row);
+        }
+
         function update(jetDefinedOrderId) {
             $(".alert-success").hide();
             $(".alert-danger").hide();
-            var result = $("#result").val();
-            var orderId = $("#alt_order_id").html();
             var items = '[';
-            if (itemListData) {
-                $.each(itemListData,
+            var itemList = $("#returnItemList").find(".form-panel");
+            var isValidPass = true;
+            if (itemList) {
+                $.each(itemList,
                     function (i, item) {
-                        var itemResult = $("#" + item.order_item_id).val();
-                        items += '{"order_item_acknowledgement_status":"' +
-                            itemResult +
-                            '","order_item_id":"' +
-                            item.order_item_id +
-                            '"}';
+                        var order_item_id = $(item).find(".order_item_id").val();
+                        var total_quantity_returned = $(item).find(".total_quantity_returned").val();
+                        var order_return_refund_qty = $(item).find(".order_return_refund_qty").val();
+                        var return_refund_feedback = $(item).find(".return_refund_feedback").val();
+                        var principal = $(item).find(".principal").val();
+                        var tax = $(item).find(".tax").val();
+                        var shipping_cost = $(item).find(".shipping_cost").val();
+                        var shipping_tax = $(item).find(".shipping_tax").val();
+                        if (!order_item_id) {
+                            isValidPass = false;
+                            $(item).find(".order_item_id").focus();
+                            return;
+                        }
+                        if (!total_quantity_returned) {
+                            isValidPass = false;
+                            $(item).find(".total_quantity_returned").focus();
+                            return;
+                        }
+                        if (!order_return_refund_qty) {
+                            isValidPass = false;
+                            $(item).find(".order_return_refund_qty").focus();
+                            return;
+                        }
+                        if (!return_refund_feedback) {
+                            isValidPass = false;
+                            $(item).find(".return_refund_feedback").focus();
+                            return;
+                        }
+                        if (!principal) {
+                            isValidPass = false;
+                            $(item).find(".principal").focus();
+                            return;
+                        }
+                        if (!tax) {
+                            isValidPass = false;
+                            $(item).find(".tax").focus();
+                            return;
+                        }
+                        if (!shipping_cost) {
+                            isValidPass = false;
+                            $(item).find(".shipping_cost").focus();
+                            return;
+                        }
+                        if (!shipping_tax) {
+                            isValidPass = false;
+                            $(item).find(".shipping_tax").focus();
+                            return;
+                        }
+                        items += '{"order_item_id": "' + order_item_id + '","total_quantity_returned": ' + total_quantity_returned + ',' +
+                            '"order_return_refund_qty": ' + order_return_refund_qty + ',"return_refund_feedback": "' + return_refund_feedback + '",' +
+                            '"refund_amount": {"principal":' + principal + ', "tax":' + tax + ',' +
+                            '"shipping_cost":' + shipping_cost + ',"shipping_tax":' + shipping_tax + '}},';
 
                     });
             }
+            items = items.substring(0, items.length - 1);
             items += "]";
-            var data = '{"acknowledgement_status":"' +
-                result +
-                '","alt_order_id":"' +
-                orderId +
-                '","order_items":' +
+            if (!isValidPass) {
+                return;
+            }
+            var orderId = $("#alt_order_id").html();
+            var agree_to_return_charge = $("#agree_to_return_charge").val();
+            var return_charge_feedback = $("#return_charge_feedback").val();
+            var merchant_order_id = $("#merchant_order_id").html();
+            var data = 'data={"merchant_order_id":"' + merchant_order_id + '","alt_order_id":"' + orderId +
+                '","agree_to_return_charge":' +
+                agree_to_return_charge +
+                ',"items":' +
                 items +
                 '}';
-            $.ajax({
-                url: "Service/InternalService.ashx?t=AcknowledgeOrder&jetDefinedOrderId=" + jetDefinedOrderId + "&data=" + data,
-                cache: false,
-                dataType: "json",
-                success: function (data) {
+            var url = "../Service/InternalService.ashx?t=CompleteReturn&jetDefinedOrderId=" + jetDefinedOrderId;
+            requestService(url,
+                data,
+                function(data) {
                     if (data) {
                         if (data.returnCode == "0000") {
-                            $(".alert-success").show();
-                            $(".alert-success").html("");
-                            $(".ship").show();
+                            //$(".alert-success").show();
+                            //$(".alert-success").html();
+                            //$(".acknowledge").hide();
+                            //$("#returnItem").hide();
+                            window.location.reload();
                         } else {
                             $("#update-error").show();
                             $("#update-error").html(data.returnMessage);
@@ -460,13 +553,7 @@
                         $("#update-error").show();
                         $("#update-error").html("系统错误,请联系技术支持");
                     }
-                },
-                error: function (data) {
-                    $("#update-error").show();
-                    $("#update-error").html("系统错误,请联系技术支持");
-                }
-            });
-        }
+                },null,true);        }
     </script>
 
 

@@ -51,10 +51,8 @@
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
-
                     <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                     <h5 class="centered">Jet</h5>
-
                     <li class="sub-menu">
                         <a href="javascript:;">
                             <i class="fa fa-desktop"></i>
@@ -64,7 +62,8 @@
                             <li><a href="SKUUpload.html">SKU Upload</a></li>
                             <li><a href="SearchSKU.html">Search SKU</a></li>
                             <li><a href="PriceUpload.html">Price Upload</a></li>
-                            <li><a href="SearchInventory.html">invenotry Manager</a></li>
+                            <li><a href="InventoryUpload.html">Invenotry Upload</a></li>
+                            <li><a href="SearchInventory.html">Search invenotry</a></li>
                         </ul>
                     </li>
 
@@ -134,16 +133,6 @@
             </section>
         </section><!-- /MAIN CONTENT -->
         <!--main content end-->
-        <!--footer start-->
-        <footer class="site-footer">
-            <div class="text-center">
-                2014 - Alvarez.is - More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
-                <a href="general.html#" class="go-top">
-                    <i class="fa fa-angle-up"></i>
-                </a>
-            </div>
-        </footer>
-        <!--footer end-->
     </section>
 
     <!-- js placed at the end of the document so the pages load faster -->
@@ -157,6 +146,7 @@
     <!--script for this page-->
     <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+    <script src="Common/Comm.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $(".alert-success").hide();
@@ -176,20 +166,25 @@
             //search
             var status = $("#status").val();
             $("#orders").html('');
-            $.ajax({
-                url: "Service/InternalService.ashx?t=QueryReturnOrder&status=" + status,
-                cache: false,
-                dataType: "json",
-                success: function (data) {
+            var url = "../Service/InternalService.ashx?t=QueryReturnOrder&status=" + status;
+            requestService(url,
+                null,
+                function(data) {
                     if (data) {
                         if (data.returnCode == "0000") {
                             var orders = $("#orders");
                             if (data.orderList) {
                                 $.each(data.orderList,
-                                    function (i, order) {
+                                    function(i, order) {
                                         var orderId = order.split('/')[3];
                                         var s =
-                                            '<tr><td>' + orderId + '</td><td><span class="label label-info label-mini">' + status+'</span></td><td><a target="_blank" href="ReturnOrderDetail.html?jetDefinedOrderId=' + orderId + '"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a></td></tr>';
+                                            '<tr><td>' +
+                                                orderId +
+                                                '</td><td><span class="label label-info label-mini">' +
+                                                status +
+                                                '</span></td><td><a target="_blank" href="ReturnOrderDetail.html?jetDefinedOrderId=' +
+                                                orderId +
+                                                '"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i></button></a></td></tr>';
                                         orders.append(s);
                                     });
                             }
@@ -202,14 +197,9 @@
                         $("#search-error").show();
                         $("#search-error").html("系统错误,请联系技术支持");
                     }
-                },
-                error: function (data) {
-                    $("#search-error").show();
-                    $("#search-error").html("系统错误,请联系技术支持");
-                }
-            });
+                });
         }
-        
+
     </script>
 
 
