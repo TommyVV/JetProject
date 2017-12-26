@@ -364,13 +364,7 @@ public class ServiceHelper
             // 设置提交的相关参数 
 
             HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
-            request.Headers.Add("Authorization", "bearer " + Token);
-            if (Proxy == "1")
-            {
-                WebProxy proxy = new WebProxy("http://s1firewall:8080", true);
-                proxy.Credentials = new NetworkCredential("tz67", "Newegg123456");
-                request.Proxy = proxy;
-            }
+            request.Headers.Add("Authorization", "bearer " + Token);           
             request.Method = "GET";
             request.ContentType = "application/json";
             // 提交请求数据 
@@ -442,13 +436,7 @@ public class ServiceHelper
             if (needToken)
             {
                 request.Headers.Add("Authorization", "bearer " + Token);
-            }
-            if (Proxy == "1")
-            {
-                WebProxy proxy = new WebProxy("http://s1firewall:8080", true);
-                proxy.Credentials = new NetworkCredential("tz67", "Newegg123456");
-                request.Proxy = proxy;
-            }
+            }         
             request.Method = method;
             request.ContentType = "application/json";
             // 提交请求数据 
