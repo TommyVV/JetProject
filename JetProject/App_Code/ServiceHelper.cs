@@ -481,12 +481,13 @@ public class ServiceHelper
             }
             else
             {
+                var msg= ProcessError(resp);
                 switch (resp.StatusCode)
                 {
                     case HttpStatusCode.BadRequest:
-                        throw new TransactionException("0400", "Incorrect request data or no information was found");
+                        throw new TransactionException("0400", msg);
                     case HttpStatusCode.NoContent:
-                        throw new TransactionException("0200", "No information was found");
+                        throw new TransactionException("0200", msg);
                     default:
                         throw;
                 }
@@ -601,4 +602,29 @@ public class ServiceHelper
         public List<Dictionary<string, object>> shipments { get; set; }
     }
     #endregion
+
+    private string ProcessError(HttpWebResponse response)
+    {
+        if (response == null)
+        {
+            return null;
+        }
+        var responseStream = response.GetResponseStream();
+        var reader = new StreamReader(responseStream, Encoding.GetEncoding("UTF-8"));
+        string data = reader.ReadToEnd();
+        Logger.Info("error msg :"+data);
+        var result = JsonConvert.DeserializeObject<Error>(data);
+        var errorData = result.errors;
+        var errorMsg = "";
+        foreach (var error in errorData)
+        {
+            errorMsg += error;
+        }
+        return errorMsg;
+    }
+
+    class Error
+    {
+        public string[] errors { get; set; }
+    }
 }
