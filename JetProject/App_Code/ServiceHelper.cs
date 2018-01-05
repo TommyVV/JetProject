@@ -577,6 +577,44 @@ public class ServiceHelper
     }
     #endregion
 
+    #region  shipping exception
+
+    public string ShippingException(string serviceLevel,string method,string nodeId,string shippingType,string overrideType,string jetDefinedOrderId,string amount)
+    {
+        try
+        {
+            var url = $"https://merchant-api.jet.com/api/returns/state/{jetDefinedOrderId}";
+            string data;
+            if (overrideType == "restricted")
+            {
+                data = "{\"fulfillment_nodes\":[{\"fulfillment_node_id\":\"" + nodeId +
+                       "\",\"shipping_exceptions\":[{\"service_level\":\"" + serviceLevel +
+                       "\",\"shipping_exception_type\":\"" + shippingType + "\"}]}]}";
+            }
+            else
+            {
+                data = "{\"fulfillment_nodes\":[{\"fulfillment_node_id\":\"" + nodeId +
+                       "\",\"shipping_exceptions\":[{\"service_level\":\"" + serviceLevel +
+                       "\",\"shipping_exception_type\":\"" + shippingType + "\",\"override_type\":\"" + overrideType +
+                       "\",\"shipping_charge_amount\":" + amount + "}]}]}";
+            }
+            
+            var result = PostData(url,data,"PUT");
+            return result;
+        }
+        catch (TransactionException ex)
+        {
+            return "{\"returnCode\":\"" + ex.ErrorCode + "\",\"returnMessage\":\"" + ex.ErrorMessage + "\"}";
+        }
+        catch (Exception e)
+        {
+            Logger.Error(e);
+            return "{\"returnCode\":\"0096\",\"returnMessage\":\"system error\"}";
+        }
+    }
+
+    #endregion
+
     #region Field
 
     private string Proxy { get; set; }
