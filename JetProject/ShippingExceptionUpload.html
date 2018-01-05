@@ -111,7 +111,7 @@
                                           <input type="text" class="form-control" id="fulfillment-node-id">
                                       </div>
                                   </div>
-                                  <div class="form-group">
+                                  <div class="form-group" style="display: none">
                                       <label class="col-sm-2 col-sm-2 control-label">service level</label>
                                       <div class="col-sm-10">
                                           <select class="form-control" id="service_level">
@@ -126,15 +126,6 @@
                                               <option>21 to 30 Day</option>
                                               <option>Scheduled (freight 11 to 20 day)</option>
                                               <option>Scheduled (freight 21 to 30 day)</option>
-                                          </select>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <label class="col-sm-2 col-sm-2 control-label">override type</label>
-                                      <div class="col-sm-10">
-                                          <select class="form-control" id="override_type">
-                                              <option>Override charge</option>
-                                              <option>Additional charge</option>
                                           </select>
                                       </div>
                                   </div>
@@ -178,7 +169,22 @@
                                           </select>
                                       </div>
                                   </div>
-                                  <div class="alert alert-success"></div>
+                                  <div class="form-group shipping_charge_amount">
+                                      <label class="col-sm-2 col-sm-2 control-label">override type</label>
+                                      <div class="col-sm-10">
+                                          <select class="form-control" id="override_type">
+                                              <option>Override charge</option>
+                                              <option>Additional charge</option>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  <div class="form-group shipping_charge_amount" >
+                                      <label class="col-sm-2 col-sm-2 control-label">shipping charge amount</label>
+                                      <div class="col-sm-10">
+                                          <input type="text" class="form-control" id="shipping_charge_amount">
+                                      </div>
+                                  </div>
+                                  <div class="alert alert-success">Success</div>
                                   <div class="alert alert-danger"></div>
                                   <button type="button" class="btn btn-primary">Update</button>
                               </div>
@@ -210,27 +216,35 @@
           $(document).ready(function () {
               $(".alert-success").hide();
               $(".alert-danger").hide();
+              $("#shipping_exception_type").change(function() {
+                  if ($("#shipping_exception_type").val() != "restricted") {
+                      $(".override_type").show();
+                      $(".shipping_charge_amount").show();
+                  } else {
+                      $(".override_type").hide();
+                      $(".shipping_charge_amount").hide();
+                  }
+              });
               $(".btn-primary").click(function () {
                   $(".alert-success").hide();
                   $(".alert-danger").hide();
                   $(".has-error").removeClass("has-error");
-                  var serviceLevel = $("#service_level").val();
+                  //var serviceLevel = $("#service_level").val();
                   var method = $("#shipping_method").val();
                   var nodeId = $("#fulfillment-node-id").val();
                   var shippingType = $("#shipping_exception_type").val();
                   var overrideType = $("#override_type").val();
                   var skuId = $("#sku-id").val();
+                  var amount = $("#shipping_charge_amount").val();
                   if (!nodeId) {
-                      $("#skufulfillment-node-id").parent().addClass("has-error");
+                      $("#fulfillment-node-id").parent().addClass("has-error");
                       $("#fulfillment-node-id").focus();
                       return;
                   }
-                  var url = "../Service/InternalService.ashx?t=shippingException&serviceLevel=" +
-                      serviceLevel +
-                      "&method=" +
+                  var url = "../Service/InternalService.ashx?t=shippingException&method=" +
                       method +
                       "&nodeId=" +
-                      nodeId + "&shippingType=" + shippingType + "&overrideType=" + overrideType + "&skuId=" + skuId;
+                      nodeId + "&shippingType=" + shippingType + "&overrideType=" + overrideType + "&skuId=" + skuId + "&amount=" + amount;
 
                   requestService(url,
                       null,
@@ -238,7 +252,6 @@
                           if (data) {
                               if (data.returnCode == "0000") {
                                   $(".alert-success").show();
-                                  $(".alert-success").html("Success");
                               } else {
                                   $(".alert-danger").show();
                                   $(".alert-danger").html(data.returnMessage);

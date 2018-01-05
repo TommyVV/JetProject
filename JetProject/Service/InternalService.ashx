@@ -69,7 +69,7 @@ public class InternalService : IHttpHandler, IRequiresSessionState
                         result = sericesHelper.CompleteReturn(request["data"], request["jetDefinedOrderId"]);
                         break;
                     case "shippingException":
-                        result = sericesHelper.ShippingException(request["serviceLevel"], request["method"], request["nodeId"], request["shippingType"]
+                        result = sericesHelper.ShippingException(request["method"], request["nodeId"], request["shippingType"]
                             ,request["overrideType"],request["skuId"],request["amount"]);
                         break;
                     default:

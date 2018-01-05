@@ -579,28 +579,28 @@ public class ServiceHelper
 
     #region  shipping exception
 
-    public string ShippingException(string serviceLevel,string method,string nodeId,string shippingType,string overrideType,string jetDefinedOrderId,string amount)
+    public string ShippingException(string method,string nodeId,string shippingType,string overrideType,string jetDefinedOrderId,string amount)
     {
         try
         {
-            var url = $"https://merchant-api.jet.com/api/returns/state/{jetDefinedOrderId}";
+            var url = $"https://merchant-api.jet.com/api/merchant-skus/{jetDefinedOrderId}/shippingexception";
             string data;
-            if (overrideType == "restricted")
+            if (shippingType == "restricted")
             {
                 data = "{\"fulfillment_nodes\":[{\"fulfillment_node_id\":\"" + nodeId +
-                       "\",\"shipping_exceptions\":[{\"service_level\":\"" + serviceLevel +
+                       "\",\"shipping_exceptions\":[{\"shipping_method\":\"" + method +
                        "\",\"shipping_exception_type\":\"" + shippingType + "\"}]}]}";
             }
             else
             {
                 data = "{\"fulfillment_nodes\":[{\"fulfillment_node_id\":\"" + nodeId +
-                       "\",\"shipping_exceptions\":[{\"service_level\":\"" + serviceLevel +
+                       "\",\"shipping_exceptions\":[{\"shipping_method\":\"" + method +
                        "\",\"shipping_exception_type\":\"" + shippingType + "\",\"override_type\":\"" + overrideType +
                        "\",\"shipping_charge_amount\":" + amount + "}]}]}";
             }
             
             var result = PostData(url,data,"PUT");
-            return result;
+            return "{\"returnCode\":\"0000\",\"returnMessage\":\"request success\"}";
         }
         catch (TransactionException ex)
         {
