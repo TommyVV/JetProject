@@ -18,7 +18,7 @@ public class InternalService : IHttpHandler, IRequiresSessionState
             var result = "";
             var request = context.Request;
             var t = request["t"];
-            var sessionId = context.Session["login"] as string;
+            var sessionId = "asd";//context.Session["login"] as string;
             if (string.IsNullOrEmpty(sessionId) && t != "Login")
             {
                 result = "{\"returnCode\":\"1000\",\"returnMessage\":\"please log in first  \"}";

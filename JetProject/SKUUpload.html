@@ -334,7 +334,7 @@
                 return;
             }
            
-            var data = "data=";
+            var data = "";
             if (standard_product_code_type != "NULL") {
                 data += '{"brand":"' + brand + '","product_title":"' +
                     product_title +
@@ -415,6 +415,7 @@
                     ',"display_height_inches":' +
                     display_height_inches +'}';
             }
+            data = "data=" + encodeURIComponent(data);
             var url = "../Service/InternalService.ashx?t=UploadSKU&skuId=" + $("#skuId").val();
             requestService(url,
                 data,
