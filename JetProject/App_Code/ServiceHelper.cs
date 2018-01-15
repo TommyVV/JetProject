@@ -6,6 +6,7 @@ using System.Text;
 using System.Web;
 using Newtonsoft.Json;
 using NLog;
+using RestSharp;
 
 /// <summary>
 /// ServiceHelper 的摘要说明
@@ -27,7 +28,7 @@ public class ServiceHelper
         try
         {
             var url = $"https://merchant-api.jet.com/api/returns/{jetDefinedOrderId}/complete";
-            PostData(url, data, "PUT");
+            HttpRquest(url, data, "PUT");
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"request success\"}";
         }
         catch (TransactionException ex)
@@ -48,7 +49,7 @@ public class ServiceHelper
         try
         {
             var url = $"https://merchant-api.jet.com/api/orders/{jetDefinedOrderId}/acknowledge";
-            PostData(url, data, "PUT");
+            HttpRquest(url, data, "PUT");
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"request success\"}";
         }
         catch (TransactionException ex)
@@ -116,7 +117,7 @@ public class ServiceHelper
             //ship["carrier_pick_up_date"] =Convert.ToDateTime( ship["carrier_pick_up_date"]).ToUniversalTime().ToString("yyyy-MM-ddThh:mm:ss.fffffff-hh:mm");
             data = JsonConvert.SerializeObject(ob);
             var url = $"https://merchant-api.jet.com/api/orders/{jetDefinedOrderId}/shipped";
-            PostData(url, data, "PUT");
+            HttpRquest(url, data, "PUT");
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"request success\"}";
         }
         catch (TransactionException ex)
@@ -139,7 +140,7 @@ public class ServiceHelper
             var cancel = isCancel == "1";
             var url =
                 $"https://merchant-api.jet.com/api/orders/{status}?isCancelled={cancel}&fulfillment_node={nodeId}";
-            var result = GetData(url);
+            var result = HttpRquest(url,null,"GET");
             var response = JsonConvert.DeserializeObject<Dictionary<string, object>>(result);
             var orderUrls = response["order_urls"].ToString();
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"request success\",\"orderList\":" + orderUrls + "}";
@@ -162,7 +163,7 @@ public class ServiceHelper
         try
         {
             var url = $"https://merchant-api.jet.com/api/orders/withoutShipmentDetail/{jetDefinedOrderId}";
-            var result = GetData(url);
+            var result = HttpRquest(url,null,"GET");
             return result;
         }
         catch (TransactionException ex)
@@ -183,7 +184,7 @@ public class ServiceHelper
         try
         {
             var url = $"https://merchant-api.jet.com/api/merchant-skus/{skuId}/inventory";
-            var result = GetData(url);
+            var result = HttpRquest(url,null,"GET");
             var response = JsonConvert.DeserializeObject<Dictionary<string, object>>(result);
             var nodes = response["fulfillment_nodes"].ToString();
 
@@ -208,7 +209,7 @@ public class ServiceHelper
         try
         {
             var url = $"https://merchant-api.jet.com/api/merchant-skus/{id}";
-            PostData(url, data, "PUT");
+            HttpRquest(url, data, "PUT");
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"request success\"}";
         }
         catch (TransactionException ex)
@@ -230,7 +231,7 @@ public class ServiceHelper
         {
             var url = string.Format("https://merchant-api.jet.com/api/merchant-skus/{0}/price", skuId);
             string data = "{\"price\":" + price + "}";
-            PostData(url, data, "PUT");
+            HttpRquest(url, data, "PUT");
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"request success\"}";
         }
         catch (TransactionException ex)
@@ -252,7 +253,7 @@ public class ServiceHelper
         try
         {
             var url = $"https://merchant-api.jet.com/api/merchant-skus/{skuId}";
-            var response = JsonConvert.DeserializeObject<Dictionary<string, Object>>(GetData(url));
+            var response = JsonConvert.DeserializeObject<Dictionary<string, Object>>(HttpRquest(url,null,"GET"));
             response.Add("returnCode", "0000");
             response.Add("returnMessage", "request success");
             var result = JsonConvert.SerializeObject(response);
@@ -277,7 +278,7 @@ public class ServiceHelper
         {
             var url = string.Format("https://merchant-api.jet.com/api/merchant-skus/{0}/Inventory", skuId);
             string data = "{\"fulfillment_nodes\":[{\"fulfillment_node_id\":\"" + nodeId + "\",\"quantity\":" + qty + "}]}";
-            PostData(url, data, "PUT");
+            HttpRquest(url, data, "PUT");
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"request success\"}";
         }
         catch (TransactionException ex)
@@ -325,7 +326,7 @@ public class ServiceHelper
             {
                 var url = "https://merchant-api.jet.com/api/token";
                 var data = "{ \"user\":\"" + User + "\",\"pass\":\"" + Pass + "\" }";
-                var response = PostData(url, data, "POST", false, last);
+                var response = HttpRquest(url, data, "POST", false, last);
                 if (string.IsNullOrEmpty(response))
                 {
                     throw new Exception("system error");
@@ -342,161 +343,6 @@ public class ServiceHelper
         catch (Exception e)
         {
             Logger.Error(e);
-            throw;
-        }
-    }
-    #endregion
-
-    #region GetData
-    public string GetData(string url, bool islast = false)
-    {
-        try
-        {
-            if (string.IsNullOrEmpty(Token))
-            {
-                GetToken();
-            }
-            ServicePointManager.ServerCertificateValidationCallback += delegate
-            {
-                return true;
-            };
-            Logger.Info($"请求地址:{url}");
-            // 设置提交的相关参数 
-
-            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
-            request.Headers.Add("Authorization", "bearer " + Token);           
-            request.Method = "GET";
-            request.ContentType = "application/json";
-            // 提交请求数据 
-            HttpWebResponse response;
-            Stream responseStream;
-            StreamReader reader;
-            response = request.GetResponse() as HttpWebResponse;
-            responseStream = response.GetResponseStream();
-            reader = new StreamReader(responseStream, Encoding.GetEncoding("UTF-8"));
-            string result = reader.ReadToEnd();
-            reader.Close();
-            Logger.Info("请求服务获得返回:" + result);
-            return result;
-        }
-        catch (WebException e)
-        {
-            Logger.Error(e);
-            HttpWebResponse resp = (HttpWebResponse)e.Response;
-            if (resp.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                if (!islast)
-                {
-                    GetToken(needRefresh: true, last: true);
-                    return GetData(url, true);
-                }
-                else
-                {
-                    throw new TransactionException("0091", "request token error");
-                }
-            }
-            else
-            {
-                var msg = ProcessError(resp);
-                switch (resp.StatusCode)
-                {
-                    case HttpStatusCode.BadRequest:
-                        throw new TransactionException("0400", msg);
-                    case HttpStatusCode.NoContent:
-                        throw new TransactionException("0200", msg);
-                    default:
-                        throw;
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            throw;
-        }
-    }
-    #endregion
-
-    #region PostData
-    public string PostData(string url, string data, string method, bool needToken = true, bool islast = false)
-    {
-        try
-        {
-            if (string.IsNullOrEmpty(Token) && needToken)
-            {
-                GetToken();
-            }
-            ServicePointManager.ServerCertificateValidationCallback += delegate
-            {
-                return true;
-            };
-            Logger.Info($"请求地址:{url},发送报文:{data}");
-            byte[] postData = Encoding.UTF8.GetBytes(data);
-            // 设置提交的相关参数 
-            HttpWebRequest request = WebRequest.Create(url) as HttpWebRequest;
-            if (needToken)
-            {
-                request.Headers.Add("Authorization", "bearer " + Token);
-            }         
-            request.Method = method;
-            request.ContentType = "application/json";
-            // 提交请求数据 
-            Stream outputStream = request.GetRequestStream();
-            outputStream.Write(postData, 0, postData.Length);
-            outputStream.Close();
-            HttpWebResponse response;
-            Stream responseStream;
-            StreamReader reader;
-            response = request.GetResponse() as HttpWebResponse;
-            if (method == "PUT")
-            {
-                return "";
-            }
-            else
-            {
-                responseStream = response.GetResponseStream();
-                reader = new StreamReader(responseStream, Encoding.GetEncoding("UTF-8"));
-                string result = reader.ReadToEnd();
-                reader.Close();
-                Logger.Info("请求服务获得返回:" + result);
-                return result;
-            }
-
-        }
-        catch (WebException e)
-        {
-            Logger.Error(e);
-            HttpWebResponse resp = (HttpWebResponse)e.Response;
-            if (resp.StatusCode == HttpStatusCode.Unauthorized)
-            {
-                if (!islast)
-                {
-                    GetToken(needRefresh: true, last: true);
-                    return PostData(url, data, method, needToken, true);
-                }
-                else
-                {
-                    throw new TransactionException("0091", "request token error");
-                }
-
-            }
-            else
-            {
-                var msg= ProcessError(resp);
-                switch (resp.StatusCode)
-                {
-                    case HttpStatusCode.BadRequest:
-                        throw new TransactionException("0400", msg);
-                    case HttpStatusCode.NoContent:
-                        throw new TransactionException("0200", msg);
-                    default:
-                        throw;
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
             throw;
         }
     }
@@ -540,7 +386,7 @@ public class ServiceHelper
         try
         {
             var url = $"https://merchant-api.jet.com/api/returns/{status}";
-            var result = GetData(url);
+            var result = HttpRquest(url,null,"GET");
             var response = JsonConvert.DeserializeObject<Dictionary<string, object>>(result);
             var orderUrls = response["return_urls"].ToString();
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"request success\",\"orderList\":" + orderUrls + "}";
@@ -563,7 +409,7 @@ public class ServiceHelper
         try
         {
             var url = $"https://merchant-api.jet.com/api/returns/state/{jetDefinedOrderId}";
-            var result = GetData(url);
+            var result = HttpRquest(url,null,"GET");
             return result;
         }
         catch (TransactionException ex)
@@ -600,7 +446,7 @@ public class ServiceHelper
                        "\",\"shipping_charge_amount\":" + amount + "}]}]}";
             }
             
-            var result = PostData(url,data,"PUT");
+            var result = HttpRquest(url,data,"PUT");
             return "{\"returnCode\":\"0000\",\"returnMessage\":\"request success\"}";
         }
         catch (TransactionException ex)
@@ -642,22 +488,61 @@ public class ServiceHelper
     }
     #endregion
 
-    private string ProcessError(HttpWebResponse response)
+    private string HttpRquest(string url, string data, string method, bool needToken = true, bool islast = false)
     {
-        if (response == null)
+        var clinet=new RestClient(url);
+        var request=new RestRequest(url);
+        GetConfig();
+        if (needToken)
         {
-            return null;
+            request.AddHeader("Authorization", "bearer " + Token);
         }
-        var responseStream = response.GetResponseStream();
-        if (responseStream == null)
+       
+        if (!string.IsNullOrEmpty(data))
         {
-            return "jet request error";
+            
+            request.AddParameter("application/json; charset=utf-8", data, ParameterType.RequestBody);
+          
+            request.RequestFormat = DataFormat.Json;
         }
+        Logger.Info($"请求地址:{url},发送报文:{data}");
+        IRestResponse response;
+        switch (method)
+        {
+            case "PUT":
+                response =clinet.Put(request);
+                break;
+            case "GET":
+                response = clinet.Get(request);
+                break;
+            case "POST":
+                response = clinet.Post(request);
+                break;
+                default:
+                    response = clinet.Put(request);
+                    break;
+        }
+        if (response.IsSuccessful)
+        {
+            return response.Content;
+        }
+        Logger.Info(response.ErrorMessage);
+        if (response.StatusCode == HttpStatusCode.Unauthorized)
+        {
+            if (!islast)
+            {
+                GetToken(true,true);
+                return HttpRquest(url, data, method, needToken, true);
+            }
+        }
+
+        throw new TransactionException("0040", ProcessError(response.Content));
+    }
+
+    private string ProcessError(string data)
+    {
         try
         {
-            var reader = new StreamReader(responseStream,Encoding.UTF8,false,1024);
-          
-            string data = reader.ReadToEnd();
             Logger.Info("error msg :" + data);
             if (string.IsNullOrEmpty(data))
             {
